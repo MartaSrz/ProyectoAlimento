@@ -29,7 +29,7 @@ import javax.swing.JTextPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class ProyectoAlimentacion{
+public class ProyectoAlimento{
 
 	private JFrame frame;
 	private JTextField txtNombre;
@@ -47,7 +47,7 @@ public class ProyectoAlimentacion{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ProyectoAlimentacion window = new ProyectoAlimentacion();
+					ProyectoAlimento window = new ProyectoAlimento();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -59,7 +59,7 @@ public class ProyectoAlimentacion{
 	/**
 	 * Create the application.
 	 */
-	public ProyectoAlimentacion() {
+	public ProyectoAlimento() {
 		initialize();
 
 
