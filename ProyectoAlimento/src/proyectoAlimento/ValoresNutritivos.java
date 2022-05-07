@@ -22,6 +22,8 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JButton;
 import javax.swing.border.LineBorder;
+import javax.swing.text.Caret;
+
 import java.awt.Dimension;
 import javax.swing.JTextField;
 import javax.swing.DefaultComboBoxModel;
@@ -32,6 +34,7 @@ import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.awt.Component;
 
 public class ValoresNutritivos {
@@ -56,6 +59,8 @@ public class ValoresNutritivos {
 			new Alimento("Costillas",224,938,16.3,5.8,0,0,19.1,0,0.1,31,0.8,247),
 			new Alimento("Arroz",97,406,0.2,0.1,21.1,0.1,2.0,1,0.1,2,0.1,10)
 	};
+	private ArrayList<String> alimentosElegidos= new ArrayList<>(0);
+	private ArrayList<Integer> cantidadesElegidas= new ArrayList<>(0);
 	/**
 	 * Launch the application.
 	 * @param usuario 
@@ -196,6 +201,7 @@ public class ValoresNutritivos {
 		ventanaCalc.getContentPane().add(lblcuntaCantidadHas);
 
 		JSpinner cantidadGramos = new JSpinner();
+		cantidadGramos.setEnabled(false);
 		cantidadGramos.setModel(new SpinnerNumberModel(new Integer(100), new Integer(10), null, new Integer(1)));
 		cantidadGramos.setFont(new Font("Dialog", Font.BOLD, 16));
 		cantidadGramos.setBounds(388, 79, 88, 32);
@@ -439,6 +445,7 @@ public class ValoresNutritivos {
 			public void itemStateChanged(ItemEvent arg0) { /*Se cambia de elemento el selector de alimentos*/
 				int seleccionado = selectAlimentos.getSelectedIndex();
 
+				cantidadGramos.setEnabled(true);
 				btnAnyadir.setEnabled(true);
 				lblValor_1.setText(String.valueOf(alimento[seleccionado].getKcal()));
 				lblEnergtico_1.setText(String.valueOf(alimento[seleccionado].getkJ()));
@@ -460,8 +467,24 @@ public class ValoresNutritivos {
 		btnAnyadir.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) { /*eso va a almacenar en el texto la cantidad y el alimento*/
-				txtAlimentosElegidos.setText(txtAlimentosElegidos.getText()+selectAlimentos.getSelectedItem()+"\n");
-				txtCantidadesElegidas.setText(txtCantidadesElegidas.getText()+cantidadGramos.getValue()+"g\n");
+				int siceAlimentosElegidos=alimentosElegidos.size();
+				int sumaValoresElegidos;
+				boolean alimentoEncontrado=false;
+				for (int i=0; i<siceAlimentosElegidos && !alimentoEncontrado; i++) { /*Este for es para buscar si el alimento seleccionado ya está en la lista, si lo está, le suma los gramos, sino sale del for y lo añade como uno normal*/
+					if (selectAlimentos.getSelectedItem()==alimentosElegidos.get(i)) {
+						alimentoEncontrado=true;
+						sumaValoresElegidos=(int) cantidadGramos.getValue();
+						sumaValoresElegidos+= cantidadesElegidas.get(i);
+						cantidadesElegidas.remove(i);
+						cantidadesElegidas.add(i, sumaValoresElegidos);
+					}
+				}
+				if (!alimentoEncontrado) {
+					alimentosElegidos.add((String) selectAlimentos.getSelectedItem());
+					cantidadesElegidas.add((Integer) cantidadGramos.getValue());
+				}
+				txtAlimentosElegidos.setText(alimentosElegidos+":");
+				txtCantidadesElegidas.setText(cantidadesElegidas+"g\n");
 			}
 		});
 
