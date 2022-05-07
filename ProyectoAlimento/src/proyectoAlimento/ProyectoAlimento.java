@@ -83,7 +83,7 @@ public class ProyectoAlimento{
 		lblRellenardatos.setBounds(287, 70, 518, 23);
 		frame.getContentPane().add(lblRellenardatos);
 
-		JLabel lblComotellamas = new JLabel("驴C贸mo te llamas?");
+		JLabel lblComotellamas = new JLabel("緾髆o te llamas?");
 		lblComotellamas.setForeground(Color.BLACK);
 		lblComotellamas.setFont(new Font("Dialog", Font.BOLD, 16));
 		lblComotellamas.setBounds(121, 120, 152, 31);
@@ -141,7 +141,7 @@ public class ProyectoAlimento{
 		spinner_anyos.setBounds(165, 362, 91, 22);
 		frame.getContentPane().add(spinner_anyos);
 
-		JLabel lblBienvenido = new JLabel("隆Bienvenido a nuestra aplicaci贸n! ");
+		JLabel lblBienvenido = new JLabel("\u00A1Bienvenido a nuestra aplicaci\u00F3n! ");
 		lblBienvenido.setFont(new Font("Dialog", Font.BOLD, 20));
 		lblBienvenido.setForeground(Color.BLACK);
 		lblBienvenido.setBounds(346, 27, 365, 31);
@@ -155,7 +155,7 @@ public class ProyectoAlimento{
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 
-		JLabel lblAnyos = new JLabel("a帽os");
+		JLabel lblAnyos = new JLabel("a\u00F1os");
 		lblAnyos.setFont(new Font("Dialog", Font.PLAIN, 16));
 		lblAnyos.setBounds(265, 365, 60, 17);
 		frame.getContentPane().add(lblAnyos);
@@ -197,7 +197,7 @@ public class ProyectoAlimento{
 		frame.getContentPane().add(lblcm);
 
 		JButton btnRestablecer = new JButton("Restablecer");
-		JButton btnContinuar = new JButton("Continuar");  /*Bot贸n que cierra la primera ventana y abre la segunda*/
+		JButton btnContinuar = new JButton("Continuar");  /*Bot髇 que cierra la primera ventana y abre la segunda*/
 
 		JLabel lblErrorNombre = new JLabel();
 		lblErrorNombre.setForeground(Color.RED);
@@ -228,9 +228,9 @@ public class ProyectoAlimento{
 			public void actionPerformed(ActionEvent arg0) {
 
 				/**
-				 * //Al hacer click al bot贸n 'Restablecer', ponemos el txtNombre a nulo, 
-				 * los spinners a sus valores por defecto y por 煤ltimo, habiendo creado el grupo de botones, 
-				 * hacemos el clearSelection(); para que no aparezca ning煤n RadioButton marcado.	
+				 * //Al hacer click al bot髇 'Restablecer', ponemos el txtNombre a nulo, 
+				 * los spinners a sus valores por defecto y por 鷏timo, habiendo creado el grupo de botones, 
+				 * hacemos el clearSelection(); para que no aparezca ning鷑 RadioButton marcado.	
 				 */
 
 				txtNombre.setForeground(Color.GRAY);

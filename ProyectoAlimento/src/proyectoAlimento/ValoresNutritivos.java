@@ -119,7 +119,7 @@ public class ValoresNutritivos {
 		lblValorLetrero.setBounds(49, 169, 192, 32);
 		ventanaCalc.getContentPane().add(lblValorLetrero);
 
-		JLabel lblEnergticoLetrero = new JLabel("energ√©tico");
+		JLabel lblEnergticoLetrero = new JLabel("energ\u00E9tico");
 		lblEnergticoLetrero.setFont(new Font("Dialog", Font.PLAIN, 16));
 		lblEnergticoLetrero.setBounds(49, 197, 192, 32);
 		ventanaCalc.getContentPane().add(lblEnergticoLetrero);
@@ -139,12 +139,12 @@ public class ValoresNutritivos {
 		lblHidratosDeCarbonoLetrero.setBounds(49, 314, 192, 32);
 		ventanaCalc.getContentPane().add(lblHidratosDeCarbonoLetrero);
 
-		JLabel lblAzcarLetrero = new JLabel("Az√∫car");
+		JLabel lblAzcarLetrero = new JLabel("Az\u00FAcar");
 		lblAzcarLetrero.setFont(new Font("Dialog", Font.PLAIN, 16));
 		lblAzcarLetrero.setBounds(85, 341, 192, 32);
 		ventanaCalc.getContentPane().add(lblAzcarLetrero);
 
-		JLabel lblProtenasLetrero = new JLabel("Prote√≠nas");
+		JLabel lblProtenasLetrero = new JLabel("Prote\u00EDnas");
 		lblProtenasLetrero.setFont(new Font("Dialog", Font.PLAIN, 16));
 		lblProtenasLetrero.setBounds(49, 385, 192, 32);
 		ventanaCalc.getContentPane().add(lblProtenasLetrero);
@@ -190,7 +190,7 @@ public class ValoresNutritivos {
 		panel.setBounds(49, 670, 246, 246);
 		ventanaCalc.getContentPane().add(panel);
 
-		JLabel lblcuntaCantidadHas = new JLabel("¬øCu√°nta cantidad has consumido?");
+		JLabel lblcuntaCantidadHas = new JLabel("\u00BFCu\u00E1nta cantidad has consumido?");
 		lblcuntaCantidadHas.setFont(new Font("Dialog", Font.BOLD, 16));
 		lblcuntaCantidadHas.setBounds(49, 79, 280, 32);
 		ventanaCalc.getContentPane().add(lblcuntaCantidadHas);
@@ -206,7 +206,7 @@ public class ValoresNutritivos {
 		btnComprobarResultados.setBounds(756, 871, 514, 45);
 		ventanaCalc.getContentPane().add(btnComprobarResultados);
 
-		JButton btnAnyadir = new JButton("A√±adir");
+		JButton btnAnyadir = new JButton("A\u00F1adir");
 		btnAnyadir.setEnabled(false);
 		btnAnyadir.setFont(new Font("Dialog", Font.BOLD, 16));
 		btnAnyadir.setBounds(517, 79, 192, 32);
@@ -455,7 +455,7 @@ public class ValoresNutritivos {
 			}
 		});
 
-		textConsejo.setText("CONSEJO NUTRICIONAL\n\nTodas las c√©lulas del cuerpo necesitan de agua para funcionar, por eso es esencial ingerir suficiente. Una adecuada hidrataci√≥n te puede ayudar a mejorar tu digesti√≥n, la funci√≥n de tus ri√±ones y lucir una piel m√°s hidratada.\n\nLo ideal es que consumas 2,7 litros de agua potable al d√≠a si eres mujer y 3,7 si eres hombre. Aqu√≠ se incluye el agua de los alimentos, que representa aproximadamente un 20% del total.");
+		textConsejo.setText("CONSEJO NUTRICIONAL\n\nTodas las cÈlulas del cuerpo necesitan de agua para funcionar, por eso es esencial ingerir suficiente. Una adecuada hidrataciÛn te puede ayudar a mejorar tu digestiÛn, la funciÛn de tus riÒones y lucir una piel m·s hidratada.\n\nLo ideal es que consumas 2,7 litros de agua potable al dÌa si eres mujer y 3,7 si eres hombre. AquÌ se incluye el agua de los alimentos, que representa aproximadamente un 20% del total.");
 
 		btnAnyadir.addMouseListener(new MouseAdapter() {
 			@Override
@@ -469,7 +469,7 @@ public class ValoresNutritivos {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ventanaCalc.setVisible(false);
-				ResultadosUser.resultados(usuario); /*misma acci√≥n que en la ventana main pero hacia la tercera ventana, le pasamos la misma persona*/
+				ResultadosUser.resultados(usuario); /*misma acciÛn que en la ventana main pero hacia la tercera ventana, le pasamos la misma persona*/
 			}
 		});
 
