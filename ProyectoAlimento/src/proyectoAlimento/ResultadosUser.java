@@ -66,12 +66,12 @@ public class ResultadosUser {
 		
 		JLabel lblInfopeso = new JLabel("Sobre su peso:");
 		lblInfopeso.setFont(new Font("Dialog", Font.BOLD, 16));
-		lblInfopeso.setBounds(596, 76, 118, 17);
+		lblInfopeso.setBounds(597, 102, 118, 17);
 		frame.getContentPane().add(lblInfopeso);
 		
 		JTextArea textAreaCualEsSuPeso = new JTextArea();
 		textAreaCualEsSuPeso.setEditable(false);
-		textAreaCualEsSuPeso.setBounds(596, 108, 228, 129);
+		textAreaCualEsSuPeso.setBounds(597, 130, 228, 129);
 		frame.getContentPane().add(textAreaCualEsSuPeso);
 		textAreaCualEsSuPeso.setText("�Hola " + usuario.getNombre()+"!\n");
 		textAreaCualEsSuPeso.append(Imc.calcular_peso_ideal(usuario.getEdad(), usuario.getAltura(), usuario.getPeso(), usuario.getSexo())+"\n\n");
@@ -79,10 +79,16 @@ public class ResultadosUser {
 		
 		JLabel lblReferenciaImagen = new JLabel("Esta imagen te ayudar\u00E1 a orientarte dependiendo de tu resultado.");
 		lblReferenciaImagen.setFont(new Font("Dialog", Font.PLAIN, 16));
-		lblReferenciaImagen.setBounds(45, 76, 512, 17);
+		lblReferenciaImagen.setBounds(46, 64, 512, 30);
 		frame.getContentPane().add(lblReferenciaImagen);
 		
-		//Creamos el objeto(JPG de cualquier tama�o)
-        ImageIcon estadoFisico=new ImageIcon("img/estadoFisico.png");
+		JLabel lblLabelImagen = new JLabel("");
+        lblLabelImagen.setBounds(46, 80, 512, 476);
+        frame.getContentPane().add(lblLabelImagen);
+        
+        //ZONA TRABAJO
+		
+	    ImageIcon estadoFisico=new ImageIcon("img/estadoFisico.png");
+        lblLabelImagen.setIcon(estadoFisico);
 	}
 }
