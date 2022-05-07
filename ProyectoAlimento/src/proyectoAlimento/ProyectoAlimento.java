@@ -205,12 +205,6 @@ public class ProyectoAlimento{
 		lblErrorNombre.setBounds(265, 163, 178, 17);
 		frame.getContentPane().add(lblErrorNombre);
 
-		JLabel lblErrorSexo = new JLabel();
-		lblErrorSexo.setForeground(Color.RED);
-		lblErrorSexo.setFont(new Font("Dialog", Font.ITALIC, 14));
-		lblErrorSexo.setBounds(165, 296, 422, 17);
-		frame.getContentPane().add(lblErrorSexo);
-
 		//ZONA TRABAJO-----------------------------------------------------------
 
 		txtNombre.addMouseListener(new MouseAdapter() {
@@ -242,7 +236,6 @@ public class ProyectoAlimento{
 				rdbtnHombre.setSelected(true);
 				
 				lblErrorNombre.setText("");
-				lblErrorSexo.setText("");
 
 			}
 		});
@@ -254,11 +247,9 @@ public class ProyectoAlimento{
 			public void actionPerformed(ActionEvent arg0) {
 				//comprobar que todos los datos se rellenan para poder pasar a la siguiente ventana
 				if (txtNombre.getText().equals("") || txtNombre.getText().equals(DEFECTO_TXTNOMBRE)) {
-					lblErrorSexo.setText("");
 					lblErrorNombre.setText("Pon tu nombre porfavor :D");
 				}else {
 					lblErrorNombre.setText("");
-					lblErrorSexo.setText("");
 					String sexo = "Hombre";
 					if (rdbtnMujer.isSelected()) 
 						sexo="Mujer";
