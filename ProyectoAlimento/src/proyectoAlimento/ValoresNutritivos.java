@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,6 +28,7 @@ import javax.swing.text.Caret;
 import java.awt.Dimension;
 import javax.swing.JTextField;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JTextPane;
 import javax.swing.JEditorPane;
 import javax.swing.SpinnerNumberModel;
@@ -58,6 +60,22 @@ public class ValoresNutritivos {
 			new Alimento("Hamburguesa",254,1063,12.3,3.8,24.8,0,11.7,0,0.5,57,2.4,206),
 			new Alimento("Costillas",224,938,16.3,5.8,0,0,19.1,0,0.1,31,0.8,247),
 			new Alimento("Arroz",97,406,0.2,0.1,21.1,0.1,2.0,1,0.1,2,0.1,10)
+	};
+	ImageIcon imgAlimento[] = {
+			new ImageIcon(new ImageIcon("img/manzana.jpg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//0
+			new ImageIcon(new ImageIcon("img/macarrones.jpg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//1
+			new ImageIcon(new ImageIcon("img/Cacahuetes.png").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//2
+			new ImageIcon(new ImageIcon("img/tomate.jpeg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//3
+			new ImageIcon(new ImageIcon("img/patata.jpg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//4
+			new ImageIcon(new ImageIcon("img/lentejas.jpg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//5
+			new ImageIcon(new ImageIcon("img/pechuga.jpg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//6
+			new ImageIcon(new ImageIcon("img/pizza.jpg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//7
+			new ImageIcon(new ImageIcon("img/nuggets.jpg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//8
+			new ImageIcon(new ImageIcon("img/tortilla.png").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//9
+			new ImageIcon(new ImageIcon("img/yogurt.jpg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//10
+			new ImageIcon(new ImageIcon("img/hamburguesa.jpg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//11
+			new ImageIcon(new ImageIcon("img/Costillas.jpg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//12
+			new ImageIcon(new ImageIcon("img/Arroz.png").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//13
 	};
 	private ArrayList<String> alimentosElegidos= new ArrayList<>(0);
 	private ArrayList<Integer> cantidadesElegidas= new ArrayList<>(0);
@@ -190,10 +208,10 @@ public class ValoresNutritivos {
 		separator.setBounds(38, 123, 678, 10);
 		ventanaCalc.getContentPane().add(separator);
 
-		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.setBounds(49, 670, 246, 246);
-		ventanaCalc.getContentPane().add(panel);
+		JLabel lblImgAlimentos = new JLabel();
+		lblImgAlimentos.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblImgAlimentos.setBounds(49, 670, 246, 246);
+		ventanaCalc.getContentPane().add(lblImgAlimentos);
 
 		JLabel lblcuntaCantidadHas = new JLabel("\u00BFCu\u00E1nta cantidad has consumido?");
 		lblcuntaCantidadHas.setFont(new Font("Dialog", Font.BOLD, 16));
@@ -460,6 +478,7 @@ public class ValoresNutritivos {
 				lblFibra_1.setText(String.valueOf(alimento[seleccionado].getFibra()));
 				lblPotasio_1.setText(String.valueOf(alimento[seleccionado].getPotasio()));
 				lblHierro_1.setText(String.valueOf(alimento[seleccionado].getHierro()));
+				lblImgAlimentos.setIcon(imgAlimento[seleccionado]);
 			}
 		});
 
