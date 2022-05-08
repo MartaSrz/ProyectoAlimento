@@ -1,5 +1,7 @@
 package proyectoAlimento;
 
+import java.text.DecimalFormat;
+
 /**
  * 
  * Clase que te indica si te encuentras en tu peso ideal y tu estado físico.
@@ -31,38 +33,40 @@ public class Imc {
 	public static String calcular_peso_ideal(int edad, int altura, int peso, String sexo) { 
 
 		String estadoFisico = "";
+		DecimalFormat decimalFormat = new DecimalFormat("#.00");
 
 		double calculo_imc = calcular_imc(altura, peso);
+		String imc = decimalFormat.format(calculo_imc);
 
 		if (sexo.equals("Hombre")) { 
 
 			if (((edad==16) && (calculo_imc>=19 && calculo_imc<=24)) || ((edad==17 || edad==18) && (calculo_imc>=20 && calculo_imc<=25))) { //Peso ideal Hombres
 
-				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+calculo_imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+imc;
 
 			}else if ((edad>=19 && edad<=24) && (calculo_imc >=21 && calculo_imc<=26)) {
 
-				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+calculo_imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+imc;
 
 			}else if ((edad>=25 && edad<=34) && (calculo_imc >=22 && calculo_imc<=27)) {
 
-				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+calculo_imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+imc;
 
 			}else if ((edad>=35 && edad<=54) && (calculo_imc >=23 && calculo_imc<=38)) {
 
-				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+calculo_imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+imc;
 
 			}else if ((edad>=55 && edad<=64) && (calculo_imc>=24 && calculo_imc<=29)) {
 
-				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+calculo_imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+imc;
 
 			}else if ((edad>=65 && edad<=90) && (calculo_imc>=25 && calculo_imc<=30)) { 
 
-				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+calculo_imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+imc;
 
 			}else
 
-				estadoFisico = "Su estado físico no es Ideal,\ncuenta con un imc de "+calculo_imc;
+				estadoFisico = "Su estado físico no es Ideal,\ncuenta con un imc de "+imc;
 
 		}else //Peso ideal Mujeres
 

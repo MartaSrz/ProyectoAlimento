@@ -485,6 +485,7 @@ public class ValoresNutritivos {
 				}
 				txtAlimentosElegidos.setText(alimentosElegidos+":");
 				txtCantidadesElegidas.setText(cantidadesElegidas+"g\n");
+				cantidadGramos.setValue(100);
 			}
 		});
 
