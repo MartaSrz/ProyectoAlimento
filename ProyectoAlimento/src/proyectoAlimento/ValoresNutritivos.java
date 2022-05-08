@@ -213,6 +213,7 @@ public class ValoresNutritivos {
 		ventanaCalc.getContentPane().add(btnComprobarResultados);
 
 		JButton btnAnyadir = new JButton("A\u00F1adir");
+
 		btnAnyadir.setEnabled(false);
 		btnAnyadir.setFont(new Font("Dialog", Font.BOLD, 16));
 		btnAnyadir.setBounds(517, 79, 192, 32);
@@ -466,7 +467,13 @@ public class ValoresNutritivos {
 
 		btnAnyadir.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) { /*eso va a almacenar en el texto la cantidad y el alimento*/
+			public void mouseClicked(MouseEvent e) { 
+
+			}
+		});
+
+		btnAnyadir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {/*eso va a almacenar en el texto la cantidad y el alimento*/
 				int siceAlimentosElegidos=alimentosElegidos.size();
 				int sumaValoresElegidos;
 				boolean alimentoEncontrado=false;
@@ -488,7 +495,6 @@ public class ValoresNutritivos {
 				cantidadGramos.setValue(100);
 			}
 		});
-
 		btnComprobarResultados.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
