@@ -37,6 +37,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.awt.Component;
 
 public class ValoresNutritivos {
@@ -77,8 +78,8 @@ public class ValoresNutritivos {
 			new ImageIcon(new ImageIcon("img/Costillas.jpg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//12
 			new ImageIcon(new ImageIcon("img/Arroz.png").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//13
 	};
-	private ArrayList<String> alimentosElegidos= new ArrayList<>(0);
-	private ArrayList<Integer> cantidadesElegidas= new ArrayList<>(0);
+	private ArraysToString<String> alimentosElegidos= new ArraysToString<>();
+	private ArraysToString<Integer> cantidadesElegidas= new ArraysToString<>();
 	/**
 	 * Launch the application.
 	 * @param usuario 
@@ -482,7 +483,7 @@ public class ValoresNutritivos {
 			}
 		});
 
-		textConsejo.setText("CONSEJO NUTRICIONAL\n\nTodas las células del cuerpo necesitan de agua para funcionar, por eso es esencial ingerir suficiente. Una adecuada hidratación te puede ayudar a mejorar tu digestión, la función de tus riñones y lucir una piel más hidratada.\n\nLo ideal es que consumas 2,7 litros de agua potable al día si eres mujer y 3,7 si eres hombre. Aquí se incluye el agua de los alimentos, que representa aproximadamente un 20% del total.");
+		textConsejo.setText("CONSEJO NUTRICIONAL\n\nTodas las cï¿½lulas del cuerpo necesitan de agua para funcionar, por eso es esencial ingerir suficiente. Una adecuada hidrataciï¿½n te puede ayudar a mejorar tu digestiï¿½n, la funciï¿½n de tus riï¿½ones y lucir una piel mï¿½s hidratada.\n\nLo ideal es que consumas 2,7 litros de agua potable al dï¿½a si eres mujer y 3,7 si eres hombre. Aquï¿½ se incluye el agua de los alimentos, que representa aproximadamente un 20% del total.");
 
 		btnAnyadir.addMouseListener(new MouseAdapter() {
 			@Override
@@ -496,11 +497,11 @@ public class ValoresNutritivos {
 				int siceAlimentosElegidos=alimentosElegidos.size();
 				int sumaValoresElegidos;
 				boolean alimentoEncontrado=false;
-				for (int i=0; i<siceAlimentosElegidos && !alimentoEncontrado; i++) { /*Este for es para buscar si el alimento seleccionado ya está en la lista, si lo está, le suma los gramos, sino sale del for y lo añade como uno normal*/
+				for (int i=0; i<siceAlimentosElegidos && !alimentoEncontrado; i++) { /*Este for es para buscar si el alimento seleccionado ya estï¿½ en la lista, si lo estï¿½, le suma los gramos, sino sale del for y lo aï¿½ade como uno normal*/
 					if (selectAlimentos.getSelectedItem()==alimentosElegidos.get(i)) {
 						alimentoEncontrado=true;
 						sumaValoresElegidos=(int) cantidadGramos.getValue();
-						sumaValoresElegidos+= cantidadesElegidas.get(i);
+						sumaValoresElegidos+= (Integer)cantidadesElegidas.get(i);
 						cantidadesElegidas.remove(i);
 						cantidadesElegidas.add(i, sumaValoresElegidos);
 					}
@@ -509,8 +510,8 @@ public class ValoresNutritivos {
 					alimentosElegidos.add((String) selectAlimentos.getSelectedItem());
 					cantidadesElegidas.add((Integer) cantidadGramos.getValue());
 				}
-				txtAlimentosElegidos.setText(alimentosElegidos+":");
-				txtCantidadesElegidas.setText(cantidadesElegidas+"g\n");
+				txtAlimentosElegidos.setText(alimentosElegidos.toString());
+				txtCantidadesElegidas.setText(cantidadesElegidas.toString());
 				cantidadGramos.setValue(100);
 			}
 		});
@@ -518,9 +519,9 @@ public class ValoresNutritivos {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ventanaCalc.setVisible(false);
-				ResultadosUser.resultados(usuario); /*misma acción que en la ventana main pero hacia la tercera ventana, le pasamos la misma persona*/
+				ResultadosUser.resultados(usuario); /*misma acciï¿½n que en la ventana main pero hacia la tercera ventana, le pasamos la misma persona*/
 			}
 		});
-
 	}
+	
 }
