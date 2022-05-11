@@ -83,7 +83,7 @@ public class ProyectoAlimento{
 		lblRellenardatos.setBounds(287, 70, 518, 23);
 		frame.getContentPane().add(lblRellenardatos);
 
-		JLabel lblComotellamas = new JLabel("¿Cómo te llamas?");
+		JLabel lblComotellamas = new JLabel("ï¿½Cï¿½mo te llamas?");
 		lblComotellamas.setForeground(Color.BLACK);
 		lblComotellamas.setFont(new Font("Dialog", Font.BOLD, 16));
 		lblComotellamas.setBounds(121, 120, 152, 31);
@@ -197,7 +197,7 @@ public class ProyectoAlimento{
 		frame.getContentPane().add(lblcm);
 
 		JButton btnRestablecer = new JButton("Restablecer");
-		JButton btnContinuar = new JButton("Continuar");  /*Botón que cierra la primera ventana y abre la segunda*/
+		JButton btnContinuar = new JButton("Continuar");  /*BotÃ³n que cierra la primera ventana y abre la segunda*/
 
 		JLabel lblErrorNombre = new JLabel();
 		lblErrorNombre.setForeground(Color.RED);
@@ -222,9 +222,9 @@ public class ProyectoAlimento{
 			public void actionPerformed(ActionEvent arg0) {
 
 				/**
-				 * //Al hacer click al botón 'Restablecer', ponemos el txtNombre a nulo, 
-				 * los spinners a sus valores por defecto y por último, habiendo creado el grupo de botones, 
-				 * hacemos el clearSelection(); para que no aparezca ningún RadioButton marcado.	
+				 * //Al hacer click al botÃ³n 'Restablecer', ponemos el txtNombre a nulo, 
+				 * los spinners a sus valores por defecto y por Ãºltimo, habiendo creado el grupo de botones, 
+				 * hacemos el clearSelection(); para que no aparezca ningÃºn RadioButton marcado.	
 				 */
 
 				txtNombre.setForeground(Color.GRAY);

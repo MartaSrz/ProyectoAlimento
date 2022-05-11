@@ -59,7 +59,7 @@ public class ResultadosUser {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblTitulo = new JLabel("Estos son tus resultados respecto al Cálculo Nutritivo :D!");
+		JLabel lblTitulo = new JLabel("Estos son tus resultados respecto al CÃ¡lculo Nutritivo :D!");
 		lblTitulo.setFont(new Font("Dialog", Font.BOLD, 16));
 		lblTitulo.setBounds(218, 22, 467, 17);
 		frame.getContentPane().add(lblTitulo);
@@ -73,11 +73,11 @@ public class ResultadosUser {
 		textAreaCualEsSuPeso.setEditable(false);
 		textAreaCualEsSuPeso.setBounds(597, 130, 255, 129);
 		frame.getContentPane().add(textAreaCualEsSuPeso);
-		textAreaCualEsSuPeso.setText("¡Hola "+usuario.getNombre()+"!\r\n");
+		textAreaCualEsSuPeso.setText("ï¿½Hola "+usuario.getNombre()+"!\r\n");
 		textAreaCualEsSuPeso.append(Imc.calcular_peso_ideal(usuario.getEdad(), usuario.getAltura(), usuario.getPeso(), usuario.getSexo())+"\n\n");
 		textAreaCualEsSuPeso.append(Imc.imc_persona(usuario.getAltura(), usuario.getPeso()));
 		
-		JLabel lblReferenciaImagen = new JLabel("Esta imagen te ayudará a orientarte dependiendo de tu resultado.");
+		JLabel lblReferenciaImagen = new JLabel("Esta imagen te ayudarÃ¡ a orientarte dependiendo de tu resultado.");
 		lblReferenciaImagen.setFont(new Font("Dialog", Font.PLAIN, 16));
 		lblReferenciaImagen.setBounds(46, 64, 512, 30);
 		frame.getContentPane().add(lblReferenciaImagen);

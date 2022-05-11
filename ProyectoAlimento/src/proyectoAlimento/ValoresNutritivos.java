@@ -490,7 +490,7 @@ public class ValoresNutritivos {
 				int siceAlimentosElegidos=alimentosElegidos.size();
 				int sumaValoresElegidos;
 				boolean alimentoEncontrado=false;
-				for (int i=0; i<siceAlimentosElegidos && !alimentoEncontrado; i++) { /*Este for es para buscar si el alimento seleccionado ya est� en la lista, si lo est�, le suma los gramos, sino sale del for y lo a�ade como uno normal*/
+				for (int i=0; i<siceAlimentosElegidos && !alimentoEncontrado; i++) { /*Este for es para buscar si el alimento seleccionado ya está en la lista, si lo está, le suma los gramos, sino sale del for y lo añade como uno normal*/
 					if (selectAlimentos.getSelectedItem()==alimentosElegidos.get(i)) {
 						alimentoEncontrado=true;
 						sumaValoresElegidos=(int) cantidadGramos.getValue();
@@ -512,7 +512,7 @@ public class ValoresNutritivos {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ventanaCalc.setVisible(false);
-				ResultadosUser.resultados(usuario); /*misma acci�n que en la ventana main pero hacia la tercera ventana, le pasamos la misma persona*/
+				ResultadosUser.resultados(usuario); /*misma acción que en la ventana main pero hacia la tercera ventana, le pasamos la misma persona*/
 			}
 		});
 	}
