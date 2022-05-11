@@ -65,7 +65,7 @@ public class ValoresNutritivos {
 	ImageIcon imgAlimento[] = {
 			new ImageIcon(new ImageIcon("img/manzana.jpg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//0
 			new ImageIcon(new ImageIcon("img/macarrones.jpg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//1
-			new ImageIcon(new ImageIcon("img/Cacahuetes.png").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//2
+			new ImageIcon(new ImageIcon("img/cacahuetes.jpg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//2
 			new ImageIcon(new ImageIcon("img/tomate.jpeg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//3
 			new ImageIcon(new ImageIcon("img/patata.jpg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//4
 			new ImageIcon(new ImageIcon("img/lentejas.jpg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//5
@@ -213,6 +213,7 @@ public class ValoresNutritivos {
 		lblImgAlimentos.setBorder(new LineBorder(new Color(0, 0, 0)));
 		lblImgAlimentos.setBounds(49, 670, 246, 246);
 		ventanaCalc.getContentPane().add(lblImgAlimentos);
+		lblImgAlimentos.setIcon(new ImageIcon(new ImageIcon("img/Piramide.png").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)));
 
 		JLabel lblcuntaCantidadHas = new JLabel("\u00BFCu\u00E1nta cantidad has consumido?");
 		lblcuntaCantidadHas.setFont(new Font("Dialog", Font.BOLD, 16));
