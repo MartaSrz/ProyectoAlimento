@@ -1,5 +1,5 @@
 /**
- *Clase llamada por ResultadosUser la cual llamará a Resultados User.
+ *Clase llamada por ResultadosUserEstado la cual llamará a Resultados User.
  *Esta clase ha sido creada para preguntar al usuario qué alimento y cuánta cántidad
  *ha consumido de este, también mostrará los valores nutritivos del alimento elegido.
  */
@@ -45,7 +45,7 @@ public class ValoresNutritivos {
 	private JFrame ventanaCalc;
 	private final static Color FONDO_COLOR= new Color(255, 255, 221);
 	private JTextField txtFondoColor;
-	private static Persona usuario;  //Persona que mandaremos a la clase ResultadosUser
+	private static Persona usuario;  //Persona que mandaremos a la clase ResultadosUserEstado
 	private Alimento alimento[] = { //Declaración de los alimentos a usar
 			new Alimento("Manzana",95,396,0.03,0.1,25.1,18.9,0.5,4.4,0.1,10.9,0.2,194.7),
 			new Alimento("Macarrones",390,1631,1.6,0.3,78.4,2.8,13.7,3.4,0.1,22.1,3.5,234.2),
@@ -227,10 +227,10 @@ public class ValoresNutritivos {
 		cantidadGramos.setBounds(388, 79, 88, 32);
 		ventanaCalc.getContentPane().add(cantidadGramos);
 
-		JButton btnComprobarResultados = new JButton("Comprobar resultados");
-		btnComprobarResultados.setFont(new Font("Dialog", Font.BOLD, 16));
-		btnComprobarResultados.setBounds(756, 871, 514, 45);
-		ventanaCalc.getContentPane().add(btnComprobarResultados);
+		JButton btnEstadoFisico = new JButton("Comprobar estado físico");
+		btnEstadoFisico.setFont(new Font("Dialog", Font.BOLD, 16));
+		btnEstadoFisico.setBounds(1037, 871, 233, 45);
+		ventanaCalc.getContentPane().add(btnEstadoFisico);
 
 		JButton btnAnyadir = new JButton("A\u00F1adir");
 
@@ -459,6 +459,13 @@ public class ValoresNutritivos {
 		lblEspecificarGramos.setFont(new Font("Dialog", Font.BOLD, 16));
 		lblEspecificarGramos.setBounds(487, 79, 25, 32);
 		ventanaCalc.getContentPane().add(lblEspecificarGramos);
+		
+		JButton btnValoresNtr = new JButton("Comprobar Valores Nutritivos");
+		btnValoresNtr.setEnabled(false);
+		btnValoresNtr.setFont(new Font("Dialog", Font.BOLD, 16));
+		btnValoresNtr.setBounds(756, 871, 265, 45);
+		ventanaCalc.getContentPane().add(btnValoresNtr);
+
 
 		//ZONA DE TRABAJO-----------------------------------------------------------------------
 
@@ -488,6 +495,7 @@ public class ValoresNutritivos {
 
 		btnAnyadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {/*eso va a almacenar en el texto la cantidad y el alimento*/
+				btnValoresNtr.setEnabled(true);
 				int siceAlimentosElegidos=alimentosElegidos.size();
 				int sumaValoresElegidos;
 				boolean alimentoEncontrado=false;
@@ -509,11 +517,16 @@ public class ValoresNutritivos {
 				cantidadGramos.setValue(100);
 			}
 		});
-		btnComprobarResultados.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
+		btnEstadoFisico.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				ventanaCalc.setVisible(false);
-				ResultadosUser.resultados(usuario); /*misma acción que en la ventana main pero hacia la tercera ventana, le pasamos la misma persona*/
+				ResultadosUserEstado.estado(usuario); /*misma acción que en la ventana main pero hacia la tercera ventana, le pasamos la misma persona*/
+			}
+		});
+		btnValoresNtr.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ventanaCalc.setVisible(false);
+				ResultadosUserValoresNtr.valores(usuario);/*misma acción que en la ventana main pero hacia la cuarta ventana, le pasamos la misma persona*/
 			}
 		});
 	}
