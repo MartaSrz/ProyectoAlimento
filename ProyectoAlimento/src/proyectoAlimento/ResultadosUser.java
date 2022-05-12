@@ -73,7 +73,7 @@ public class ResultadosUser {
 		textAreaCualEsSuPeso.setEditable(false);
 		textAreaCualEsSuPeso.setBounds(597, 130, 255, 129);
 		frame.getContentPane().add(textAreaCualEsSuPeso);
-		textAreaCualEsSuPeso.setText("�Hola "+usuario.getNombre()+"!\r\n");
+		textAreaCualEsSuPeso.setText("¡Hola " + usuario.getNombre() + "!\n");
 		textAreaCualEsSuPeso.append(Imc.calcular_peso_ideal(usuario.getEdad(), usuario.getAltura(), usuario.getPeso(), usuario.getSexo())+"\n\n");
 		textAreaCualEsSuPeso.append(Imc.imc_persona(usuario.getAltura(), usuario.getPeso()));
 		

@@ -83,7 +83,7 @@ public class ProyectoAlimento{
 		lblRellenardatos.setBounds(287, 70, 518, 23);
 		frame.getContentPane().add(lblRellenardatos);
 
-		JLabel lblComotellamas = new JLabel("�C�mo te llamas?");
+		JLabel lblComotellamas = new JLabel("¿Cómo te llamas?");
 		lblComotellamas.setForeground(Color.BLACK);
 		lblComotellamas.setFont(new Font("Dialog", Font.BOLD, 16));
 		lblComotellamas.setBounds(121, 120, 152, 31);

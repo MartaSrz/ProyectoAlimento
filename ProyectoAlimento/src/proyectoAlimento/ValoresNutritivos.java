@@ -210,7 +210,7 @@ public class ValoresNutritivos {
 		ventanaCalc.getContentPane().add(separator);
 
 		JLabel lblImgAlimentos = new JLabel();
-		lblImgAlimentos.setBorder(new LineBorder(new Color(0, 0, 0)));
+		lblImgAlimentos.setBorder(null);
 		lblImgAlimentos.setBounds(49, 670, 246, 246);
 		ventanaCalc.getContentPane().add(lblImgAlimentos);
 		lblImgAlimentos.setIcon(new ImageIcon(new ImageIcon("img/Piramide.png").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)));
@@ -484,7 +484,7 @@ public class ValoresNutritivos {
 			}
 		});
 
-		textConsejo.setText("CONSEJO NUTRICIONAL\n\nTodas las c�lulas del cuerpo necesitan de agua para funcionar, por eso es esencial ingerir suficiente. Una adecuada hidrataci�n te puede ayudar a mejorar tu digesti�n, la funci�n de tus ri�ones y lucir una piel m�s hidratada.\n\nLo ideal es que consumas 2,7 litros de agua potable al d�a si eres mujer y 3,7 si eres hombre. Aqu� se incluye el agua de los alimentos, que representa aproximadamente un 20% del total.");
+		textConsejo.setText("CONSEJO NUTRICIONAL\n\nTodas las células del cuerpo necesitan de agua para funcionar, por eso es esencial ingerir suficiente. Una adecuada hidratación te puede ayudar a mejorar tu digestión, la función de tus riñones y lucir una piel más hidratada.\n\nLo ideal es que consumas 2,7 litros de agua potable al día si eres mujer y 3,7 si eres hombre. Aquí se incluye el agua de los alimentos, que representa aproximadamente un 20s% del total.");
 
 		btnAnyadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {/*eso va a almacenar en el texto la cantidad y el alimento*/

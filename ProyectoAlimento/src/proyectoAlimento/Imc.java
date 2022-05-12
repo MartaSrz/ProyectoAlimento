@@ -42,61 +42,61 @@ public class Imc {
 
 			if (((edad==16) && (calculo_imc>=19 && calculo_imc<=24)) || ((edad==17 || edad==18) && (calculo_imc>=20 && calculo_imc<=25))) { //Peso ideal Hombres
 
-				estadoFisico = "Su estado f�sico es Ideal,\ncuenta con un imc de "+imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+imc;
 
 			}else if ((edad>=19 && edad<=24) && (calculo_imc >=21 && calculo_imc<=26)) {
 
-				estadoFisico = "Su estado f�sico es Ideal,\ncuenta con un imc de "+imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+imc;
 
 			}else if ((edad>=25 && edad<=34) && (calculo_imc >=22 && calculo_imc<=27)) {
 
-				estadoFisico = "Su estado f�sico es Ideal,\ncuenta con un imc de "+imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+imc;
 
 			}else if ((edad>=35 && edad<=54) && (calculo_imc >=23 && calculo_imc<=38)) {
 
-				estadoFisico = "Su estado f�sico es Ideal,\ncuenta con un imc de "+imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+imc;
 
 			}else if ((edad>=55 && edad<=64) && (calculo_imc>=24 && calculo_imc<=29)) {
 
-				estadoFisico = "Su estado f�sico es Ideal,\ncuenta con un imc de "+imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+imc;
 
 			}else if ((edad>=65 && edad<=90) && (calculo_imc>=25 && calculo_imc<=30)) { 
 
-				estadoFisico = "Su estado f�sico es Ideal,\ncuenta con un imc de "+imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+imc;
 
 			}else
 
-				estadoFisico = "Su estado f�sico no es Ideal,\ncuenta con un imc de "+imc;
+				estadoFisico = "Su estado físico no es Ideal,\ncuenta con un imc de "+imc;
 
 		}else //Peso ideal Mujeres
 
 			if ((edad>=16 && edad<=24) && (calculo_imc>=19 && calculo_imc<=24)) {
 
-				estadoFisico = "Su estado f�sico es Ideal,\ncuenta con un imc de "+calculo_imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+calculo_imc;
 
 			}else if ((edad>=25 && edad<=34) && (calculo_imc>=20 && calculo_imc<=25)) {
 
-				estadoFisico = "Su estado f�sico es Ideal,\ncuenta con un imc de "+calculo_imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+calculo_imc;
 
 			}else if ((edad>=35 && edad<=44) && (calculo_imc>=21 && calculo_imc<=26)) {
 
-				estadoFisico = "Su estado f�sico es Ideal,\ncuenta con un imc de "+calculo_imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+calculo_imc;
 
 			}else if ((edad>=45 && edad<=54) && (calculo_imc>=22 && calculo_imc<=27)) {
 
-				estadoFisico = "Su estado f�sico es Ideal,\ncuenta con un imc de "+calculo_imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+calculo_imc;
 
 			}else if ((edad>=55 && edad<=64) && (calculo_imc>=23 && calculo_imc<=28)) {
 
-				estadoFisico = "Su estado f�sico es Ideal,\ncuenta con un imc de "+calculo_imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+calculo_imc;
 
 			}else if ((edad>=65 && edad<=90) && (calculo_imc>=25 && calculo_imc<=30)) {
 
-				estadoFisico = "Su estado f�sico es Ideal,\ncuenta con un imc de "+calculo_imc;
+				estadoFisico = "Su estado físico es Ideal,\ncuenta con un imc de "+calculo_imc;
 
 			}else
 
-				estadoFisico = "Su estado f�sico no es Ideal,\ncuenta con un imc de "+calculo_imc;
+				estadoFisico = "Su estado físico no es Ideal,\ncuenta con un imc de "+calculo_imc;
 
 		return estadoFisico;
 	}
