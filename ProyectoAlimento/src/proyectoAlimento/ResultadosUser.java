@@ -87,7 +87,6 @@ public class ResultadosUser {
         frame.getContentPane().add(lblLabelImagen);
         
         //ZONA TRABAJO
-		
 	    ImageIcon estadoFisico=new ImageIcon("img/estadoFisico.png");
         lblLabelImagen.setIcon(estadoFisico);
 	}

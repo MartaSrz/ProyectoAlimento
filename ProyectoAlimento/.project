@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>img/estadoFisico.png</name>
+			<type>1</type>
+			<location>D:/estadoFisico.png</location>
+		</link>
+	</linkedResources>
 </projectDescription>

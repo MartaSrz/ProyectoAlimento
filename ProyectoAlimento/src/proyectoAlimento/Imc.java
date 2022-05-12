@@ -133,7 +133,7 @@ public class Imc {
 
 		}else 	if (calculo_imc >= 25 && calculo_imc <= 29.9) {
 
-			imc_persona = "Pre-Obeso";
+			imc_persona = "Sobrepeso";
 
 		}else 	if (calculo_imc >= 30 && calculo_imc <= 34.9) {
 
@@ -143,9 +143,13 @@ public class Imc {
 
 			imc_persona = "Obesidad Tipo II";
 
-		}else	if (calculo_imc >= 40) {
+		}else	if (calculo_imc >= 40&& calculo_imc <= 49.9) {
 
 			imc_persona = "Obesidad Tipo III";
+
+		}else	if (calculo_imc >= 50) {
+
+			imc_persona = "Obesidad Tipo IV";
 
 		}
 
