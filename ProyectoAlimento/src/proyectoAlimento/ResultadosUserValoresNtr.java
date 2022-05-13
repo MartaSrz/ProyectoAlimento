@@ -28,6 +28,7 @@ public class ResultadosUserValoresNtr {
 	private JFrame frmCalcularValores;
 	private final static Color FONDO_COLOR= new Color(255, 255, 221);
 	private static Persona usuario; 
+	private static boolean hayAlimentos=true;
 	/**
 	 * Launch the application.
 	 */
@@ -43,6 +44,10 @@ public class ResultadosUserValoresNtr {
 				}
 			}
 		});
+	}
+	
+	public static boolean isHayAlimentos() {
+		return hayAlimentos;
 	}
 
 	/**
@@ -91,7 +96,7 @@ public class ResultadosUserValoresNtr {
         frmCalcularValores.getContentPane().add(lblLabelImagen);
         
         JButton IrAEstado = new JButton(";)");
-        IrAEstado.setBounds(674, 362, 41, 30);
+        IrAEstado.setBounds(674, 352, 41, 30);
         frmCalcularValores.getContentPane().add(IrAEstado);
         
         JTextPane txtpnIrAValores = new JTextPane();
@@ -107,7 +112,7 @@ public class ResultadosUserValoresNtr {
         IrAEstado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmCalcularValores.setVisible(false);
-				ResultadosUserEstado.estado(usuario);/*misma acción que en la ventana main pero hacia la cuarta ventana, le pasamos la misma persona*/
+				ResultadosUserEstado.estado(usuario, hayAlimentos);/*misma acción que en la ventana main pero hacia la cuarta ventana, le pasamos la misma persona*/
 			}});
 	}
 }
