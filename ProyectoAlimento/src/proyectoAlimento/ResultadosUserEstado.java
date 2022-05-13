@@ -87,7 +87,7 @@ public class ResultadosUserEstado {
 		frmCalcularPesoIdeal.getContentPane().add(lblReferenciaImagen);
 		
 		JLabel lblLabelImagen = new JLabel("");
-        lblLabelImagen.setBounds(46, 80, 512, 476);
+        lblLabelImagen.setBounds(56, 102, 512, 476);
         frmCalcularPesoIdeal.getContentPane().add(lblLabelImagen);
         
         JButton IrAValores = new JButton(";)");
@@ -101,7 +101,7 @@ public class ResultadosUserEstado {
         frmCalcularPesoIdeal.getContentPane().add(txtpnIrAValores);
         
         //ZONA TRABAJO
-	    ImageIcon estadoFisico=new ImageIcon("img/estadoFisico.png");
+	    ImageIcon estadoFisico=new ImageIcon("img/estadofisico.png");
         lblLabelImagen.setIcon(estadoFisico);
         
         IrAValores.addActionListener(new ActionListener() {
