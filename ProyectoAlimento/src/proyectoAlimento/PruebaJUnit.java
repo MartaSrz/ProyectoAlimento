@@ -1,3 +1,8 @@
+/**
+ * Clase que sirve para comprobar si los métodos de las clases se comportan como se espera.
+ */
+
+
 package proyectoAlimento;
 
 import static org.junit.jupiter.api.Assertions.*;
