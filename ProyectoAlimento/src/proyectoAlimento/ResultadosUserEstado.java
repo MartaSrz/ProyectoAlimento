@@ -32,10 +32,9 @@ public class ResultadosUserEstado {
 	/**
 	 * Launch the application.
 	 */
-	public static void estado(Persona usuario, boolean hayAlimentos) { /*accción para arrancar la tercera ventana*/
+	public static void estado(Persona usuario, boolean blnAlimentos) { /*accción para arrancar la tercera ventana*/
 		ResultadosUserEstado.usuario=usuario;
-		if (ValoresNutritivos.isHayAlimentos() || ResultadosUserValoresNtr.isHayAlimentos())
-			hayAlimentos=true;
+		hayAlimentos=blnAlimentos;
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -95,6 +94,7 @@ public class ResultadosUserEstado {
         
         JButton IrAValores = new JButton(";)");
         IrAValores.setBounds(786, 364, 41, 30);
+        IrAValores.setEnabled(hayAlimentos);
         frmCalcularPesoIdeal.getContentPane().add(IrAValores);
         
         JTextPane txtpnIrAValores = new JTextPane();
@@ -107,9 +107,6 @@ public class ResultadosUserEstado {
 	    ImageIcon estadoFisico=new ImageIcon("img/estadofisico.png");
         lblLabelImagen.setIcon(estadoFisico);
         
-		if (!hayAlimentos) {
-			IrAValores.setEnabled(false);
-        }
         
         IrAValores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

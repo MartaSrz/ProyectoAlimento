@@ -28,12 +28,14 @@ public class ResultadosUserValoresNtr {
 	private JFrame frmCalcularValores;
 	private final static Color FONDO_COLOR= new Color(255, 255, 221);
 	private static Persona usuario; 
-	private static boolean hayAlimentos=true;
+
 	/**
 	 * Launch the application.
+	 * @param hayAlimentos2 
 	 */
 	public static void valores(Persona usuario) { /*accción para arrancar la cuarta ventana*/
 		ResultadosUserValoresNtr.usuario=usuario;
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -45,10 +47,7 @@ public class ResultadosUserValoresNtr {
 			}
 		});
 	}
-	
-	public static boolean isHayAlimentos() {
-		return hayAlimentos;
-	}
+
 
 	/**
 	 * Create the application.
@@ -112,7 +111,7 @@ public class ResultadosUserValoresNtr {
         IrAEstado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmCalcularValores.setVisible(false);
-				ResultadosUserEstado.estado(usuario, hayAlimentos);/*misma acción que en la ventana main pero hacia la cuarta ventana, le pasamos la misma persona*/
+				ResultadosUserEstado.estado(usuario, true);/*misma acción que en la ventana main pero hacia la cuarta ventana, le pasamos la misma persona*/
 			}});
 	}
 }
