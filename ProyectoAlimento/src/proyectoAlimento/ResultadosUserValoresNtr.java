@@ -28,11 +28,14 @@ public class ResultadosUserValoresNtr {
 	private JFrame frmCalcularValores;
 	private final static Color FONDO_COLOR= new Color(255, 255, 221);
 	private static Persona usuario; 
+
 	/**
 	 * Launch the application.
+	 * @param hayAlimentos2 
 	 */
 	public static void valores(Persona usuario) { /*accción para arrancar la cuarta ventana*/
 		ResultadosUserValoresNtr.usuario=usuario;
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -44,6 +47,7 @@ public class ResultadosUserValoresNtr {
 			}
 		});
 	}
+
 
 	/**
 	 * Create the application.
@@ -91,7 +95,7 @@ public class ResultadosUserValoresNtr {
         frmCalcularValores.getContentPane().add(lblLabelImagen);
         
         JButton IrAEstado = new JButton(";)");
-        IrAEstado.setBounds(674, 362, 41, 30);
+        IrAEstado.setBounds(674, 352, 41, 30);
         frmCalcularValores.getContentPane().add(IrAEstado);
         
         JTextPane txtpnIrAValores = new JTextPane();
@@ -107,7 +111,7 @@ public class ResultadosUserValoresNtr {
         IrAEstado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmCalcularValores.setVisible(false);
-				ResultadosUserEstado.estado(usuario);/*misma acción que en la ventana main pero hacia la cuarta ventana, le pasamos la misma persona*/
+				ResultadosUserEstado.estado(usuario, true);/*misma acción que en la ventana main pero hacia la cuarta ventana, le pasamos la misma persona*/
 			}});
 	}
 }
