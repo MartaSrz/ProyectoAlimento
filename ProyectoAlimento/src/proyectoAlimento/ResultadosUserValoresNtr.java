@@ -26,16 +26,21 @@ import javax.swing.JButton;
 public class ResultadosUserValoresNtr {
 
 	private JFrame frmCalcularValores;
-	private final static Color FONDO_COLOR= new Color(255, 255, 221);
+	private final Color FONDO_COLOR= new Color(236,224,251);
 	private static Persona usuario; 
-
+	private static Alimento alimentos[];
+	private static ArraysToString<String> alimentosElegidos= new ArraysToString<>();
+	private static ArraysToString<Integer> cantidadesElegidas= new ArraysToString<>();
+	
 	/**
 	 * Launch the application.
 	 * @param hayAlimentos2 
 	 */
-	public static void valores(Persona usuario) { /*accción para arrancar la cuarta ventana*/
+	public static void valores(Persona usuario, Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) { /*accción para arrancar la cuarta ventana*/
 		ResultadosUserValoresNtr.usuario=usuario;
-
+		ResultadosUserValoresNtr.alimentos=alimentos;
+		ResultadosUserValoresNtr.alimentosElegidos=alimentosElegidos;
+		ResultadosUserValoresNtr.cantidadesElegidas=cantidadesElegidas;
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -66,52 +71,55 @@ public class ResultadosUserValoresNtr {
 		frmCalcularValores.setBounds(100, 100, 920, 650);
 		frmCalcularValores.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCalcularValores.getContentPane().setLayout(null);
-		
+
 		JLabel lblTitulo = new JLabel("Estos son tus resultados respecto al Cálculo Nutritivo :D!");
 		lblTitulo.setFont(new Font("Dialog", Font.BOLD, 16));
 		lblTitulo.setBounds(218, 22, 467, 17);
 		frmCalcularValores.getContentPane().add(lblTitulo);
-		
-		JLabel lblInfopeso = new JLabel("Sobre su peso:");
-		lblInfopeso.setFont(new Font("Dialog", Font.BOLD, 16));
-		lblInfopeso.setBounds(597, 102, 118, 17);
-		frmCalcularValores.getContentPane().add(lblInfopeso);
-		
-		JTextArea textAreaCualEsSuPeso = new JTextArea();
-		textAreaCualEsSuPeso.setEditable(false);
-		textAreaCualEsSuPeso.setBounds(597, 130, 255, 129);
-		frmCalcularValores.getContentPane().add(textAreaCualEsSuPeso);
-		textAreaCualEsSuPeso.setText("¡Hola " + usuario.getNombre() + "!\n");
-		textAreaCualEsSuPeso.append(Imc.calcular_peso_ideal(usuario.getEdad(), usuario.getAltura(), usuario.getPeso(), usuario.getSexo())+"\n\n");
-		textAreaCualEsSuPeso.append(Imc.imc_persona(usuario.getAltura(), usuario.getPeso()));
-		
-		JLabel lblReferenciaImagen = new JLabel("Esta imagen te ayudará a orientarte dependiendo de tu resultado.");
-		lblReferenciaImagen.setFont(new Font("Dialog", Font.PLAIN, 16));
-		lblReferenciaImagen.setBounds(46, 64, 512, 30);
-		frmCalcularValores.getContentPane().add(lblReferenciaImagen);
-		
-		JLabel lblLabelImagen = new JLabel("");
-        lblLabelImagen.setBounds(46, 80, 512, 476);
-        frmCalcularValores.getContentPane().add(lblLabelImagen);
-        
-        JButton IrAEstado = new JButton(";)");
-        IrAEstado.setBounds(674, 352, 41, 30);
-        frmCalcularValores.getContentPane().add(IrAEstado);
-        
-        JTextPane txtpnIrAValores = new JTextPane();
-        txtpnIrAValores.setBackground(FONDO_COLOR);
-        txtpnIrAValores.setText("Si quieres comprobar a que estado físico correspondes,\n\npulsa aquí :");
-        txtpnIrAValores.setBounds(597, 302, 255, 88);
-        frmCalcularValores.getContentPane().add(txtpnIrAValores);
-        
-        //ZONA TRABAJO
-	    ImageIcon estadoFisico=new ImageIcon("img/estadoFisico.png");
-        lblLabelImagen.setIcon(estadoFisico);
-        
-        IrAEstado.addActionListener(new ActionListener() {
+
+		JButton IrAEstado = new JButton(";)");
+		IrAEstado.setBounds(716, 562, 41, 30);
+		frmCalcularValores.getContentPane().add(IrAEstado);
+
+		JTextPane txtpnIrAValores = new JTextPane();
+		txtpnIrAValores.setEditable(false);
+		txtpnIrAValores.setBackground(FONDO_COLOR);
+		txtpnIrAValores.setText("Si quieres comprobar a que estado físico correspondes,\n\npulsa aquí :");
+		txtpnIrAValores.setBounds(639, 512, 255, 88);
+		frmCalcularValores.getContentPane().add(txtpnIrAValores);
+
+		//ZONA TRABAJO
+		IrAEstado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmCalcularValores.setVisible(false);
-				ResultadosUserEstado.estado(usuario, true);/*misma acción que en la ventana main pero hacia la cuarta ventana, le pasamos la misma persona*/
+				ResultadosUserEstado.estado(usuario, true, alimentos, alimentosElegidos, cantidadesElegidas);/*misma acción que en la ventana main pero hacia la cuarta ventana, le pasamos la misma persona*/
 			}});
+		
+		CalculoValorIdeal.getGrasainicialideal();
+		
+		CalculoValorIdeal.getGrasafinalideal();
+		
+		CalculoValorIdeal.getAzucarinicialideal();
+
+		CalculoValorIdeal.getAzucarfinalideal();
+
+		CalculoValorIdeal.getProteinaidealhombre();
+
+		CalculoValorIdeal.getProteinaidealmujer();
+
+		CalculoValorIdeal.getHidratosideal();
+
+		CalculoValorIdeal.getPotasioidealhombre();
+
+		CalculoValorIdeal.getPotasioidealmujer();
+
+		CalculoValorIdeal.getCalcioideal();
+		
+		CalculoValorIdeal.getSalideal();
+
+		CalculoValorIdeal.getHierroidealhombre();
+
+		CalculoValorIdeal.getHierroidealmujer();
+		
 	}
 }
