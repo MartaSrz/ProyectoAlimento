@@ -113,7 +113,9 @@ public class ResultadosUserValoresNtr {
 
 		CalculoValorIdeal.getPotasioidealmujer();
 
-		CalculoValorIdeal.getCalcioideal();
+		CalculoValorIdeal.getCalcioidealinicial();
+		
+		CalculoValorIdeal.getCalcioidealfinal();
 		
 		CalculoValorIdeal.getSalideal();
 

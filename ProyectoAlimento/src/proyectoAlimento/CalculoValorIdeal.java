@@ -15,16 +15,35 @@ public class CalculoValorIdeal{
 	private final static double GRASAFINALIDEAL=76.0;
 	private final static double AZUCARINICIALIDEAL=25.0;
 	private final static double AZUCARFINALIDEAL=30.0;
-	private final static double PROTEINAIDEALHOMBRE=140.0;
-	private final static double PROTEINAIDEALMUJER=170.0;
+	private final static double PROTEINAIDEALHOMBRE=56.0;
+	private final static double PROTEINAIDEALMUJER=46.0;
 	private final static double HIDRATOSIDEAL=135.0;
 	private final static double POTASIOIDEALHOMBRE=3.4;
 	private final static double POTASIOIDEALMUJER=2.6;
-	private final static double CALCIOIDEAL=0.9;
+	private final static double CALCIOIDEALINICIAL=1.0;
+	private final static double CALCIOIDEALFINAL=1.3;
 	private static final double SALIDEAL=5.0;
 	private final static double HIERROIDEALHOMBRE=3.8;
 	private final static double HIERROIDEALMUJER=2.3;
 
+	/**
+	 * 
+	 * @param GRASAINICIALIDEAL: Valor mínimo de grasas que debe ingerir una persona durante el día
+	 * @param GRASAFINALIDEAL: Valor máximo de grasas que debe ingerir una persona durante el día
+	 * @param AZUCARINICIALIDEAL: Valor mínimo de azúcar que debe ingerir una persona durante el día
+	 * @param AZUCARFINALIDEAL: Valor máximo de azúcar que debe ingerir una persona durante el día
+	 * @param PROTEINAIDEALHOMBRE: Valor ideal de proteínas que debe ingerir un hombre durante el día
+	 * @param PROTEINAIDEALMUJER: Valor ideal de proteínas que debe ingerir una mujer durante el día
+	 * @param HIDRATOSIDEAL: Valor ideal de hidratos que debe ingerir una persona durante el día
+	 * @param POTASIOIDEALHOMBRE: Valor ideal de potasio que debe ingerir un hombre durante el día
+	 * @param POTASIOIDEALMUJER: Valor ideal de potasio que debe ingerir una mujer durante el día
+	 * @param CALCIOIDEALINICIAL: Valor mínimo de calcio que debe ingerir una persona durante el día
+	 * @param CALCIOIDEALFINAL: Valor máximo de calcio que debe ingerir una persona durante el día
+	 * @param SALIDEAL: Valor ideal de sal que debe ingerir una persona durante el día
+	 * @param HIERROIDEALHOMBRE: Valor ideal de hierro que debe ingerir un hombre durante el día
+	 * @param HIERROIDEALMUJER: Valor ideal de hierro que debe ingerir una mujer durante el día
+	 */
+	
 	public static double getGrasainicialideal() {
 		return GRASAINICIALIDEAL;
 	}
@@ -61,8 +80,12 @@ public class CalculoValorIdeal{
 		return POTASIOIDEALMUJER;
 	}
 
-	public static double getCalcioideal() {
-		return CALCIOIDEAL;
+	public static double getCalcioidealinicial() {
+		return CALCIOIDEALINICIAL;
+	}
+	
+	public static double getCalcioidealfinal() {
+		return CALCIOIDEALFINAL;
 	}
 
 	public static double getSalideal() {
@@ -102,12 +125,12 @@ public class CalculoValorIdeal{
 
 				if (alimentos[i].equals(nombre_alimento)) {
 
-					String a=cantidadesElegidas.get(i).toString();
-					int b=Integer.parseInt(a);
+					String cantidad=cantidadesElegidas.get(i).toString();
+					int cantidad_elegida=Integer.parseInt(cantidad);
 
-					if (b > 100 || b < 100) {
+					if (cantidad_elegida > 100 || cantidad_elegida < 100) {
 
-						grasas += alimentos[j].getGrasas() * b / 100;
+						grasas += alimentos[j].getGrasas() * cantidad_elegida / 100;
 
 					}else
 
@@ -153,12 +176,12 @@ public class CalculoValorIdeal{
 
 				if (alimentos[i].equals(nombre_alimento)) {
 
-					String a=cantidadesElegidas.get(i).toString();
-					int b=Integer.parseInt(a);
+					String cantidad=cantidadesElegidas.get(i).toString();
+					int cantidad_elegida=Integer.parseInt(cantidad);
 
-					if (b > 100 || b < 100) {
+					if (cantidad_elegida > 100 || cantidad_elegida < 100) {
 
-						azucares += alimentos[j].getAzucar() * b / 100;
+						azucares += alimentos[j].getAzucar() * cantidad_elegida / 100;
 
 					}else
 
@@ -205,13 +228,13 @@ public class CalculoValorIdeal{
 
 				if (alimentos[i].equals(nombre_alimento)) {
 
-					String a=cantidadesElegidas.get(i).toString();
-					int b=Integer.parseInt(a);
+					String cantidad=cantidadesElegidas.get(i).toString();
+					int cantidad_elegida=Integer.parseInt(cantidad);
 
-					if (b > 100 || b < 100) {
+					if (cantidad_elegida > 100 || cantidad_elegida < 100) {
 
-						proteinas_hombres += alimentos[j].getProteinas() * b / 100;
-						proteinas_mujeres += alimentos[j].getProteinas() * b / 100;
+						proteinas_hombres += alimentos[j].getProteinas() * cantidad_elegida / 100;
+						proteinas_mujeres += alimentos[j].getProteinas() * cantidad_elegida / 100;
 
 					}else
 
@@ -260,12 +283,12 @@ public class CalculoValorIdeal{
 
 				if (alimentos[i].equals(nombre_alimento)) {
 
-					String a=cantidadesElegidas.get(i).toString();
-					int b=Integer.parseInt(a);
+					String cantidad=cantidadesElegidas.get(i).toString();
+					int cantidad_elegida=Integer.parseInt(cantidad);
 
-					if (b > 100 || b < 100) {
+					if (cantidad_elegida > 100 || cantidad_elegida < 100) {
 
-						hidratos += alimentos[j].getHidratos() * b / 100;
+						hidratos += alimentos[j].getHidratos() * cantidad_elegida / 100;
 
 					}else
 
@@ -312,13 +335,13 @@ public class CalculoValorIdeal{
 
 				if (alimentos[i].equals(nombre_alimento)) {
 
-					String a=cantidadesElegidas.get(i).toString();
-					int b=Integer.parseInt(a);
+					String cantidad=cantidadesElegidas.get(i).toString();
+					int cantidad_elegida=Integer.parseInt(cantidad);
 
-					if (b > 100 || b < 100) {
+					if (cantidad_elegida > 100 || cantidad_elegida < 100) {
 
-						potasio_hombres += alimentos[j].getPotasio() * b / 100;
-						potasio_mujeres += alimentos[j].getPotasio() * b / 100;
+						potasio_hombres += alimentos[j].getPotasio() * cantidad_elegida / 100;
+						potasio_mujeres += alimentos[j].getPotasio() * cantidad_elegida / 100;
 
 					}else
 
@@ -366,12 +389,12 @@ public class CalculoValorIdeal{
 
 				if (alimentos[i].equals(nombre_alimento)) {
 
-					String a=cantidadesElegidas.get(i).toString();
-					int b=Integer.parseInt(a);
+					String cantidad=cantidadesElegidas.get(i).toString();
+					int cantidad_elegida=Integer.parseInt(cantidad);
 
-					if (b > 100 || b < 100) {
+					if (cantidad_elegida > 100 || cantidad_elegida < 100) {
 
-						calcio += alimentos[j].getCalcio() * b / 100;
+						calcio += alimentos[j].getCalcio() * cantidad_elegida / 100;
 
 					}else
 
@@ -385,7 +408,7 @@ public class CalculoValorIdeal{
 
 		calcio_total += calcio;
 
-		if (calcio_total == CALCIOIDEAL) {
+		if (calcio_total >= CALCIOIDEALINICIAL && calcio_total <= CALCIOIDEALFINAL) {
 			return !isIdeal;
 		}else
 			return isIdeal;
@@ -415,12 +438,12 @@ public class CalculoValorIdeal{
 
 				if (alimentos[i].equals(nombre_alimento)) {
 
-					String a=cantidadesElegidas.get(i).toString();
-					int b=Integer.parseInt(a);
+					String cantidad=cantidadesElegidas.get(i).toString();
+					int cantidad_elegida=Integer.parseInt(cantidad);
 
-					if (b > 100 || b < 100) {
+					if (cantidad_elegida > 100 || cantidad_elegida < 100) {
 
-						sal += alimentos[j].getSal() * b / 100;
+						sal += alimentos[j].getSal() * cantidad_elegida / 100;
 
 					}else
 
@@ -468,13 +491,13 @@ public class CalculoValorIdeal{
 
 				if (alimentos[i].equals(nombre_alimento)) {
 
-					String a=cantidadesElegidas.get(i).toString();
-					int b=Integer.parseInt(a);
+					String cantidad=cantidadesElegidas.get(i).toString();
+					int cantidad_elegida=Integer.parseInt(cantidad);
 
-					if (b > 100 || b < 100) {
+					if (cantidad_elegida > 100 || cantidad_elegida < 100) {
 
-						hierro_hombres += alimentos[j].getHierro() * b / 100;
-						hierro_mujeres += alimentos[j].getHierro() * b / 100;
+						hierro_hombres += alimentos[j].getHierro() * cantidad_elegida / 100;
+						hierro_mujeres += alimentos[j].getHierro() * cantidad_elegida / 100;
 
 					}else
 
