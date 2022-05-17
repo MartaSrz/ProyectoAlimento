@@ -497,7 +497,7 @@ public class ValoresNutritivos {
 			}
 		});
 
-		textConsejo.setText("CONSEJO NUTRICIONAL\n\nTodas las células del cuerpo necesitan de agua para funcionar, por eso es esencial ingerir suficiente. Una adecuada hidratación te puede ayudar a mejorar tu digestión, la función de tus riñones y lucir una piel más hidratada.\n\nLo ideal es que consumas 2,7 litros de agua potable al día si eres mujer y 3,7 si eres hombre. Aquí se incluye el agua de los alimentos, que representa aproximadamente un 20s% del total.");
+		textConsejo.setText("CONSEJO NUTRICIONAL\n\nTodas las células del cuerpo necesitan de agua para funcionar, por eso es esencial ingerir suficiente. Una adecuada hidratación te puede ayudar a mejorar tu digestión, la función de tus riñones y lucir una piel más hidratada.\n\nLo ideal es que consumas 2,7 litros de agua potable al día si eres mujer y 3,7 si eres hombre. Aquí se incluye el agua de los alimentos, que representa aproximadamente un 20% del total.");
 
 		btnAnyadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {/*eso va a almacenar en el texto la cantidad y el alimento*/
@@ -527,13 +527,13 @@ public class ValoresNutritivos {
 		btnEstadoFisico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventanaCalc.setVisible(false);
-				ResultadosUserEstado.estado(usuario, hayAlimentos); /*misma acción que en la ventana main pero hacia la tercera ventana, le pasamos la misma persona*/
+				ResultadosUserEstado.estado(usuario, hayAlimentos, alimento, alimentosElegidos, cantidadesElegidas); /*misma acción que en la ventana main pero hacia la tercera ventana, le pasamos la misma persona*/
 			}
 		});
 		btnValoresNtr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventanaCalc.setVisible(false);
-				ResultadosUserValoresNtr.valores(usuario);/*misma acción que en la ventana main pero hacia la cuarta ventana, le pasamos la misma persona*/
+				ResultadosUserValoresNtr.valores(usuario, alimento, alimentosElegidos, cantidadesElegidas);/*misma acción que en la ventana main pero hacia la cuarta ventana, le pasamos la misma persona*/
 			}
 		});
 	}

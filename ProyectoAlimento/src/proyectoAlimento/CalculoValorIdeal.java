@@ -25,6 +25,58 @@ public class CalculoValorIdeal{
 	private final static double HIERROIDEALHOMBRE=3.8;
 	private final static double HIERROIDEALMUJER=2.3;
 
+	public static double getGrasainicialideal() {
+		return GRASAINICIALIDEAL;
+	}
+
+	public static double getGrasafinalideal() {
+		return GRASAFINALIDEAL;
+	}
+
+	public static double getAzucarinicialideal() {
+		return AZUCARINICIALIDEAL;
+	}
+
+	public static double getAzucarfinalideal() {
+		return AZUCARFINALIDEAL;
+	}
+
+	public static double getProteinaidealhombre() {
+		return PROTEINAIDEALHOMBRE;
+	}
+
+	public static double getProteinaidealmujer() {
+		return PROTEINAIDEALMUJER;
+	}
+
+	public static double getHidratosideal() {
+		return HIDRATOSIDEAL;
+	}
+
+	public static double getPotasioidealhombre() {
+		return POTASIOIDEALHOMBRE;
+	}
+
+	public static double getPotasioidealmujer() {
+		return POTASIOIDEALMUJER;
+	}
+
+	public static double getCalcioideal() {
+		return CALCIOIDEAL;
+	}
+
+	public static double getSalideal() {
+		return SALIDEAL;
+	}
+
+	public static double getHierroidealhombre() {
+		return HIERROIDEALHOMBRE;
+	}
+
+	public static double getHierroidealmujer() {
+		return HIERROIDEALMUJER;
+	}
+
 	/**
 	 * 
 	 * @param alimentos: Valores que contenga el alimento en gramos y el nombre del alimento
