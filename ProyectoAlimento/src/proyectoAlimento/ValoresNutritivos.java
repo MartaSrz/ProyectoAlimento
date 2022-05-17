@@ -418,12 +418,14 @@ public class ValoresNutritivos {
 		ventanaCalc.getContentPane().add(lblKiloCalorias);
 
 		JEditorPane txtAlimentosElegidos = new JEditorPane();
+		txtAlimentosElegidos.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtAlimentosElegidos.setEditable(false);
 		txtAlimentosElegidos.setBackground(FONDO_COLOR);
 		txtAlimentosElegidos.setBounds(801, 79, 233, 726);
 		ventanaCalc.getContentPane().add(txtAlimentosElegidos);
 
 		JEditorPane txtCantidadesElegidas = new JEditorPane();
+		txtCantidadesElegidas.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtCantidadesElegidas.setEditable(false);
 		txtCantidadesElegidas.setBounds(1085, 79, 154, 726);
 		txtCantidadesElegidas.setBackground(FONDO_COLOR);

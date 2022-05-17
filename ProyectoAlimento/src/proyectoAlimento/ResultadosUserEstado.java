@@ -79,6 +79,7 @@ public class ResultadosUserEstado {
 		frmCalcularPesoIdeal.getContentPane().add(lblInfopeso);
 
 		JTextArea textAreaCualEsSuPeso = new JTextArea();
+		textAreaCualEsSuPeso.setFont(new Font("Dialog", Font.PLAIN, 14));
 		textAreaCualEsSuPeso.setEditable(false);
 		textAreaCualEsSuPeso.setBounds(709, 132, 255, 129);
 		frmCalcularPesoIdeal.getContentPane().add(textAreaCualEsSuPeso);
@@ -96,15 +97,16 @@ public class ResultadosUserEstado {
 		frmCalcularPesoIdeal.getContentPane().add(lblLabelImagen);
 
 		JButton IrAValores = new JButton(";)");
-		IrAValores.setBounds(786, 364, 41, 30);
+		IrAValores.setBounds(803, 377, 41, 30);
 		IrAValores.setEnabled(hayAlimentos);
 		frmCalcularPesoIdeal.getContentPane().add(IrAValores);
 
 		JTextPane txtpnIrAValores = new JTextPane();
+		txtpnIrAValores.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtpnIrAValores.setEditable(false);
 		txtpnIrAValores.setBackground(FONDO_COLOR);
 		txtpnIrAValores.setText("Si quieres comprobar que tomaste los adecuados valores nutritivos respecto grasas, azucares, ect.,\n\npulsa aquí :");
-		txtpnIrAValores.setBounds(709, 304, 255, 88);
+		txtpnIrAValores.setBounds(709, 304, 255, 116);
 		frmCalcularPesoIdeal.getContentPane().add(txtpnIrAValores);
 
 		//ZONA TRABAJO
