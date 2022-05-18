@@ -69,6 +69,7 @@ public class ResultadosUserValoresNtr {
 	 */
 	private void initialize() {
 		frmCalcularValores = new JFrame();
+		frmCalcularValores.setResizable(false);
 		frmCalcularValores.setTitle("Calcular Peso Ideal y Valores Nutritivos");
 		frmCalcularValores.getContentPane().setBackground(FONDO_COLOR);
 		frmCalcularValores.setBounds(100, 100, 962, 504);

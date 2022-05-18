@@ -23,7 +23,6 @@ public class Persona {
 	
 	//CONSTRUCTOR--------------------------------------------
 	public Persona(String nombre, String sexo, int peso, int altura, int edad) {
-		super();
 		this.nombre = nombre;
 		this.sexo = sexo;
 		this.peso = peso;
