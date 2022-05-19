@@ -40,14 +40,14 @@ class PruebaJUnit {
 	@Test
 	void testCalculoImcFunciona() { // Caso en el que funciona
 		
-		double resultado = Imc.calcular_imc(p.getAltura(),p.getPeso());
+		double resultado = Imc.calcularImc(p.getAltura(),p.getPeso());
 		assertEquals(20.381569714992146,resultado);
 	}
 	
 	@Test
 	void testCalculoImcNoFunciona() { // Caso en el que no funciona
 		
-		double resultado = Imc.calcular_imc(p.getAltura(),p.getPeso());
+		double resultado = Imc.calcularImc(p.getAltura(),p.getPeso());
 		assertEquals(3,resultado);
 	}
 

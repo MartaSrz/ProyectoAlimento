@@ -11,7 +11,7 @@ import java.text.DecimalFormat;
 
 public class Imc {	
 
-	public static double calcular_imc(int altura, int peso) { 
+	public static double calcularImc(int altura, int peso) { 
 		
 		double medida = (double) altura/100;
 		
@@ -30,12 +30,12 @@ public class Imc {
 	 * @return
 	 */
 
-	public static String calcular_peso_ideal(int edad, int altura, int peso, String sexo) { 
+	public static String calcularPesoIdeal(int edad, int altura, int peso, String sexo) { 
 
 		String estadoFisico = "";
 		DecimalFormat decimalFormat = new DecimalFormat("#.00");
 
-		double calculo_imc = calcular_imc(altura, peso);
+		double calculo_imc = calcularImc(altura, peso);
 		String imc = decimalFormat.format(calculo_imc);
 
 		if (sexo.equals("Hombre")) { 
@@ -109,11 +109,11 @@ public class Imc {
 	 */
 	
 
-	public static String imc_persona(int altura, int peso) { 
+	public static String imcPersona(int altura, int peso) { 
 		
 		String imc_persona = "";
 
-		double calculo_imc= calcular_imc(altura, peso);
+		double calculo_imc= calcularImc(altura, peso);
 		
 		if (calculo_imc < 16) {
 

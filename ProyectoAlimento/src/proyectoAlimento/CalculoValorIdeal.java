@@ -18,6 +18,7 @@ public class CalculoValorIdeal{
 	private final static double PROTEINAIDEALHOMBRE=56.0;
 	private final static double PROTEINAIDEALMUJER=46.0;
 	private final static double HIDRATOSIDEAL=135.0;
+	
 	private final static double POTASIOIDEALHOMBRE=3.4;
 	private final static double POTASIOIDEALMUJER=2.6;
 	private final static double CALCIOIDEALINICIAL=1.0;
@@ -540,7 +541,6 @@ public class CalculoValorIdeal{
 	public static boolean isPotasioIdeal(Alimento []alimentos, Persona persona, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
 		boolean isIdeal = true;
-
 		double potasioTotalHombre = totalProteinaIdeal(alimentos,persona, alimentosElegidos, cantidadesElegidas);
 		double potasioTotalMujer = totalProteinaIdeal(alimentos,persona, alimentosElegidos, cantidadesElegidas);
 

@@ -29,15 +29,18 @@ public class ResultadosUserEstado {
 	private final static Color FONDO_COLOR= new Color(255, 255, 221);
 	private static Persona usuario;
 	private static boolean hayAlimentos=false;
-	private Alimento alimentos[];
-	private ArraysToString<String> alimentosElegidos= new ArraysToString<>();
-	private ArraysToString<Integer> cantidadesElegidas= new ArraysToString<>();
+	private static Alimento alimentos[];
+	private static ArraysToString<String> alimentosElegidos= new ArraysToString<>();
+	private static ArraysToString<Integer> cantidadesElegidas= new ArraysToString<>();
 	/**
 	 * Launch the application.
 	 */
 	public static void estado(Persona usuario, boolean blnAlimentos, Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) { /*accción para arrancar la tercera ventana*/
 		ResultadosUserEstado.usuario=usuario;
 		hayAlimentos=blnAlimentos;
+		ResultadosUserEstado.alimentos=alimentos;
+		ResultadosUserEstado.alimentosElegidos=alimentosElegidos;
+		ResultadosUserEstado.cantidadesElegidas=cantidadesElegidas;
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -85,8 +88,8 @@ public class ResultadosUserEstado {
 		textAreaCualEsSuPeso.setBounds(709, 132, 255, 129);
 		frmCalcularPesoIdeal.getContentPane().add(textAreaCualEsSuPeso);
 		textAreaCualEsSuPeso.setText("¡Hola " + usuario.getNombre() + "!\n");
-		textAreaCualEsSuPeso.append(Imc.calcular_peso_ideal(usuario.getEdad(), usuario.getAltura(), usuario.getPeso(), usuario.getSexo())+"\n\n");
-		textAreaCualEsSuPeso.append(Imc.imc_persona(usuario.getAltura(), usuario.getPeso()));
+		textAreaCualEsSuPeso.append(Imc.calcularPesoIdeal(usuario.getEdad(), usuario.getAltura(), usuario.getPeso(), usuario.getSexo())+"\n\n");
+		textAreaCualEsSuPeso.append(Imc.imcPersona(usuario.getAltura(), usuario.getPeso()));
 
 		JLabel lblReferenciaImagen = new JLabel("Esta imagen te ayudará a orientarte dependiendo de tu resultado.");
 		lblReferenciaImagen.setFont(new Font("Dialog", Font.PLAIN, 16));

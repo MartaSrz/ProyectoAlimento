@@ -69,109 +69,190 @@ public class ResultadosUserValoresNtr {
 	 */
 	private void initialize() {
 		frmCalcularValores = new JFrame();
+		frmCalcularValores.getContentPane().setFont(new Font("Dialog", Font.PLAIN, 13));
 		frmCalcularValores.setResizable(false);
 		frmCalcularValores.setTitle("Calcular Peso Ideal y Valores Nutritivos");
 		frmCalcularValores.getContentPane().setBackground(FONDO_COLOR);
-		frmCalcularValores.setBounds(100, 100, 962, 504);
+		frmCalcularValores.setBounds(100, 100, 1052, 503);
 		frmCalcularValores.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCalcularValores.getContentPane().setLayout(null);
 
 		JLabel lblTitulo = new JLabel("Estos son tus resultados respecto al Cálculo Nutritivo :D!");
 		lblTitulo.setFont(new Font("Dialog", Font.BOLD, 16));
-		lblTitulo.setBounds(218, 22, 467, 17);
+		lblTitulo.setBounds(303, 40, 447, 17);
 		frmCalcularValores.getContentPane().add(lblTitulo);
 
 		JButton IrAEstado = new JButton(";)");
-		IrAEstado.setBounds(603, 284, 41, 30);
+		IrAEstado.setBounds(627, 314, 41, 30);
 		frmCalcularValores.getContentPane().add(IrAEstado);
 
 		JTextPane txtpnIrAValores = new JTextPane();
-		txtpnIrAValores.setFont(new Font("Dialog", Font.ITALIC, 14));
+		txtpnIrAValores.setFont(new Font("Dialog", Font.ITALIC, 15));
 		txtpnIrAValores.setEditable(false);
 		txtpnIrAValores.setBackground(FONDO_COLOR);
 		txtpnIrAValores.setText("Si quieres comprobar a que estado físico correspondes, pulsa aquí :");
-		txtpnIrAValores.setBounds(155, 284, 474, 37);
+		txtpnIrAValores.setBounds(155, 314, 474, 37);
 		frmCalcularValores.getContentPane().add(txtpnIrAValores);
 
 		JLabel lblNewLabel = new JLabel("Valores Ideales:");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel.setBounds(33, 159, 95, 14);
+		lblNewLabel.setFont(new Font("Dialog", Font.BOLD, 13));
+		lblNewLabel.setBounds(20, 165, 112, 23);
 		frmCalcularValores.getContentPane().add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Tus resultados:");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_1.setBounds(33, 208, 95, 14);
+		lblNewLabel_1.setFont(new Font("Dialog", Font.BOLD, 13));
+		lblNewLabel_1.setBounds(20, 220, 112, 23);
 		frmCalcularValores.getContentPane().add(lblNewLabel_1);
 
 		JSeparator separator = new JSeparator();
-		separator.setBounds(155, 191, 725, 17);
+		separator.setBounds(142, 203, 873, 17);
 		frmCalcularValores.getContentPane().add(separator);
 
-		JLabel lblGrasa_user = new JLabel();
-		lblGrasa_user.setBounds(180, 208, 83, 14);
-		frmCalcularValores.getContentPane().add(lblGrasa_user);
+		JLabel lblGrasaUser = new JLabel();
+		lblGrasaUser.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGrasaUser.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblGrasaUser.setBounds(175, 220, 98, 23);
+		frmCalcularValores.getContentPane().add(lblGrasaUser);
 
 		JLabel lblGrasa = new JLabel();
-		lblGrasa.setBounds(180, 159, 83, 14);
+		lblGrasa.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGrasa.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblGrasa.setBounds(175, 167, 98, 18);
 		frmCalcularValores.getContentPane().add(lblGrasa);
 
 		JLabel lblAzucar = new JLabel();
-		lblAzucar.setBounds(293, 159, 83, 14);
+		lblAzucar.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAzucar.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblAzucar.setBounds(303, 167, 92, 18);
 		frmCalcularValores.getContentPane().add(lblAzucar);
 
 		JLabel lblProteina = new JLabel();
-		lblProteina.setBounds(418, 159, 46, 14);
+		lblProteina.setHorizontalAlignment(SwingConstants.CENTER);
+		lblProteina.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblProteina.setBounds(416, 167, 77, 18);
 		frmCalcularValores.getContentPane().add(lblProteina);
 
 		JLabel lblHidratos = new JLabel();
-		lblHidratos.setBounds(493, 159, 46, 14);
+		lblHidratos.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHidratos.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblHidratos.setBounds(521, 169, 87, 18);
 		frmCalcularValores.getContentPane().add(lblHidratos);
 
 		JLabel lblPotasio = new JLabel();
-		lblPotasio.setBounds(573, 159, 46, 14);
+		lblPotasio.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPotasio.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblPotasio.setBounds(637, 172, 62, 18);
 		frmCalcularValores.getContentPane().add(lblPotasio);
 
 		JLabel lblCalcio = new JLabel();
-		lblCalcio.setBounds(648, 159, 70, 14);
+		lblCalcio.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCalcio.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblCalcio.setBounds(723, 169, 87, 18);
 		frmCalcularValores.getContentPane().add(lblCalcio);
 
 		JLabel lblSal = new JLabel();
-		lblSal.setBounds(752, 159, 46, 14);
+		lblSal.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSal.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblSal.setBounds(835, 169, 83, 18);
 		frmCalcularValores.getContentPane().add(lblSal);
 
 		JLabel lblHierro = new JLabel();
-		lblHierro.setBounds(822, 159, 46, 14);
+		lblHierro.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHierro.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblHierro.setBounds(928, 167, 74, 18);
 		frmCalcularValores.getContentPane().add(lblHierro);
 
-		JLabel lblAzucar_user = new JLabel();
-		lblAzucar_user.setBounds(293, 208, 83, 14);
-		frmCalcularValores.getContentPane().add(lblAzucar_user);
+		JLabel lblAzucarUser = new JLabel();
+		lblAzucarUser.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAzucarUser.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblAzucarUser.setBounds(303, 220, 92, 23);
+		frmCalcularValores.getContentPane().add(lblAzucarUser);
 
-		JLabel lblProteina_user = new JLabel();
-		lblProteina_user.setBounds(418, 208, 46, 14);
-		frmCalcularValores.getContentPane().add(lblProteina_user);
+		JLabel lblProteinaUser = new JLabel();
+		lblProteinaUser.setHorizontalAlignment(SwingConstants.CENTER);
+		lblProteinaUser.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblProteinaUser.setBounds(416, 220, 77, 23);
+		frmCalcularValores.getContentPane().add(lblProteinaUser);
 
-		JLabel lblHidratos_user = new JLabel();
-		lblHidratos_user.setBounds(493, 208, 46, 14);
-		frmCalcularValores.getContentPane().add(lblHidratos_user);
+		JLabel lblHidratosUser = new JLabel();
+		lblHidratosUser.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHidratosUser.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblHidratosUser.setBounds(521, 220, 87, 23);
+		frmCalcularValores.getContentPane().add(lblHidratosUser);
 
-		JLabel lblPotasio_user = new JLabel();
-		lblPotasio_user.setBounds(573, 208, 46, 14);
-		frmCalcularValores.getContentPane().add(lblPotasio_user);
+		JLabel lblPotasioUser = new JLabel();
+		lblPotasioUser.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPotasioUser.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblPotasioUser.setBounds(627, 220, 72, 23);
+		frmCalcularValores.getContentPane().add(lblPotasioUser);
 
-		JLabel lblCalcio_user = new JLabel();
-		lblCalcio_user.setBounds(648, 208, 70, 14);
-		frmCalcularValores.getContentPane().add(lblCalcio_user);
+		JLabel lblCalcioUser = new JLabel();
+		lblCalcioUser.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCalcioUser.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblCalcioUser.setBounds(723, 220, 87, 23);
+		frmCalcularValores.getContentPane().add(lblCalcioUser);
 
-		JLabel lblSal_user = new JLabel();
-		lblSal_user.setBounds(752, 208, 46, 14);
-		frmCalcularValores.getContentPane().add(lblSal_user);
+		JLabel lblSalUser = new JLabel();
+		lblSalUser.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSalUser.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblSalUser.setBounds(835, 220, 77, 23);
+		frmCalcularValores.getContentPane().add(lblSalUser);
 
-		JLabel lblHierro_user = new JLabel();
-		lblHierro_user.setBounds(822, 208, 46, 14);
-		frmCalcularValores.getContentPane().add(lblHierro_user);
+		JLabel lblHierroUser = new JLabel();
+		lblHierroUser.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHierroUser.setFont(new Font("Dialog", Font.PLAIN, 13));
+		lblHierroUser.setBounds(928, 220, 74, 23);
+		frmCalcularValores.getContentPane().add(lblHierroUser);
+
+		JLabel lblNewLabel_2 = new JLabel("Grasas");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setFont(new Font("Dialog", Font.BOLD, 13));
+		lblNewLabel_2.setBounds(175, 132, 98, 14);
+		frmCalcularValores.getContentPane().add(lblNewLabel_2);
+
+		JLabel lblNewLabel_2_1 = new JLabel("Azúcar");
+		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_1.setFont(new Font("Dialog", Font.BOLD, 13));
+		lblNewLabel_2_1.setBounds(304, 133, 91, 14);
+		frmCalcularValores.getContentPane().add(lblNewLabel_2_1);
+
+		JLabel lblNewLabel_2_2 = new JLabel("Proteina");
+		lblNewLabel_2_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_2.setFont(new Font("Dialog", Font.BOLD, 13));
+		lblNewLabel_2_2.setBounds(416, 133, 77, 14);
+		frmCalcularValores.getContentPane().add(lblNewLabel_2_2);
+
+		JLabel lblNewLabel_2_3 = new JLabel("Hidratos");
+		lblNewLabel_2_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_3.setFont(new Font("Dialog", Font.BOLD, 13));
+		lblNewLabel_2_3.setBounds(521, 133, 87, 14);
+		frmCalcularValores.getContentPane().add(lblNewLabel_2_3);
+
+		JLabel lblNewLabel_2_4 = new JLabel("Potasio");
+		lblNewLabel_2_4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_4.setFont(new Font("Dialog", Font.BOLD, 13));
+		lblNewLabel_2_4.setBounds(625, 133, 74, 14);
+		frmCalcularValores.getContentPane().add(lblNewLabel_2_4);
+
+		JLabel lblNewLabel_2_5 = new JLabel("Calcio");
+		lblNewLabel_2_5.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_5.setFont(new Font("Dialog", Font.BOLD, 13));
+		lblNewLabel_2_5.setBounds(723, 133, 87, 14);
+		frmCalcularValores.getContentPane().add(lblNewLabel_2_5);
+
+		JLabel lblNewLabel_2_6 = new JLabel("Sal");
+		lblNewLabel_2_6.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_6.setFont(new Font("Dialog", Font.BOLD, 13));
+		lblNewLabel_2_6.setBounds(835, 133, 77, 14);
+		frmCalcularValores.getContentPane().add(lblNewLabel_2_6);
+
+		JLabel lblNewLabel_2_7 = new JLabel("Hierro");
+		lblNewLabel_2_7.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_7.setFont(new Font("Dialog", Font.BOLD, 13));
+		lblNewLabel_2_7.setBounds(928, 133, 74, 14);
+		frmCalcularValores.getContentPane().add(lblNewLabel_2_7);
 
 		//ZONA TRABAJO
 		IrAEstado.addActionListener(new ActionListener() {
@@ -189,21 +270,61 @@ public class ResultadosUserValoresNtr {
 			lblHierro.setText(CalculoValorIdeal.getHierroidealmujer()+"mg");
 		}else {
 			lblProteina.setText(CalculoValorIdeal.getProteinaidealhombre()+"g");
-			lblPotasio.setText(CalculoValorIdeal.getPotasioidealhombre()+"g");
-			lblHierro.setText(CalculoValorIdeal.getHierroidealhombre()+"g");
+			lblPotasio.setText(CalculoValorIdeal.getPotasioidealhombre()+"mg");
+			lblHierro.setText(CalculoValorIdeal.getHierroidealhombre()+"mg");
 		}
 		lblCalcio.setText("<"+CalculoValorIdeal.getCalcioidealinicial()+" y <"+CalculoValorIdeal.getCalcioidealfinal()+"g");
 		lblHidratos.setText(CalculoValorIdeal.getHidratosideal()+"g");
 		lblSal.setText(CalculoValorIdeal.getSalideal()+"g");
 
 		//parte valor user
-		lblGrasa_user.setText(CalculoValorIdeal.totalGrasaIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");
-		lblAzucar_user.setText(CalculoValorIdeal.totalAzucarIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");
-		lblProteina_user.setText(CalculoValorIdeal.totalProteinaIdeal(alimentos, usuario, alimentosElegidos, cantidadesElegidas)+"g");
-		lblPotasio_user.setText(CalculoValorIdeal.totalPotasioIdeal(alimentos, usuario, alimentosElegidos, cantidadesElegidas)+"mg");
-		lblHierro_user.setText(CalculoValorIdeal.totalHierroIdeal(alimentos, usuario, alimentosElegidos, cantidadesElegidas)+"mg");
-		lblCalcio_user.setText(CalculoValorIdeal.totalCalcioIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");
-		lblHidratos_user.setText(CalculoValorIdeal.totalHidratosIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");
-		lblSal_user.setText(CalculoValorIdeal.totalSalIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");
+		lblGrasaUser.setText(CalculoValorIdeal.totalGrasaIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");
+		lblAzucarUser.setText(CalculoValorIdeal.totalAzucarIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");
+		lblProteinaUser.setText(CalculoValorIdeal.totalProteinaIdeal(alimentos, usuario, alimentosElegidos, cantidadesElegidas)+"g");
+		lblPotasioUser.setText(CalculoValorIdeal.totalPotasioIdeal(alimentos, usuario, alimentosElegidos, cantidadesElegidas)+"mg");
+		lblHierroUser.setText(CalculoValorIdeal.totalHierroIdeal(alimentos, usuario, alimentosElegidos, cantidadesElegidas)+"mg");
+		lblCalcioUser.setText(CalculoValorIdeal.totalCalcioIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");
+		lblHidratosUser.setText(CalculoValorIdeal.totalHidratosIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");
+		lblSalUser.setText(CalculoValorIdeal.totalSalIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");
+
+		if (!CalculoValorIdeal.isGrasaIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)) {
+			lblGrasaUser.setForeground(Color.RED);
+			lblGrasaUser.setFont(new Font("Dialog", Font.BOLD, 13));
+		}
+
+		if (!CalculoValorIdeal.isAzucarIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)) {
+			lblAzucarUser.setForeground(Color.RED);
+			lblAzucarUser.setFont(new Font("Dialog", Font.BOLD, 13));
+		}
+
+		if (!CalculoValorIdeal.isProteinaIdeal(alimentos, usuario, alimentosElegidos, cantidadesElegidas)) {
+			lblProteinaUser.setForeground(Color.RED);
+			lblProteinaUser.setFont(new Font("Dialog", Font.BOLD, 13));
+		}
+
+		if (!CalculoValorIdeal.isPotasioIdeal(alimentos, usuario, alimentosElegidos, cantidadesElegidas)) {
+			lblPotasioUser.setForeground(Color.RED);
+			lblPotasioUser.setFont(new Font("Dialog", Font.BOLD, 13));
+		}
+
+		if (!CalculoValorIdeal.isHierroIdeal(alimentos, usuario, alimentosElegidos, cantidadesElegidas)) {
+			lblHierroUser.setForeground(Color.RED);
+			lblHierroUser.setFont(new Font("Dialog", Font.BOLD, 13));
+		}
+
+		if (!CalculoValorIdeal.isCalcioIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)) {
+			lblCalcioUser.setForeground(Color.RED);
+			lblCalcioUser.setFont(new Font("Dialog", Font.BOLD, 13));
+		}
+
+		if (CalculoValorIdeal.isHidratosIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)) {
+			lblHidratosUser.setForeground(Color.RED);
+			lblHidratosUser.setFont(new Font("Dialog", Font.BOLD, 13));
+		}
+
+		if (CalculoValorIdeal.isSalIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)) {
+			lblSalUser.setForeground(Color.RED);
+			lblSalUser.setFont(new Font("Dialog", Font.BOLD, 13));
+		}
 	}
 }
