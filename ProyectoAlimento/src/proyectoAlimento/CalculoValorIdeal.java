@@ -26,6 +26,10 @@ public class CalculoValorIdeal{
 	private final static double HIERROIDEALHOMBRE=3.8;
 	private final static double HIERROIDEALMUJER=2.3;
 
+	private static Alimento alimentos[];
+	private static ArraysToString<String> alimentosElegidos= new ArraysToString<>();
+	private static ArraysToString<Integer> cantidadesElegidas= new ArraysToString<>();
+
 	/**
 	 * 
 	 * @param GRASAINICIALIDEAL: Valor mínimo de grasas que debe ingerir una persona durante el día
@@ -43,7 +47,7 @@ public class CalculoValorIdeal{
 	 * @param HIERROIDEALHOMBRE: Valor ideal de hierro que debe ingerir un hombre durante el día
 	 * @param HIERROIDEALMUJER: Valor ideal de hierro que debe ingerir una mujer durante el día
 	 */
-	
+
 	public static double getGrasainicialideal() {
 		return GRASAINICIALIDEAL;
 	}
@@ -83,7 +87,7 @@ public class CalculoValorIdeal{
 	public static double getCalcioidealinicial() {
 		return CALCIOIDEALINICIAL;
 	}
-	
+
 	public static double getCalcioidealfinal() {
 		return CALCIOIDEALFINAL;
 	}
@@ -111,7 +115,7 @@ public class CalculoValorIdeal{
 	public static double totalGrasaIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
 		double grasas = 0;
-		double grasas_totales = 0;
+		double grasasTotales = 0;
 
 		int size = alimentosElegidos.size();
 		int length = alimentos.length;
@@ -120,16 +124,14 @@ public class CalculoValorIdeal{
 
 			for (int j=0; j<length; j++) {
 
-				String nombre_alimento = alimentos[j].getNombre();
-
-				if (alimentos[i].equals(nombre_alimento)) {
+				if (alimentosElegidos.get(i).equals(alimentos[j].getNombre())) {
 
 					String cantidad=cantidadesElegidas.get(i).toString();
-					int cantidad_elegida=Integer.parseInt(cantidad);
+					int cantidadElegida=Integer.parseInt(cantidad);
 
-					if (cantidad_elegida > 100 || cantidad_elegida < 100) {
+					if (cantidadElegida > 100 || cantidadElegida < 100) {
 
-						grasas += alimentos[j].getGrasas() * cantidad_elegida / 100;
+						grasas += alimentos[j].getGrasas() * cantidadElegida / 100;
 
 					}else
 
@@ -140,14 +142,10 @@ public class CalculoValorIdeal{
 			}
 
 		}
+		
+		grasasTotales += grasas;
 
-		grasas_totales += grasas;
-
-//		if (grasas_totales >= GRASAINICIALIDEAL && grasas_totales <= GRASAFINALIDEAL) { 
-//			return !isIdeal; // Devuelvo un boolean como true
-//		}else
-//			return isIdeal; //Devuelvo un boolean como false
-		return grasas_totales;
+		return grasasTotales;
 
 
 	}
@@ -161,7 +159,7 @@ public class CalculoValorIdeal{
 	public static double totalAzucarIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
 		double azucares = 0;
-		double azucares_totales = 0;
+		double azucaresTotales = 0;
 
 		int size = alimentosElegidos.size();
 		int length = alimentos.length;
@@ -170,16 +168,14 @@ public class CalculoValorIdeal{
 
 			for (int j=0; j<length; j++) {
 
-				String nombre_alimento = alimentos[j].getNombre();
-
-				if (alimentos[i].equals(nombre_alimento)) {
+				if (alimentosElegidos.get(i).equals(alimentos[j].getNombre())) {
 
 					String cantidad=cantidadesElegidas.get(i).toString();
-					int cantidad_elegida=Integer.parseInt(cantidad);
+					int cantidadElegida=Integer.parseInt(cantidad);
 
-					if (cantidad_elegida > 100 || cantidad_elegida < 100) {
+					if (cantidadElegida > 100 || cantidadElegida < 100) {
 
-						azucares += alimentos[j].getAzucar() * cantidad_elegida / 100;
+						azucares += alimentos[j].getAzucar() * cantidadElegida / 100;
 
 					}else
 
@@ -191,13 +187,9 @@ public class CalculoValorIdeal{
 
 		}
 
-		azucares_totales += azucares;
+		azucaresTotales += azucares;
 
-//		if (azucares_totales >= AZUCARINICIALIDEAL && azucares_totales <= AZUCARFINALIDEAL) {
-//			return !isIdeal;
-//		}else
-//			return isIdeal;
-		return azucares_totales;
+		return azucaresTotales;
 	}
 
 	/**
@@ -209,10 +201,10 @@ public class CalculoValorIdeal{
 
 	public static double totalProteinaIdeal(Alimento []alimentos, Persona persona, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
-		double proteinas_hombres = 0;
-		double proteinas_mujeres = 0;
-		double proteinas_totales_hombres = 0;		
-		double proteinas_totales_mujeres = 0;
+		double proteinasHombres= 0;
+		double proteinasMujeres = 0;
+		double proteinasTotalesHombres = 0;		
+		double proteinasTotalesMujeres = 0;
 
 		int size = alimentosElegidos.size();
 		int length = alimentos.length;
@@ -221,22 +213,20 @@ public class CalculoValorIdeal{
 
 			for (int j=0; j<length; j++) {
 
-				String nombre_alimento = alimentos[j].getNombre();
-
-				if (alimentos[i].equals(nombre_alimento)) {
+				if (alimentosElegidos.get(i).equals(alimentos[j].getNombre())) {
 
 					String cantidad=cantidadesElegidas.get(i).toString();
-					int cantidad_elegida=Integer.parseInt(cantidad);
+					int cantidadElegida=Integer.parseInt(cantidad);
 
-					if (cantidad_elegida > 100 || cantidad_elegida < 100) {
+					if (cantidadElegida > 100 || cantidadElegida < 100) {
 
-						proteinas_hombres += alimentos[j].getProteinas() * cantidad_elegida / 100;
-						proteinas_mujeres += alimentos[j].getProteinas() * cantidad_elegida / 100;
+						proteinasHombres += alimentos[j].getProteinas() * cantidadElegida / 100;
+						proteinasMujeres += alimentos[j].getProteinas() * cantidadElegida / 100;
 
 					}else
 
-						proteinas_hombres += alimentos[j].getProteinas();
-					proteinas_mujeres += alimentos[j].getProteinas();
+						proteinasHombres += alimentos[j].getProteinas();
+					proteinasMujeres += alimentos[j].getProteinas();
 
 				}
 
@@ -244,21 +234,13 @@ public class CalculoValorIdeal{
 
 		}
 
-		proteinas_totales_hombres+= proteinas_hombres;		
-		proteinas_totales_mujeres += proteinas_mujeres;
+		proteinasTotalesHombres+= proteinasHombres;		
+		proteinasTotalesMujeres += proteinasMujeres;
 
-
-//		if (proteinas_totales_hombres == PROTEINAIDEALHOMBRE) {
-//			return !isIdeal;
-//		}else if (proteinas_totales_mujeres == PROTEINAIDEALMUJER) {
-//			return !isIdeal;
-//		}else 
-//			return isIdeal;
-		
 		if (persona.getSexo().equalsIgnoreCase("mujer")) {
-			return proteinas_totales_mujeres;
+			return proteinasTotalesMujeres;
 		}else{
-			return proteinas_totales_hombres;
+			return proteinasTotalesHombres;
 		}
 
 	}
@@ -272,7 +254,7 @@ public class CalculoValorIdeal{
 	public static double totalHidratosIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
 		double hidratos = 0;
-		double hidratos_totales = 0;
+		double hidratosTotales = 0;
 
 		int size = alimentosElegidos.size();
 		int length = alimentos.length;
@@ -281,16 +263,14 @@ public class CalculoValorIdeal{
 
 			for (int j=0; j<length; j++) {
 
-				String nombre_alimento = alimentos[j].getNombre();
-
-				if (alimentos[i].equals(nombre_alimento)) {
+				if (alimentosElegidos.get(i).equals(alimentos[j].getNombre())) {
 
 					String cantidad=cantidadesElegidas.get(i).toString();
-					int cantidad_elegida=Integer.parseInt(cantidad);
+					int cantidadElegida=Integer.parseInt(cantidad);
 
-					if (cantidad_elegida > 100 || cantidad_elegida < 100) {
+					if (cantidadElegida > 100 || cantidadElegida < 100) {
 
-						hidratos += alimentos[j].getHidratos() * cantidad_elegida / 100;
+						hidratos += alimentos[j].getHidratos() * cantidadElegida / 100;
 
 					}else
 
@@ -302,13 +282,9 @@ public class CalculoValorIdeal{
 
 		}
 
-		hidratos_totales += hidratos;
+		hidratosTotales += hidratos;
 
-//		if (hidratos_totales == HIDRATOSIDEAL) {
-//			return !isIdeal;
-//		}else
-//			return isIdeal;
-		return hidratos_totales;
+		return hidratosTotales;
 	}
 
 	/**
@@ -320,10 +296,10 @@ public class CalculoValorIdeal{
 
 	public static double totalPotasioIdeal(Alimento []alimentos, Persona persona, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
-		double potasio_hombres = 0;
-		double potasio_mujeres = 0;
-		double potasio_total_hombres = 0;
-		double potasio_total_mujeres = 0;
+		double potasioHombres = 0;
+		double potasioMujeres = 0;
+		double potasioTotalHombres = 0;
+		double potasioTotalMujeres = 0;
 
 		int size = alimentosElegidos.size();
 		int length = alimentos.length;
@@ -332,22 +308,20 @@ public class CalculoValorIdeal{
 
 			for (int j=0; j<length; j++) {
 
-				String nombre_alimento = alimentos[j].getNombre();
-
-				if (alimentos[i].equals(nombre_alimento)) {
+				if (alimentosElegidos.get(i).equals(alimentos[j].getNombre())) {
 
 					String cantidad=cantidadesElegidas.get(i).toString();
-					int cantidad_elegida=Integer.parseInt(cantidad);
+					int cantidadElegida=Integer.parseInt(cantidad);
 
-					if (cantidad_elegida > 100 || cantidad_elegida < 100) {
+					if (cantidadElegida > 100 || cantidadElegida < 100) {
 
-						potasio_hombres += alimentos[j].getPotasio() * cantidad_elegida / 100;
-						potasio_mujeres += alimentos[j].getPotasio() * cantidad_elegida / 100;
+						potasioHombres += alimentos[j].getPotasio() * cantidadElegida / 100;
+						potasioMujeres += alimentos[j].getPotasio() * cantidadElegida / 100;
 
 					}else
 
-						potasio_hombres += alimentos[j].getPotasio();
-					potasio_mujeres += alimentos[j].getPotasio();
+						potasioHombres += alimentos[j].getPotasio();
+					potasioMujeres += alimentos[j].getPotasio();
 
 				}
 
@@ -355,22 +329,15 @@ public class CalculoValorIdeal{
 
 		}
 
-		potasio_total_hombres+= potasio_hombres;		
-		potasio_total_mujeres += potasio_mujeres;
+		potasioTotalHombres+= potasioHombres;		
+		potasioTotalMujeres += potasioMujeres;
 
-
-//		if (potasio_total_hombres == POTASIOIDEALHOMBRE) {
-//			return !isIdeal;
-//		}else if (potasio_total_mujeres == POTASIOIDEALMUJER) {
-//			return !isIdeal;
-//		}else 
-//			return isIdeal;
 		if (persona.getSexo().equalsIgnoreCase("mujer")) {
-			return potasio_total_mujeres;
+			return potasioTotalMujeres;
 		}else{
-			return potasio_total_hombres;
+			return potasioTotalHombres;
 		}
-		
+
 	}
 
 	/**
@@ -382,7 +349,7 @@ public class CalculoValorIdeal{
 	public static double totalCalcioIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
 		double calcio = 0;
-		double calcio_total = 0;
+		double calcioTotal = 0;
 
 		int size = alimentosElegidos.size();
 		int length = alimentos.length;
@@ -391,16 +358,14 @@ public class CalculoValorIdeal{
 
 			for (int j=0; j<length; j++) {
 
-				String nombre_alimento = alimentos[j].getNombre();
-
-				if (alimentos[i].equals(nombre_alimento)) {
+				if (alimentosElegidos.get(i).equals(alimentos[j].getNombre())) {
 
 					String cantidad=cantidadesElegidas.get(i).toString();
-					int cantidad_elegida=Integer.parseInt(cantidad);
+					int cantidadElegida=Integer.parseInt(cantidad);
 
-					if (cantidad_elegida > 100 || cantidad_elegida < 100) {
+					if (cantidadElegida > 100 || cantidadElegida < 100) {
 
-						calcio += alimentos[j].getCalcio() * cantidad_elegida / 100;
+						calcio += alimentos[j].getCalcio() * cantidadElegida / 100;
 
 					}else
 
@@ -412,14 +377,10 @@ public class CalculoValorIdeal{
 
 		}
 
-		calcio_total += calcio;
+		calcioTotal += calcio;
 
-//		if (calcio_total >= CALCIOIDEALINICIAL && calcio_total <= CALCIOIDEALFINAL) {
-//			return !isIdeal;
-//		}else
-//			return isIdeal;
-		return calcio_total;
-		
+		return calcioTotal;
+
 	}
 
 	/**
@@ -431,7 +392,7 @@ public class CalculoValorIdeal{
 	public static double totalSalIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
 		double sal = 0;
-		double sal_total = 0;
+		double salTotal = 0;
 
 		int size = alimentosElegidos.size();
 		int length = alimentos.length;
@@ -440,16 +401,14 @@ public class CalculoValorIdeal{
 
 			for (int j=0; j<length; j++) {
 
-				String nombre_alimento = alimentos[j].getNombre();
-
-				if (alimentos[i].equals(nombre_alimento)) {
+				if (alimentosElegidos.get(i).equals(alimentos[j].getNombre())) {
 
 					String cantidad=cantidadesElegidas.get(i).toString();
-					int cantidad_elegida=Integer.parseInt(cantidad);
+					int cantidadElegida=Integer.parseInt(cantidad);
 
-					if (cantidad_elegida > 100 || cantidad_elegida < 100) {
+					if (cantidadElegida > 100 || cantidadElegida < 100) {
 
-						sal += alimentos[j].getSal() * cantidad_elegida / 100;
+						sal += alimentos[j].getSal() * cantidadElegida / 100;
 
 					}else
 
@@ -461,15 +420,10 @@ public class CalculoValorIdeal{
 
 		}
 
-		sal_total += sal;
+		salTotal += sal;
 
+		return salTotal;
 
-//		if (sal_total == SALIDEAL) {
-//			return !isIdeal;
-//		}else
-//			return isIdeal;
-		return sal_total;
-		
 	}
 
 	/**
@@ -481,10 +435,10 @@ public class CalculoValorIdeal{
 
 	public static double totalHierroIdeal(Alimento []alimentos, Persona persona, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
-		double hierro_hombres = 0;
-		double hierro_mujeres = 0;		
-		double hierro_total_hombres = 0;
-		double hierro_total_mujeres = 0;
+		double hierroHombres = 0;
+		double hierroMujeres = 0;		
+		double hierroTotalHombres = 0;
+		double hierroTotalMujeres = 0;
 
 		int size = alimentosElegidos.size();
 		int length = alimentos.length;
@@ -493,22 +447,20 @@ public class CalculoValorIdeal{
 
 			for (int j=0; j<length; j++) {
 
-				String nombre_alimento = alimentos[j].getNombre();
-
-				if (alimentos[i].equals(nombre_alimento)) {
+				if (alimentosElegidos.get(i).equals(alimentos[j].getNombre())) {
 
 					String cantidad=cantidadesElegidas.get(i).toString();
-					int cantidad_elegida=Integer.parseInt(cantidad);
+					int cantidadElegida=Integer.parseInt(cantidad);
 
-					if (cantidad_elegida > 100 || cantidad_elegida < 100) {
+					if (cantidadElegida > 100 || cantidadElegida < 100) {
 
-						hierro_hombres += alimentos[j].getHierro() * cantidad_elegida / 100;
-						hierro_mujeres += alimentos[j].getHierro() * cantidad_elegida / 100;
+						hierroHombres += alimentos[j].getHierro() * cantidadElegida / 100;
+						hierroMujeres += alimentos[j].getHierro() * cantidadElegida / 100;
 
 					}else
 
-						hierro_hombres += alimentos[j].getHierro();
-					hierro_mujeres += alimentos[j].getHierro();
+						hierroHombres += alimentos[j].getHierro();
+					hierroMujeres += alimentos[j].getHierro();
 
 				}
 
@@ -516,21 +468,133 @@ public class CalculoValorIdeal{
 
 		}
 
-		hierro_total_hombres+= hierro_hombres;		
-		hierro_total_mujeres += hierro_mujeres;
+		hierroTotalHombres+= hierroHombres;		
+		hierroTotalMujeres += hierroMujeres;
 
-//		if (hierro_total_hombres == HIERROIDEALHOMBRE) {
-//			return !isIdeal;
-//		}else if (hierro_total_mujeres == HIERROIDEALMUJER) {
-//			return !isIdeal;
-//		}else 
-//			return isIdeal;
-		
 		if (persona.getSexo().equalsIgnoreCase("mujer")) {
-			return hierro_total_mujeres;
+			return hierroTotalMujeres;
 		}else{
-			return hierro_total_hombres;
+			return hierroTotalHombres;
 		}
 
 	}
+
+	public static boolean isGrasaIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
+
+		boolean isIdeal=true;
+
+		double grasasTotales = totalGrasaIdeal(alimentos, alimentosElegidos, cantidadesElegidas);
+
+		if (grasasTotales >= GRASAINICIALIDEAL && grasasTotales <= GRASAFINALIDEAL) { 
+			return isIdeal; // Devuelvo un boolean como true
+		}else
+			return !isIdeal; //Devuelvo un boolean como false
+
+
+
+	}
+
+	public static boolean isAzucarIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
+
+		boolean isIdeal=true;
+
+		double azucarTotal = totalAzucarIdeal(alimentos, alimentosElegidos, cantidadesElegidas);
+
+		if (azucarTotal >= AZUCARINICIALIDEAL && azucarTotal <= AZUCARFINALIDEAL) {
+			return isIdeal;
+		}else
+			return !isIdeal;
+
+
+	}
+
+	public static boolean isProteinaIdeal(Alimento []alimentos, Persona persona, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
+
+		boolean isIdeal = true;
+
+		double proteinasTotalesHombre = totalProteinaIdeal(alimentos,persona, alimentosElegidos, cantidadesElegidas);
+		double proteinasTotalesMujer = totalProteinaIdeal(alimentos,persona, alimentosElegidos, cantidadesElegidas);
+
+		if (proteinasTotalesHombre == PROTEINAIDEALHOMBRE) {
+			return isIdeal;
+		}else if (proteinasTotalesMujer == PROTEINAIDEALMUJER) {
+			return isIdeal;
+		}else 
+			return !isIdeal;
+
+	}
+
+	public static boolean isHidratosIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
+
+		boolean isIdeal = true;
+
+		double hidratosTotales = totalHidratosIdeal(alimentos, alimentosElegidos, cantidadesElegidas);
+
+		if (hidratosTotales == HIDRATOSIDEAL) {
+			return isIdeal;
+		}else
+			return !isIdeal;
+
+	}
+
+	public static boolean isPotasioIdeal(Alimento []alimentos, Persona persona, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
+
+		boolean isIdeal = true;
+
+		double potasioTotalHombre = totalProteinaIdeal(alimentos,persona, alimentosElegidos, cantidadesElegidas);
+		double potasioTotalMujer = totalProteinaIdeal(alimentos,persona, alimentosElegidos, cantidadesElegidas);
+
+		if (potasioTotalHombre == POTASIOIDEALHOMBRE) {
+			return isIdeal;
+		}else if (potasioTotalMujer == POTASIOIDEALMUJER) {
+			return isIdeal;
+		}else 
+			return !isIdeal;
+
+	}
+
+	public static boolean isCalcioIdeal(Alimento []alimentos,ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
+
+		boolean isIdeal = true;
+
+		double calcioTotal = totalCalcioIdeal(alimentos, alimentosElegidos, cantidadesElegidas);
+
+
+		if (calcioTotal >= CALCIOIDEALINICIAL && calcioTotal <= CALCIOIDEALFINAL) {
+			return isIdeal;
+		}else
+			return !isIdeal;
+
+	}
+
+	public static boolean isSalIdeal(Alimento []alimentos,ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
+
+		boolean isIdeal = true;
+
+		double salTotal = totalSalIdeal(alimentos, alimentosElegidos, cantidadesElegidas);
+
+		if (salTotal == SALIDEAL) {
+			return isIdeal;
+		}else
+			return !isIdeal;
+
+	}
+
+	public static boolean isHierroIdeal(Alimento []alimentos, Persona persona, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
+
+		boolean isIdeal = true;
+
+		double hierroTotalHombre = totalHierroIdeal(alimentos,persona, alimentosElegidos, cantidadesElegidas);
+		double hierroTotalMujer = totalHierroIdeal(alimentos,persona, alimentosElegidos, cantidadesElegidas);
+
+
+		if (hierroTotalHombre == HIERROIDEALHOMBRE) {
+			return isIdeal;
+		}else if (hierroTotalMujer == HIERROIDEALMUJER) {
+			return isIdeal;
+		}else 
+			return !isIdeal;
+
+	}
+
 }
