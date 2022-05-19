@@ -79,15 +79,24 @@ public class ValoresNutritivos {
 			new ImageIcon(new ImageIcon("img/Costillas.jpg").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//12
 			new ImageIcon(new ImageIcon("img/Arroz.png").getImage().getScaledInstance(246, 246, Image.SCALE_DEFAULT)),//13
 	};
-	private ArraysToString<String> alimentosElegidos= new ArraysToString<>();
-	private ArraysToString<Integer> cantidadesElegidas= new ArraysToString<>();
+	private static ArraysToString<String> alimentosElegidos= new ArraysToString<>();
+	private static ArraysToString<Integer> cantidadesElegidas= new ArraysToString<>();
 	/**
 	 * Launch the application.
 	 * @param usuario 
 	 */
+	private static JSpinner cantidadGramos = new JSpinner();
+	private static	JEditorPane txtAlimentosElegidos = new JEditorPane();
+	private static 	JEditorPane txtCantidadesElegidas = new JEditorPane();
+	private JButton btnValoresNtr = new JButton("Comprobar Valores Nutritivos");
+
 	
-	public static void arrancar(Persona usuario) { /*Metodo para arrancar la segunda ventana*/
+	public static void arrancar(Persona usuario, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas, Boolean blnAlimentos) { /*Metodo para arrancar la segunda ventana*/
 		ValoresNutritivos.usuario=usuario;
+		ValoresNutritivos.alimentosElegidos=alimentosElegidos;
+		ValoresNutritivos.cantidadesElegidas=cantidadesElegidas;
+		ValoresNutritivos.hayAlimentos=blnAlimentos;
+		
 		/*el user que va a ser pasado a la clase ResultadoUser es el mismo que el user mandado a esta clase en la clase DatosUsuario*/
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -101,6 +110,15 @@ public class ValoresNutritivos {
 		});
 	}
 
+	public void restaurarValores() {
+		if (cantidadesElegidas.size()>0) {
+			txtAlimentosElegidos.setText(alimentosElegidos.toString());
+			txtCantidadesElegidas.setText(cantidadesElegidas.toString());
+			cantidadGramos.setValue(100);
+			btnValoresNtr.setEnabled(hayAlimentos);
+		}
+	}
+	
 	public static boolean isHayAlimentos() {
 		return hayAlimentos;
 	}
@@ -116,7 +134,9 @@ public class ValoresNutritivos {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-
+		
+		restaurarValores() ;
+		
 		ventanaCalc = new JFrame();
 		ventanaCalc.setResizable(false);
 		ventanaCalc.getContentPane().setBackground(new Color(236, 224, 251));
@@ -226,7 +246,6 @@ public class ValoresNutritivos {
 		lblcuntaCantidadHas.setBounds(49, 79, 280, 32);
 		ventanaCalc.getContentPane().add(lblcuntaCantidadHas);
 
-		JSpinner cantidadGramos = new JSpinner();
 		cantidadGramos.setEnabled(false);
 		cantidadGramos.setModel(new SpinnerNumberModel(new Integer(100), new Integer(10), null, new Integer(1)));
 		cantidadGramos.setFont(new Font("Dialog", Font.BOLD, 16));
@@ -417,14 +436,12 @@ public class ValoresNutritivos {
 		lblKiloCalorias.setBounds(671, 169, 38, 32);
 		ventanaCalc.getContentPane().add(lblKiloCalorias);
 
-		JEditorPane txtAlimentosElegidos = new JEditorPane();
 		txtAlimentosElegidos.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtAlimentosElegidos.setEditable(false);
 		txtAlimentosElegidos.setBackground(FONDO_COLOR);
 		txtAlimentosElegidos.setBounds(801, 79, 233, 726);
 		ventanaCalc.getContentPane().add(txtAlimentosElegidos);
 
-		JEditorPane txtCantidadesElegidas = new JEditorPane();
 		txtCantidadesElegidas.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtCantidadesElegidas.setEditable(false);
 		txtCantidadesElegidas.setBounds(1085, 79, 154, 726);
@@ -468,7 +485,6 @@ public class ValoresNutritivos {
 		lblEspecificarGramos.setBounds(487, 79, 25, 32);
 		ventanaCalc.getContentPane().add(lblEspecificarGramos);
 		
-		JButton btnValoresNtr = new JButton("Comprobar Valores Nutritivos");
 		btnValoresNtr.setEnabled(false);
 		btnValoresNtr.setFont(new Font("Dialog", Font.BOLD, 16));
 		btnValoresNtr.setBounds(756, 871, 265, 45);
@@ -521,21 +537,19 @@ public class ValoresNutritivos {
 					alimentosElegidos.add((String) selectAlimentos.getSelectedItem());
 					cantidadesElegidas.add((Integer) cantidadGramos.getValue());
 				}
-				txtAlimentosElegidos.setText(alimentosElegidos.toString());
-				txtCantidadesElegidas.setText(cantidadesElegidas.toString());
-				cantidadGramos.setValue(100);
+				restaurarValores();
 			}
 		});
 		btnEstadoFisico.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventanaCalc.setVisible(false);
-				ResultadosUserEstado.estado(usuario, hayAlimentos, alimento, alimentosElegidos, cantidadesElegidas); /*misma acción que en la ventana main pero hacia la tercera ventana, le pasamos la misma persona*/
+				ResultadosUserEstado.estado(usuario, hayAlimentos, alimento, alimentosElegidos, cantidadesElegidas); /*misma acción que en la ventana main pero hacia la tercera ventana pasando los mismos valores (persona, alimentos elegidos, etc) más el booleano para saber si puede abrir ResultadosUserValoresNtr*/
 			}
 		});
 		btnValoresNtr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventanaCalc.setVisible(false);
-				ResultadosUserValoresNtr.valores(usuario, alimento, alimentosElegidos, cantidadesElegidas);/*misma acción que en la ventana main pero hacia la cuarta ventana, le pasamos la misma persona*/
+				ResultadosUserValoresNtr.valores(usuario, alimento, alimentosElegidos, cantidadesElegidas);/*misma acción que en la ventana main pero hacia la cuarta ventana pasando los mismos valores (persona, alimentos elegidos, etc)*/
 			}
 		});
 	}

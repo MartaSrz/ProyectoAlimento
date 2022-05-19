@@ -11,6 +11,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -112,18 +113,33 @@ public class ResultadosUserEstado {
 		txtpnIrAValores.setText("Si quieres comprobar que tomaste los adecuados valores nutritivos respecto grasas, azucares, ect.,\n\npulsa aquí :");
 		txtpnIrAValores.setBounds(709, 304, 255, 116);
 		frmCalcularPesoIdeal.getContentPane().add(txtpnIrAValores);
+		
+		JButton volverAValoresNutritivos = new JButton("");
+		volverAValoresNutritivos.setBackground(FONDO_COLOR);
+		volverAValoresNutritivos.setBounds(10, 11, 48, 46);
+		volverAValoresNutritivos.setBorderPainted(false);
+		frmCalcularPesoIdeal.getContentPane().add(volverAValoresNutritivos);
 
 		//ZONA TRABAJO
 		ImageIcon estadoFisico=new ImageIcon("img/estadofisico.png");
 		lblLabelImagen.setIcon(estadoFisico);
 
+		ImageIcon flecha=new ImageIcon("img/flecha.png");
+		flecha.getImage().getScaledInstance(48, 46, Image.SCALE_DEFAULT);
+		volverAValoresNutritivos.setIcon(flecha);
 
 		IrAValores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmCalcularPesoIdeal.setVisible(false);
-				ResultadosUserValoresNtr.valores(usuario, alimentos, alimentosElegidos, cantidadesElegidas);/*misma acción que en la ventana main pero hacia la cuarta ventana, le pasamos la misma persona*/
+				ResultadosUserValoresNtr.valores(usuario, alimentos, alimentosElegidos, cantidadesElegidas);/*misma acción que en la ventana main pero hacia la cuarta ventana, pasando los mismos valores (persona, alimentos elegidos, etc)*/
 			}});
-
+		
+		volverAValoresNutritivos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmCalcularPesoIdeal.setVisible(false);
+				ValoresNutritivos.arrancar(usuario, alimentosElegidos, cantidadesElegidas, hayAlimentos);/*misma acción que en la ventana main, pasando el mismo valor (persona y el booleano para seber si puede o no activar el botón de "Comprobar valores nutritivos")*/
+			}
+		});
 
 	}
 }

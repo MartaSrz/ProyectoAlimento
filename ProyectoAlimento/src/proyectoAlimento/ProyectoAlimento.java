@@ -37,6 +37,8 @@ public class ProyectoAlimento{
 	private final Color FONDO_COLOR_TITULO = new Color(255,255,221);
 	private final Color FONDO_COLOR = new Color(236,224,251);
 	private final String DEFECTO_TXTNOMBRE="Escribe tu nombre...";
+	private static ArraysToString<String> alimentosElegidos= new ArraysToString<>();
+	private static ArraysToString<Integer> cantidadesElegidas= new ArraysToString<>();
 
 
 	/**
@@ -258,7 +260,7 @@ public class ProyectoAlimento{
 					int edad= Integer.parseInt(spinner_anyos.getValue().toString());
 					Persona usuario = new Persona(txtNombre.getText(), sexo, peso , altura, edad); /*Objeto de tipo persona con los datos del usuario*/
 					frame.setVisible(false); /*Se cierra la ventana inicial*/
-					ValoresNutritivos.arrancar(usuario); /*Se arranca ValoresNutritivos pasándole como parametro el objeto de tipo Persona*/
+					ValoresNutritivos.arrancar(usuario, alimentosElegidos, cantidadesElegidas, false); /*Se arranca ValoresNutritivos pasándole como parametro el objeto de tipo Persona*/
 				}
 			}
 		});

@@ -11,6 +11,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -253,14 +254,31 @@ public class ResultadosUserValoresNtr {
 		lblNewLabel_2_7.setFont(new Font("Dialog", Font.BOLD, 13));
 		lblNewLabel_2_7.setBounds(928, 133, 74, 14);
 		frmCalcularValores.getContentPane().add(lblNewLabel_2_7);
+		
+		JButton volverAValoresNutritivos = new JButton("");
+		volverAValoresNutritivos.setBackground(FONDO_COLOR);
+		volverAValoresNutritivos.setBounds(10, 11, 48, 46);
+		volverAValoresNutritivos.setBorderPainted(false);
+		frmCalcularValores.getContentPane().add(volverAValoresNutritivos);
 
 		//ZONA TRABAJO
 		IrAEstado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmCalcularValores.setVisible(false);
-				ResultadosUserEstado.estado(usuario, true, alimentos, alimentosElegidos, cantidadesElegidas);/*misma acción que en la ventana main pero hacia la cuarta ventana, le pasamos la misma persona*/
+				ResultadosUserEstado.estado(usuario, true, alimentos, alimentosElegidos, cantidadesElegidas);/*misma acción que en la ventana main pero hacia la cuarta ventana,pasando los mismos valores (persona, alimentos elegidos, etc) el true es porque puede abrir esta ventana a través de ResultadosUserEstado*/
 			}});
-
+		
+		volverAValoresNutritivos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frmCalcularValores.setVisible(false);
+				ValoresNutritivos.arrancar(usuario, alimentosElegidos, cantidadesElegidas, true);/*misma acción que en la ventana main, pasando el mismo valor (persona y true porque puede abrir esta ventana a través de ValoresNutritivos)*/
+			}
+		});
+		
+		ImageIcon flecha=new ImageIcon("img/flecha.png");
+		flecha.getImage().getScaledInstance(48, 46, Image.SCALE_DEFAULT);
+		volverAValoresNutritivos.setIcon(flecha);
+		
 		//parte valor ideal
 		lblGrasa.setText("<"+CalculoValorIdeal.getGrasainicialideal()+" y <"+CalculoValorIdeal.getGrasafinalideal()+"g");
 		lblAzucar.setText("<"+CalculoValorIdeal.getAzucarinicialideal()+" y <"+CalculoValorIdeal.getAzucarfinalideal()+"g");
@@ -286,6 +304,12 @@ public class ResultadosUserValoresNtr {
 		lblCalcioUser.setText(CalculoValorIdeal.totalCalcioIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");
 		lblHidratosUser.setText(CalculoValorIdeal.totalHidratosIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");
 		lblSalUser.setText(CalculoValorIdeal.totalSalIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");
+		
+		JLabel lblNewLabel_3 = new JLabel("Atrás");
+		lblNewLabel_3.setFont(new Font("Dialog", Font.ITALIC, 11));
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_3.setBounds(10, 56, 46, 14);
+		frmCalcularValores.getContentPane().add(lblNewLabel_3);
 
 		if (!CalculoValorIdeal.isGrasaIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)) {
 			lblGrasaUser.setForeground(Color.RED);
