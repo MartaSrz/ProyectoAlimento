@@ -281,7 +281,7 @@ public class ResultadosUserValoresNtr {
 		
 		//parte valor ideal
 		lblGrasa.setText("<"+CalculoValorIdeal.getGrasainicialideal()+" y <"+CalculoValorIdeal.getGrasafinalideal()+"g");
-		lblAzucar.setText("<"+CalculoValorIdeal.getAzucarinicialideal()+" y <"+CalculoValorIdeal.getAzucarfinalideal()+"g");
+		lblAzucar.setText("< o ="+CalculoValorIdeal.getAzucarideal()+"g");
 		if (usuario.getSexo().equalsIgnoreCase("mujer")) {
 			lblProteina.setText(CalculoValorIdeal.getProteinaidealmujer()+"g");
 			lblPotasio.setText(CalculoValorIdeal.getPotasioidealmujer()+"mg");
@@ -293,7 +293,7 @@ public class ResultadosUserValoresNtr {
 		}
 		lblCalcio.setText("<"+CalculoValorIdeal.getCalcioidealinicial()+" y <"+CalculoValorIdeal.getCalcioidealfinal()+"g");
 		lblHidratos.setText(CalculoValorIdeal.getHidratosideal()+"g");
-		lblSal.setText(CalculoValorIdeal.getSalideal()+"g");
+		lblSal.setText("< o ="+CalculoValorIdeal.getSalideal()+"g");
 
 		//parte valor user
 		lblGrasaUser.setText(CalculoValorIdeal.totalGrasaIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");

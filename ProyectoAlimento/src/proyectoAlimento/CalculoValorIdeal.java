@@ -11,17 +11,16 @@ import java.util.LinkedList;
 
 public class CalculoValorIdeal{
 
-	private final static double GRASAINICIALIDEAL=44.0;
-	private final static double GRASAFINALIDEAL=76.0;
-	private final static double AZUCARINICIALIDEAL=25.0;
-	private final static double AZUCARFINALIDEAL=30.0;
+	private final static double GRASAINICIALIDEAL=60.0;
+	private final static double GRASAFINALIDEAL=80.0;
+	private final static double AZUCARIDEAL=25.0;
 	private final static double PROTEINAIDEALHOMBRE=56.0;
 	private final static double PROTEINAIDEALMUJER=46.0;
 	private final static double HIDRATOSIDEAL=135.0;
 
 	private final static double POTASIOIDEALHOMBRE=3400.0;
 	private final static double POTASIOIDEALMUJER=2600.0;
-	private final static double CALCIOIDEALINICIAL=1.0;
+	private final static double CALCIOIDEALINICIAL=1.2;
 	private final static double CALCIOIDEALFINAL=1.3;
 	private static final double SALIDEAL=5.0;
 	private final static double HIERROIDEALHOMBRE=3800.0;
@@ -36,7 +35,6 @@ public class CalculoValorIdeal{
 	 * @param GRASAINICIALIDEAL: Valor mínimo de grasas (en gramos) que debe ingerir una persona durante el día
 	 * @param GRASAFINALIDEAL: Valor máximo de grasas (en gramos) que debe ingerir una persona durante el día
 	 * @param AZUCARINICIALIDEAL: Valor mínimo de azúcar (en gramos) que debe ingerir una persona durante el día
-	 * @param AZUCARFINALIDEAL: Valor máximo de azúcar (en gramos) que debe ingerir una persona durante el día
 	 * @param PROTEINAIDEALHOMBRE: Valor ideal de proteínas (en gramos) que debe ingerir un hombre durante el día
 	 * @param PROTEINAIDEALMUJER: Valor ideal de proteínas (en gramos) que debe ingerir una mujer durante el día
 	 * @param HIDRATOSIDEAL: Valor ideal de hidratos (en gramos) que debe ingerir una persona durante el día
@@ -57,12 +55,8 @@ public class CalculoValorIdeal{
 		return GRASAFINALIDEAL;
 	}
 
-	public static double getAzucarinicialideal() {
-		return AZUCARINICIALIDEAL;
-	}
-
-	public static double getAzucarfinalideal() {
-		return AZUCARFINALIDEAL;
+	public static double getAzucarideal() {
+		return AZUCARIDEAL;
 	}
 
 	public static double getProteinaidealhombre() {
@@ -501,7 +495,7 @@ public class CalculoValorIdeal{
 
 		double azucarTotal = totalAzucarIdeal(alimentos, alimentosElegidos, cantidadesElegidas);
 
-		if (azucarTotal >= AZUCARINICIALIDEAL && azucarTotal <= AZUCARFINALIDEAL) {
+		if (azucarTotal <= AZUCARIDEAL) {
 			return isIdeal;
 		}else
 			return !isIdeal;
@@ -573,7 +567,7 @@ public class CalculoValorIdeal{
 
 		double salTotal = totalSalIdeal(alimentos, alimentosElegidos, cantidadesElegidas);
 
-		if (salTotal == SALIDEAL) {
+		if (salTotal <= SALIDEAL) {
 			return isIdeal;
 		}else
 			return !isIdeal;
