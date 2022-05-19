@@ -18,14 +18,14 @@ public class CalculoValorIdeal{
 	private final static double PROTEINAIDEALHOMBRE=56.0;
 	private final static double PROTEINAIDEALMUJER=46.0;
 	private final static double HIDRATOSIDEAL=135.0;
-	
-	private final static double POTASIOIDEALHOMBRE=3.4;
-	private final static double POTASIOIDEALMUJER=2.6;
+
+	private final static double POTASIOIDEALHOMBRE=3400.0;
+	private final static double POTASIOIDEALMUJER=2600.0;
 	private final static double CALCIOIDEALINICIAL=1.0;
 	private final static double CALCIOIDEALFINAL=1.3;
 	private static final double SALIDEAL=5.0;
-	private final static double HIERROIDEALHOMBRE=3.8;
-	private final static double HIERROIDEALMUJER=2.3;
+	private final static double HIERROIDEALHOMBRE=3800.0;
+	private final static double HIERROIDEALMUJER=2300.0;
 
 	private static Alimento alimentos[];
 	private static ArraysToString<String> alimentosElegidos= new ArraysToString<>();
@@ -33,20 +33,20 @@ public class CalculoValorIdeal{
 
 	/**
 	 * 
-	 * @param GRASAINICIALIDEAL: Valor mínimo de grasas que debe ingerir una persona durante el día
-	 * @param GRASAFINALIDEAL: Valor máximo de grasas que debe ingerir una persona durante el día
-	 * @param AZUCARINICIALIDEAL: Valor mínimo de azúcar que debe ingerir una persona durante el día
-	 * @param AZUCARFINALIDEAL: Valor máximo de azúcar que debe ingerir una persona durante el día
-	 * @param PROTEINAIDEALHOMBRE: Valor ideal de proteínas que debe ingerir un hombre durante el día
-	 * @param PROTEINAIDEALMUJER: Valor ideal de proteínas que debe ingerir una mujer durante el día
-	 * @param HIDRATOSIDEAL: Valor ideal de hidratos que debe ingerir una persona durante el día
-	 * @param POTASIOIDEALHOMBRE: Valor ideal de potasio que debe ingerir un hombre durante el día
-	 * @param POTASIOIDEALMUJER: Valor ideal de potasio que debe ingerir una mujer durante el día
-	 * @param CALCIOIDEALINICIAL: Valor mínimo de calcio que debe ingerir una persona durante el día
-	 * @param CALCIOIDEALFINAL: Valor máximo de calcio que debe ingerir una persona durante el día
-	 * @param SALIDEAL: Valor ideal de sal que debe ingerir una persona durante el día
-	 * @param HIERROIDEALHOMBRE: Valor ideal de hierro que debe ingerir un hombre durante el día
-	 * @param HIERROIDEALMUJER: Valor ideal de hierro que debe ingerir una mujer durante el día
+	 * @param GRASAINICIALIDEAL: Valor mínimo de grasas (en gramos) que debe ingerir una persona durante el día
+	 * @param GRASAFINALIDEAL: Valor máximo de grasas (en gramos) que debe ingerir una persona durante el día
+	 * @param AZUCARINICIALIDEAL: Valor mínimo de azúcar (en gramos) que debe ingerir una persona durante el día
+	 * @param AZUCARFINALIDEAL: Valor máximo de azúcar (en gramos) que debe ingerir una persona durante el día
+	 * @param PROTEINAIDEALHOMBRE: Valor ideal de proteínas (en gramos) que debe ingerir un hombre durante el día
+	 * @param PROTEINAIDEALMUJER: Valor ideal de proteínas (en gramos) que debe ingerir una mujer durante el día
+	 * @param HIDRATOSIDEAL: Valor ideal de hidratos (en gramos) que debe ingerir una persona durante el día
+	 * @param POTASIOIDEALHOMBRE: Valor ideal de potasio (en miligramos) que debe ingerir un hombre durante el día
+	 * @param POTASIOIDEALMUJER: Valor ideal de potasio (en miligramos) que debe ingerir una mujer durante el día
+	 * @param CALCIOIDEALINICIAL: Valor mínimo de calcio (en gramos) que debe ingerir una persona durante el día
+	 * @param CALCIOIDEALFINAL: Valor máximo de calcio (en gramos) que debe ingerir una persona durante el día
+	 * @param SALIDEAL: Valor ideal de sal (en gramos) que debe ingerir una persona durante el día
+	 * @param HIERROIDEALHOMBRE: Valor ideal de hierro (en miligramos) que debe ingerir un hombre durante el día
+	 * @param HIERROIDEALMUJER: Valor ideal de hierro (en miligramos) que debe ingerir una mujer durante el día
 	 */
 
 	public static double getGrasainicialideal() {
@@ -143,7 +143,7 @@ public class CalculoValorIdeal{
 			}
 
 		}
-		
+
 		grasasTotales += grasas;
 
 		return grasasTotales;
