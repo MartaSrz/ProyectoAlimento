@@ -23,8 +23,6 @@ public class CalculoValorIdeal{
 	private final static double CALCIOIDEALINICIAL=1.2;
 	private final static double CALCIOIDEALFINAL=1.3;
 	private static final double SALIDEAL=5.0;
-	private final static double HIERROIDEALHOMBRE=3800.0;
-	private final static double HIERROIDEALMUJER=2300.0;
 	private final static double PORCENTAJEGRASASATURADAIDEAL=7.0;
 
 	private static Alimento alimentos[];
@@ -91,14 +89,6 @@ public class CalculoValorIdeal{
 
 	public static double getSalideal() {
 		return SALIDEAL;
-	}
-
-	public static double getHierroidealhombre() {
-		return HIERROIDEALHOMBRE;
-	}
-
-	public static double getHierroidealmujer() {
-		return HIERROIDEALMUJER;
 	}
 
 	public static double getGrasaSaturadaideal() {
@@ -434,52 +424,6 @@ public class CalculoValorIdeal{
 	 * @return
 	 */
 
-	public static double totalHierroIdeal(Alimento []alimentos, Persona persona, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
-
-		double hierroHombres = 0;
-		double hierroMujeres = 0;		
-		double hierroTotalHombres = 0;
-		double hierroTotalMujeres = 0;
-
-		int size = alimentosElegidos.size();
-		int length = alimentos.length;
-
-		for (int i=0; i<size; i++) {
-
-			for (int j=0; j<length; j++) {
-
-				if (alimentosElegidos.get(i).equals(alimentos[j].getNombre())) {
-
-					String cantidad=cantidadesElegidas.get(i).toString();
-					int cantidadElegida=Integer.parseInt(cantidad);
-
-					if (cantidadElegida > 100 || cantidadElegida < 100) {
-
-						hierroHombres += alimentos[j].getHierro() * cantidadElegida / 100;
-						hierroMujeres += alimentos[j].getHierro() * cantidadElegida / 100;
-
-					}else
-
-						hierroHombres += alimentos[j].getHierro();
-					hierroMujeres += alimentos[j].getHierro();
-
-				}
-
-			}
-
-		}
-
-		hierroTotalHombres+= hierroHombres;		
-		hierroTotalMujeres += hierroMujeres;
-
-		if (persona.getSexo().equalsIgnoreCase("mujer")) {
-			return hierroTotalMujeres;
-		}else{
-			return hierroTotalHombres;
-		}
-
-	}
-
 	public static double totalGrasaSaturadaIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
 		double grasasSaturadas = 0;
@@ -637,23 +581,6 @@ public class CalculoValorIdeal{
 		if (salTotal <= SALIDEAL) {
 			return isIdeal;
 		}else
-			return !isIdeal;
-
-	}
-
-	public static boolean isHierroIdeal(Alimento []alimentos, Persona persona, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
-
-		boolean isIdeal = true;
-
-		double hierroTotalHombre = totalHierroIdeal(alimentos,persona, alimentosElegidos, cantidadesElegidas);
-		double hierroTotalMujer = totalHierroIdeal(alimentos,persona, alimentosElegidos, cantidadesElegidas);
-
-
-		if (hierroTotalHombre == HIERROIDEALHOMBRE) {
-			return isIdeal;
-		}else if (hierroTotalMujer == HIERROIDEALMUJER) {
-			return isIdeal;
-		}else 
 			return !isIdeal;
 
 	}
