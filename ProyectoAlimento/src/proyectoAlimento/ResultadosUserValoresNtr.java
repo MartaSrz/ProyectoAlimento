@@ -74,7 +74,7 @@ public class ResultadosUserValoresNtr {
 		frmCalcularValores.setResizable(false);
 		frmCalcularValores.setTitle("DietOMatic");
 		frmCalcularValores.getContentPane().setBackground(FONDO_COLOR);
-		frmCalcularValores.setBounds(100, 100, 1052, 503);
+		frmCalcularValores.setBounds(100, 100, 1085, 503);
 		frmCalcularValores.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCalcularValores.getContentPane().setLayout(null);
 
@@ -108,7 +108,7 @@ public class ResultadosUserValoresNtr {
 		frmCalcularValores.getContentPane().add(lblNewLabel_1);
 
 		JSeparator separator = new JSeparator();
-		separator.setBounds(142, 203, 873, 17);
+		separator.setBounds(142, 203, 913, 17);
 		frmCalcularValores.getContentPane().add(separator);
 
 		JLabel lblGrasaUser = new JLabel();
@@ -162,7 +162,7 @@ public class ResultadosUserValoresNtr {
 		JLabel lblGrasasSaturadas = new JLabel();
 		lblGrasasSaturadas.setHorizontalAlignment(SwingConstants.CENTER);
 		lblGrasasSaturadas.setFont(new Font("Dialog", Font.PLAIN, 13));
-		lblGrasasSaturadas.setBounds(928, 167, 74, 18);
+		lblGrasasSaturadas.setBounds(928, 167, 127, 18);
 		frmCalcularValores.getContentPane().add(lblGrasasSaturadas);
 
 		JLabel lblAzucarUser = new JLabel();
@@ -204,7 +204,7 @@ public class ResultadosUserValoresNtr {
 		JLabel lblGrasasSaturadasUser = new JLabel();
 		lblGrasasSaturadasUser.setHorizontalAlignment(SwingConstants.CENTER);
 		lblGrasasSaturadasUser.setFont(new Font("Dialog", Font.PLAIN, 13));
-		lblGrasasSaturadasUser.setBounds(928, 220, 74, 23);
+		lblGrasasSaturadasUser.setBounds(928, 220, 127, 23);
 		frmCalcularValores.getContentPane().add(lblGrasasSaturadasUser);
 
 		JLabel lblNewLabel_2 = new JLabel("Grasas");
@@ -252,7 +252,7 @@ public class ResultadosUserValoresNtr {
 		JLabel lblNewLabel_2_7 = new JLabel("Grasas Saturadas");
 		lblNewLabel_2_7.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_2_7.setFont(new Font("Dialog", Font.BOLD, 13));
-		lblNewLabel_2_7.setBounds(928, 133, 74, 14);
+		lblNewLabel_2_7.setBounds(928, 133, 127, 14);
 		frmCalcularValores.getContentPane().add(lblNewLabel_2_7);
 		
 		JButton volverAValoresNutritivos = new JButton("");
@@ -280,8 +280,8 @@ public class ResultadosUserValoresNtr {
 		volverAValoresNutritivos.setIcon(flechaEscalada);
 		
 		//parte valor ideal
-		lblGrasa.setText("<"+CalculoValorIdeal.getGrasainicialideal()+" y <"+CalculoValorIdeal.getGrasafinalideal()+"g");
-		lblAzucar.setText("< o ="+CalculoValorIdeal.getAzucarideal()+"g");
+		lblGrasa.setText(">60.0g y <80.0g");
+		lblAzucar.setText("<=25.0g");
 		if (usuario.getSexo().equalsIgnoreCase("mujer")) {
 			lblProteina.setText(CalculoValorIdeal.getProteinaidealmujer()+"g");
 			lblPotasio.setText(CalculoValorIdeal.getPotasioidealmujer()+"mg");
@@ -289,9 +289,9 @@ public class ResultadosUserValoresNtr {
 			lblProteina.setText(CalculoValorIdeal.getProteinaidealhombre()+"g");
 			lblPotasio.setText(CalculoValorIdeal.getPotasioidealhombre()+"mg");
 		}
-		lblCalcio.setText("<"+CalculoValorIdeal.getCalcioidealinicial()+" y <"+CalculoValorIdeal.getCalcioidealfinal()+"g");
+		lblCalcio.setText(">1.2g y <1.3g");
 		lblHidratos.setText(CalculoValorIdeal.getHidratosideal()+"g");
-		lblSal.setText("< o ="+CalculoValorIdeal.getSalideal()+"g");
+		lblSal.setText("<=5.0g");
 		lblGrasasSaturadas.setText(CalculoValorIdeal.getGrasaSaturadaideal()+"%");
 
 
