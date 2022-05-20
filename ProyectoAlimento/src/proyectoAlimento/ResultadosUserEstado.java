@@ -23,6 +23,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 public class ResultadosUserEstado {
 
@@ -67,9 +68,9 @@ public class ResultadosUserEstado {
 	private void initialize() {
 		frmCalcularPesoIdeal = new JFrame();
 		frmCalcularPesoIdeal.setResizable(false);
-		frmCalcularPesoIdeal.setTitle("Calcular Peso Ideal y Valores Nutritivos");
+		frmCalcularPesoIdeal.setTitle("DietOMatic");
 		frmCalcularPesoIdeal.getContentPane().setBackground(FONDO_COLOR);
-		frmCalcularPesoIdeal.setBounds(100, 100, 999, 643);
+		frmCalcularPesoIdeal.setBounds(100, 100, 999, 682);
 		frmCalcularPesoIdeal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmCalcularPesoIdeal.getContentPane().setLayout(null);
 
@@ -94,11 +95,11 @@ public class ResultadosUserEstado {
 
 		JLabel lblReferenciaImagen = new JLabel("Esta imagen te ayudará a orientarte dependiendo de tu resultado.");
 		lblReferenciaImagen.setFont(new Font("Dialog", Font.PLAIN, 16));
-		lblReferenciaImagen.setBounds(22, 66, 512, 30);
+		lblReferenciaImagen.setBounds(22, 104, 512, 30);
 		frmCalcularPesoIdeal.getContentPane().add(lblReferenciaImagen);
 
 		JLabel lblLabelImagen = new JLabel("");
-		lblLabelImagen.setBounds(0, 104, 709, 476);
+		lblLabelImagen.setBounds(0, 142, 709, 476);
 		frmCalcularPesoIdeal.getContentPane().add(lblLabelImagen);
 
 		JButton IrAValores = new JButton(";)");
@@ -125,8 +126,14 @@ public class ResultadosUserEstado {
 		lblLabelImagen.setIcon(estadoFisico);
 
 		ImageIcon flecha=new ImageIcon("img/flecha.png");
-		flecha.getImage().getScaledInstance(48, 46, Image.SCALE_DEFAULT);
-		volverAValoresNutritivos.setIcon(flecha);
+		ImageIcon flechaEscalada= new ImageIcon(flecha.getImage().getScaledInstance(48, 46, Image.SCALE_DEFAULT));/*otro objeto tipo ImageIcon para poner escalarla*/
+		volverAValoresNutritivos.setIcon(flechaEscalada);
+		
+		JLabel lblNewLabel_3 = new JLabel("Atrás");
+		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_3.setFont(new Font("Dialog", Font.ITALIC, 11));
+		lblNewLabel_3.setBounds(10, 60, 46, 14);
+		frmCalcularPesoIdeal.getContentPane().add(lblNewLabel_3);
 
 		IrAValores.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -31,7 +31,7 @@ import java.awt.event.MouseEvent;
 
 public class ProyectoAlimento{
 
-	private JFrame frame;
+	private JFrame frmDietomatic;
 	private JTextField txtNombre;
 	private JTextField textField;
 	private final Color FONDO_COLOR_TITULO = new Color(255,255,221);
@@ -50,7 +50,7 @@ public class ProyectoAlimento{
 			public void run() {
 				try {
 					ProyectoAlimento window = new ProyectoAlimento();
-					window.frame.setVisible(true);
+					window.frmDietomatic.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				} 
@@ -72,51 +72,52 @@ public class ProyectoAlimento{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setResizable(false);
-		frame.getContentPane().setBackground(new Color(236,224,251));
-		frame.setBounds(100, 100, 1053, 558);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmDietomatic = new JFrame();
+		frmDietomatic.setTitle("DietOMatic");
+		frmDietomatic.setResizable(false);
+		frmDietomatic.getContentPane().setBackground(new Color(236,224,251));
+		frmDietomatic.setBounds(100, 100, 1053, 558);
+		frmDietomatic.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmDietomatic.getContentPane().setLayout(null);
 
 		JLabel lblRellenardatos = new JLabel("Necesitaremos que rellenes una serie de datos ");
 		lblRellenardatos.setForeground(Color.BLACK);
 		lblRellenardatos.setFont(new Font("Dialog", Font.BOLD, 20));
 		lblRellenardatos.setBounds(287, 70, 518, 23);
-		frame.getContentPane().add(lblRellenardatos);
+		frmDietomatic.getContentPane().add(lblRellenardatos);
 
 		JLabel lblComotellamas = new JLabel("¿Cómo te llamas?");
 		lblComotellamas.setForeground(Color.BLACK);
 		lblComotellamas.setFont(new Font("Dialog", Font.BOLD, 16));
 		lblComotellamas.setBounds(121, 120, 152, 31);
-		frame.getContentPane().add(lblComotellamas);
+		frmDietomatic.getContentPane().add(lblComotellamas);
 
 		txtNombre = new JTextField();
 		txtNombre.setText(DEFECTO_TXTNOMBRE);
 		txtNombre.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtNombre.setForeground(Color.GRAY);
 		txtNombre.setBounds(265, 125, 666, 25);
-		frame.getContentPane().add(txtNombre);
+		frmDietomatic.getContentPane().add(txtNombre);
 		txtNombre.setColumns(10);
 
 		JLabel lblSexo = new JLabel("Sexo:");
 		lblSexo.setForeground(Color.BLACK);
 		lblSexo.setFont(new Font("Dialog", Font.BOLD, 16));
 		lblSexo.setBounds(121, 203, 60, 17);
-		frame.getContentPane().add(lblSexo);
+		frmDietomatic.getContentPane().add(lblSexo);
 
 		JRadioButton rdbtnMujer = new JRadioButton("Mujer");
 		rdbtnMujer.setFont(new Font("Dialog", Font.PLAIN, 16));
 		rdbtnMujer.setBackground(FONDO_COLOR);
 		rdbtnMujer.setBounds(165, 228, 130, 25);
-		frame.getContentPane().add(rdbtnMujer);
+		frmDietomatic.getContentPane().add(rdbtnMujer);
 
 		JRadioButton rdbtnHombre = new JRadioButton("Hombre");
 		rdbtnHombre.setSelected(true);
 		rdbtnHombre.setFont(new Font("Dialog", Font.PLAIN, 16));
 		rdbtnHombre.setBackground(FONDO_COLOR);
 		rdbtnHombre.setBounds(165, 264, 130, 25);
-		frame.getContentPane().add(rdbtnHombre);
+		frmDietomatic.getContentPane().add(rdbtnHombre);
 
 		/**
 		 * Creación de Grupo de Botones.
@@ -132,7 +133,7 @@ public class ProyectoAlimento{
 		lblEdad.setForeground(Color.BLACK);
 		lblEdad.setFont(new Font("Dialog", Font.BOLD, 16));
 		lblEdad.setBounds(121, 335, 60, 17);
-		frame.getContentPane().add(lblEdad);
+		frmDietomatic.getContentPane().add(lblEdad);
 
 		JSpinner spinner_anyos = new JSpinner();
 		spinner_anyos.setBackground(new Color(0, 0, 0));
@@ -141,62 +142,62 @@ public class ProyectoAlimento{
 		spinner_anyos.setValue(18);
 		spinner_anyos.setFont(new Font("Dialog", Font.PLAIN, 16));
 		spinner_anyos.setBounds(165, 362, 91, 22);
-		frame.getContentPane().add(spinner_anyos);
+		frmDietomatic.getContentPane().add(spinner_anyos);
 
 		JLabel lblBienvenido = new JLabel("\u00A1Bienvenido a nuestra aplicaci\u00F3n! ");
 		lblBienvenido.setFont(new Font("Dialog", Font.BOLD, 20));
 		lblBienvenido.setForeground(Color.BLACK);
 		lblBienvenido.setBounds(346, 27, 365, 31);
-		frame.getContentPane().add(lblBienvenido);
+		frmDietomatic.getContentPane().add(lblBienvenido);
 
 		textField = new JTextField();
 		textField.setEditable(false);
 		textField.setBackground(FONDO_COLOR_TITULO);
 		textField.setForeground(Color.BLACK);
 		textField.setBounds(12, 10, 1021, 105);
-		frame.getContentPane().add(textField);
+		frmDietomatic.getContentPane().add(textField);
 		textField.setColumns(10);
 
 		JLabel lblAnyos = new JLabel("a\u00F1os");
 		lblAnyos.setFont(new Font("Dialog", Font.PLAIN, 16));
 		lblAnyos.setBounds(265, 365, 60, 17);
-		frame.getContentPane().add(lblAnyos);
+		frmDietomatic.getContentPane().add(lblAnyos);
 
 		JLabel lblPeso = new JLabel("Peso:");
 		lblPeso.setForeground(Color.BLACK);
 		lblPeso.setFont(new Font("Dialog", Font.BOLD, 16));
 		lblPeso.setBounds(690, 203, 60, 17);
-		frame.getContentPane().add(lblPeso);
+		frmDietomatic.getContentPane().add(lblPeso);
 
 		JLabel lblKg = new JLabel("kg");
 		lblKg.setFont(new Font("Dialog", Font.PLAIN, 16));
 		lblKg.setBounds(852, 225, 19, 31);
-		frame.getContentPane().add(lblKg);
+		frmDietomatic.getContentPane().add(lblKg);
 
 		JSpinner spinner_peso = new JSpinner();
 		spinner_peso.setModel(new SpinnerNumberModel(new Integer(70), new Integer(0), null, new Integer(1)));
 		spinner_peso.setValue(70);
 		spinner_peso.setFont(new Font("Dialog", Font.PLAIN, 16));
 		spinner_peso.setBounds(747, 229, 96, 22);
-		frame.getContentPane().add(spinner_peso);
+		frmDietomatic.getContentPane().add(spinner_peso);
 
 		JLabel lblAltura = new JLabel("Altura:");
 		lblAltura.setForeground(Color.BLACK);
 		lblAltura.setFont(new Font("Dialog", Font.BOLD, 16));
 		lblAltura.setBounds(690, 335, 60, 17);
-		frame.getContentPane().add(lblAltura);
+		frmDietomatic.getContentPane().add(lblAltura);
 
 		JSpinner spinner_altura = new JSpinner();		
 		spinner_altura.setModel(new SpinnerNumberModel(new Integer(160), new Integer(0), null, new Integer(1)));
 		spinner_altura.setValue(160);
 		spinner_altura.setFont(new Font("Dialog", Font.PLAIN, 16));
 		spinner_altura.setBounds(747, 362, 96, 22);
-		frame.getContentPane().add(spinner_altura);
+		frmDietomatic.getContentPane().add(spinner_altura);
 
 		JLabel lblcm = new JLabel("cm");
 		lblcm.setFont(new Font("Dialog", Font.PLAIN, 16));
 		lblcm.setBounds(852, 358, 74, 31);
-		frame.getContentPane().add(lblcm);
+		frmDietomatic.getContentPane().add(lblcm);
 
 		JButton btnRestablecer = new JButton("Restablecer");
 		JButton btnContinuar = new JButton("Continuar");  /*Botón que cierra la primera ventana y abre la segunda*/
@@ -205,7 +206,7 @@ public class ProyectoAlimento{
 		lblErrorNombre.setForeground(Color.RED);
 		lblErrorNombre.setFont(new Font("Dialog", Font.ITALIC, 14));
 		lblErrorNombre.setBounds(265, 163, 178, 17);
-		frame.getContentPane().add(lblErrorNombre);
+		frmDietomatic.getContentPane().add(lblErrorNombre);
 
 		//ZONA TRABAJO-----------------------------------------------------------
 
@@ -242,7 +243,7 @@ public class ProyectoAlimento{
 			}
 		});
 		btnRestablecer.setBounds(121, 453, 288, 27);
-		frame.getContentPane().add(btnRestablecer);
+		frmDietomatic.getContentPane().add(btnRestablecer);
 
 
 		btnContinuar.addActionListener(new ActionListener() {
@@ -259,14 +260,14 @@ public class ProyectoAlimento{
 					int altura= Integer.parseInt(spinner_altura.getValue().toString());
 					int edad= Integer.parseInt(spinner_anyos.getValue().toString());
 					Persona usuario = new Persona(txtNombre.getText(), sexo, peso , altura, edad); /*Objeto de tipo persona con los datos del usuario*/
-					frame.setVisible(false); /*Se cierra la ventana inicial*/
+					frmDietomatic.setVisible(false); /*Se cierra la ventana inicial*/
 					ValoresNutritivos.arrancar(usuario, alimentosElegidos, cantidadesElegidas, false); /*Se arranca ValoresNutritivos pasándole como parametro el objeto de tipo Persona*/
 				}
 			}
 		});
 		btnContinuar.setFont(new Font("Dialog", Font.BOLD, 16));
 		btnContinuar.setBounds(638, 453, 288, 27);
-		frame.getContentPane().add(btnContinuar);
+		frmDietomatic.getContentPane().add(btnContinuar);
 
 	}
 }

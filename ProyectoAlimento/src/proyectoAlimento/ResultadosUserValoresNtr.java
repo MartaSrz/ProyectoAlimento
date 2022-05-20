@@ -72,7 +72,7 @@ public class ResultadosUserValoresNtr {
 		frmCalcularValores = new JFrame();
 		frmCalcularValores.getContentPane().setFont(new Font("Dialog", Font.PLAIN, 13));
 		frmCalcularValores.setResizable(false);
-		frmCalcularValores.setTitle("Calcular Peso Ideal y Valores Nutritivos");
+		frmCalcularValores.setTitle("DietOMatic");
 		frmCalcularValores.getContentPane().setBackground(FONDO_COLOR);
 		frmCalcularValores.setBounds(100, 100, 1052, 503);
 		frmCalcularValores.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,7 +80,7 @@ public class ResultadosUserValoresNtr {
 
 		JLabel lblTitulo = new JLabel("Estos son tus resultados respecto al Cálculo Nutritivo :D!");
 		lblTitulo.setFont(new Font("Dialog", Font.BOLD, 16));
-		lblTitulo.setBounds(303, 40, 447, 17);
+		lblTitulo.setBounds(303, 40, 479, 17);
 		frmCalcularValores.getContentPane().add(lblTitulo);
 
 		JButton IrAEstado = new JButton(";)");
@@ -276,8 +276,8 @@ public class ResultadosUserValoresNtr {
 		});
 		
 		ImageIcon flecha=new ImageIcon("img/flecha.png");
-		flecha.getImage().getScaledInstance(48, 46, Image.SCALE_DEFAULT);
-		volverAValoresNutritivos.setIcon(flecha);
+		ImageIcon flechaEscalada= new ImageIcon(flecha.getImage().getScaledInstance(48, 46, Image.SCALE_DEFAULT));/*otro objeto tipo ImageIcon para poner escalarla*/
+		volverAValoresNutritivos.setIcon(flechaEscalada);
 		
 		//parte valor ideal
 		lblGrasa.setText("<"+CalculoValorIdeal.getGrasainicialideal()+" y <"+CalculoValorIdeal.getGrasafinalideal()+"g");

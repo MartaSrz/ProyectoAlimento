@@ -46,6 +46,7 @@ public class ValoresNutritivos {
 	private final static Color FONDO_COLOR= new Color(255, 255, 221);
 	private JTextField txtFondoColor;
 	private static boolean hayAlimentos=false;
+	private static boolean haEntradoDeNuevo=false;
 	private static Persona usuario;  //Persona que mandaremos a la clase ResultadosUserEstado
 	private Alimento alimento[] = { //Declaración de los alimentos a usar
 			new Alimento("Manzana",95,396,0.03,0.1,25.1,18.9,0.5,4.4,0.1,10.9,0.2,194.7),
@@ -91,6 +92,14 @@ public class ValoresNutritivos {
 	private JButton btnValoresNtr = new JButton("Comprobar Valores Nutritivos");
 
 	
+	public static boolean isHaEntradoDeNuevo() {
+		return haEntradoDeNuevo;
+	}
+
+	public static void setHaEntradoDeNuevo(boolean haEntradoDeNuevo) {
+		ValoresNutritivos.haEntradoDeNuevo = haEntradoDeNuevo;
+	}
+
 	public static void arrancar(Persona usuario, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas, Boolean blnAlimentos) { /*Metodo para arrancar la segunda ventana*/
 		ValoresNutritivos.usuario=usuario;
 		ValoresNutritivos.alimentosElegidos=alimentosElegidos;
@@ -115,7 +124,8 @@ public class ValoresNutritivos {
 			txtAlimentosElegidos.setText(alimentosElegidos.toString());
 			txtCantidadesElegidas.setText(cantidadesElegidas.toString());
 			cantidadGramos.setValue(100);
-			btnValoresNtr.setEnabled(hayAlimentos);
+			btnValoresNtr.setEnabled(true);
+			setHaEntradoDeNuevo(true);
 		}
 	}
 	
@@ -138,6 +148,7 @@ public class ValoresNutritivos {
 		restaurarValores() ;
 		
 		ventanaCalc = new JFrame();
+		ventanaCalc.setTitle("DietOMatic");
 		ventanaCalc.setResizable(false);
 		ventanaCalc.getContentPane().setBackground(new Color(236, 224, 251));
 		ventanaCalc.setBounds(100, 100, 1313, 987);
@@ -254,7 +265,7 @@ public class ValoresNutritivos {
 
 		JButton btnEstadoFisico = new JButton("Comprobar estado físico");
 		btnEstadoFisico.setFont(new Font("Dialog", Font.BOLD, 16));
-		btnEstadoFisico.setBounds(1037, 871, 233, 45);
+		btnEstadoFisico.setBounds(1048, 871, 245, 45);
 		ventanaCalc.getContentPane().add(btnEstadoFisico);
 
 		JButton btnAnyadir = new JButton("A\u00F1adir");
@@ -468,7 +479,7 @@ public class ValoresNutritivos {
 		txtFondoColor = new JTextField();
 		txtFondoColor.setEditable(false);
 		txtFondoColor.setBackground(FONDO_COLOR);
-		txtFondoColor.setBounds(756, 23, 514, 813);
+		txtFondoColor.setBounds(756, 23, 537, 813);
 		ventanaCalc.getContentPane().add(txtFondoColor);
 		txtFondoColor.setColumns(10);
 
@@ -485,9 +496,11 @@ public class ValoresNutritivos {
 		lblEspecificarGramos.setBounds(487, 79, 25, 32);
 		ventanaCalc.getContentPane().add(lblEspecificarGramos);
 		
-		btnValoresNtr.setEnabled(false);
+		if (!isHaEntradoDeNuevo())
+			btnValoresNtr.setEnabled(false);
+		
 		btnValoresNtr.setFont(new Font("Dialog", Font.BOLD, 16));
-		btnValoresNtr.setBounds(756, 871, 265, 45);
+		btnValoresNtr.setBounds(756, 871, 280, 45);
 		ventanaCalc.getContentPane().add(btnValoresNtr);
 
 
