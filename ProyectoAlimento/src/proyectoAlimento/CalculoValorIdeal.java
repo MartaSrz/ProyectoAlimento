@@ -25,10 +25,12 @@ public class CalculoValorIdeal{
 	private static final double SALIDEAL=5.0;
 	private final static double HIERROIDEALHOMBRE=3800.0;
 	private final static double HIERROIDEALMUJER=2300.0;
+	private final static double PORCENTAJEGRASASATURADAIDEAL=7.0;
 
 	private static Alimento alimentos[];
 	private static ArraysToString<String> alimentosElegidos= new ArraysToString<>();
 	private static ArraysToString<Integer> cantidadesElegidas= new ArraysToString<>();
+	private static Alimento kcal;
 
 	/**
 	 * 
@@ -97,6 +99,10 @@ public class CalculoValorIdeal{
 
 	public static double getHierroidealmujer() {
 		return HIERROIDEALMUJER;
+	}
+
+	public static double getGrasaSaturadaideal() {
+		return PORCENTAJEGRASASATURADAIDEAL;
 	}
 
 	/**
@@ -474,6 +480,44 @@ public class CalculoValorIdeal{
 
 	}
 
+	public static double totalGrasaSaturadaIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
+
+		double grasasSaturadas = 0;
+		double grasasSaturadasTotales = 0;
+
+		int size = alimentosElegidos.size();
+		int length = alimentos.length;
+
+		for (int i=0; i<size; i++) {
+
+			for (int j=0; j<length; j++) {
+
+				if (alimentosElegidos.get(i).equals(alimentos[j].getNombre())) {
+
+					String cantidad=cantidadesElegidas.get(i).toString();
+					int cantidadElegida=Integer.parseInt(cantidad);
+
+					if (cantidadElegida > 100 || cantidadElegida < 100) {
+
+						grasasSaturadas += alimentos[j].getGrasasSaturadas() * cantidadElegida / 100;
+
+					}else
+
+						grasasSaturadas += alimentos[j].getGrasasSaturadas();
+
+				}
+
+			}
+
+		}
+
+		grasasSaturadasTotales += grasasSaturadas;
+
+		return grasasSaturadasTotales;
+
+
+	}
+
 	public static boolean isGrasaIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
 		boolean isIdeal=true;
@@ -501,6 +545,29 @@ public class CalculoValorIdeal{
 			return !isIdeal;
 
 
+	}
+
+	public static boolean isGrasaSaturadaIdeal(Alimento []alimentos,ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
+
+		boolean isIdeal = true;
+
+		double grasaSaturadaTotal = totalGrasaSaturadaIdeal(alimentos,alimentosElegidos, cantidadesElegidas);
+
+		double kcalTotal=0;
+		
+		for (int i=0; i<alimentos.length; i++) {
+			 kcalTotal += alimentos[i].kcal;
+		}
+		
+		double valorIdealKcal = (kcalTotal * PORCENTAJEGRASASATURADAIDEAL / 100);
+
+		double valorKcalGrasaSaturada = (grasaSaturadaTotal * 9);
+
+		if (valorKcalGrasaSaturada > valorIdealKcal) {
+			 return isIdeal;
+		}else
+			 return !isIdeal;
+		
 	}
 
 	public static boolean isProteinaIdeal(Alimento []alimentos, Persona persona, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
