@@ -144,7 +144,7 @@ public class ResultadosUserEstado {
 		volverAValoresNutritivos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmCalcularPesoIdeal.setVisible(false);
-				ValoresNutritivos.arrancar(usuario, alimentosElegidos, cantidadesElegidas, hayAlimentos);/*misma acción que en la ventana main, pasando el mismo valor (persona y el booleano para seber si puede o no activar el botón de "Comprobar valores nutritivos")*/
+				ValoresNutritivos.arrancar(usuario, alimentosElegidos, cantidadesElegidas);/*misma acción que en la ventana main, pasando el mismo valor (persona)*/
 			}
 		});
 

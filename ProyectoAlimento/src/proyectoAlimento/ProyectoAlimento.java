@@ -261,7 +261,7 @@ public class ProyectoAlimento{
 					int edad= Integer.parseInt(spinner_anyos.getValue().toString());
 					Persona usuario = new Persona(txtNombre.getText(), sexo, peso , altura, edad); /*Objeto de tipo persona con los datos del usuario*/
 					frmDietomatic.setVisible(false); /*Se cierra la ventana inicial*/
-					ValoresNutritivos.arrancar(usuario, alimentosElegidos, cantidadesElegidas, false); /*Se arranca ValoresNutritivos pasándole como parametro el objeto de tipo Persona*/
+					ValoresNutritivos.arrancar(usuario, alimentosElegidos, cantidadesElegidas); /*Se arranca ValoresNutritivos pasándole como parametro el objeto de tipo Persona*/
 				}
 			}
 		});

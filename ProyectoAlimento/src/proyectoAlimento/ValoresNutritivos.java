@@ -89,7 +89,7 @@ public class ValoresNutritivos {
 	private static JSpinner cantidadGramos = new JSpinner();
 	private static	JEditorPane txtAlimentosElegidos = new JEditorPane();
 	private static 	JEditorPane txtCantidadesElegidas = new JEditorPane();
-	private JButton btnValoresNtr = new JButton("Comprobar Valores Nutritivos");
+	private JButton btnComprobarValoresNtr = new JButton("Comprobar Valores Nutritivos");
 
 	
 	public static boolean isHaEntradoDeNuevo() {
@@ -100,11 +100,10 @@ public class ValoresNutritivos {
 		ValoresNutritivos.haEntradoDeNuevo = haEntradoDeNuevo;
 	}
 
-	public static void arrancar(Persona usuario, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas, Boolean blnAlimentos) { /*Metodo para arrancar la segunda ventana*/
+	public static void arrancar(Persona usuario, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) { /*Metodo para arrancar la segunda ventana*/
 		ValoresNutritivos.usuario=usuario;
 		ValoresNutritivos.alimentosElegidos=alimentosElegidos;
 		ValoresNutritivos.cantidadesElegidas=cantidadesElegidas;
-		ValoresNutritivos.hayAlimentos=blnAlimentos;
 		
 		/*el user que va a ser pasado a la clase ResultadoUser es el mismo que el user mandado a esta clase en la clase DatosUsuario*/
 		EventQueue.invokeLater(new Runnable() {
@@ -119,12 +118,12 @@ public class ValoresNutritivos {
 		});
 	}
 
-	public void restaurarValores() {
+	public void insertarValores() {
 		if (cantidadesElegidas.size()>0) {
 			txtAlimentosElegidos.setText(alimentosElegidos.toString());
 			txtCantidadesElegidas.setText(cantidadesElegidas.toString());
 			cantidadGramos.setValue(100);
-			btnValoresNtr.setEnabled(true);
+			btnComprobarValoresNtr.setEnabled(true);
 			setHaEntradoDeNuevo(true);
 		}
 	}
@@ -145,7 +144,7 @@ public class ValoresNutritivos {
 	 */
 	private void initialize() {
 		
-		restaurarValores() ;
+		insertarValores() ;
 		
 		ventanaCalc = new JFrame();
 		ventanaCalc.setTitle("DietOMatic");
@@ -497,11 +496,18 @@ public class ValoresNutritivos {
 		ventanaCalc.getContentPane().add(lblEspecificarGramos);
 		
 		if (!isHaEntradoDeNuevo())
-			btnValoresNtr.setEnabled(false);
+			btnComprobarValoresNtr.setEnabled(false);
 		
-		btnValoresNtr.setFont(new Font("Dialog", Font.BOLD, 16));
-		btnValoresNtr.setBounds(756, 871, 280, 45);
-		ventanaCalc.getContentPane().add(btnValoresNtr);
+		btnComprobarValoresNtr.setFont(new Font("Dialog", Font.BOLD, 16));
+		btnComprobarValoresNtr.setBounds(756, 871, 280, 45);
+		ventanaCalc.getContentPane().add(btnComprobarValoresNtr);
+		
+		JButton btnBorrarRegistro = new JButton("Borrar registro");
+		btnBorrarRegistro.setFont(new Font("Dialog", Font.BOLD, 16));
+		btnBorrarRegistro.setBounds(517, 23, 192, 37);
+		ventanaCalc.getContentPane().add(btnBorrarRegistro);
+		btnBorrarRegistro.setEnabled(false);
+		
 
 
 		//ZONA DE TRABAJO-----------------------------------------------------------------------
@@ -533,7 +539,8 @@ public class ValoresNutritivos {
 		btnAnyadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {/*eso va a almacenar en el texto la cantidad y el alimento*/
 				hayAlimentos=true;
-				btnValoresNtr.setEnabled(true);
+				btnBorrarRegistro.setEnabled(true);
+				btnComprobarValoresNtr.setEnabled(true);
 				int siceAlimentosElegidos=alimentosElegidos.size();
 				int sumaValoresElegidos;
 				boolean alimentoEncontrado=false;
@@ -550,7 +557,17 @@ public class ValoresNutritivos {
 					alimentosElegidos.add((String) selectAlimentos.getSelectedItem());
 					cantidadesElegidas.add((Integer) cantidadGramos.getValue());
 				}
-				restaurarValores();
+				insertarValores();
+			}
+		});
+		btnBorrarRegistro.addActionListener(new ActionListener() { /*asi se borrará todo lo almacenado de los alimentos y cantidades elegidas, y desactivara el boton y pondrá el boolean a false para impedir que la ventana de resultados de valores se abra*/
+			public void actionPerformed(ActionEvent arg0) {
+				alimentosElegidos.clear();
+				cantidadesElegidas.clear();
+				txtAlimentosElegidos.setText("");
+				txtCantidadesElegidas.setText("");
+				btnComprobarValoresNtr.setEnabled(false);
+				hayAlimentos=false;
 			}
 		});
 		btnEstadoFisico.addActionListener(new ActionListener() {
@@ -559,12 +576,11 @@ public class ValoresNutritivos {
 				ResultadosUserEstado.estado(usuario, hayAlimentos, alimento, alimentosElegidos, cantidadesElegidas); /*misma acción que en la ventana main pero hacia la tercera ventana pasando los mismos valores (persona, alimentos elegidos, etc) más el booleano para saber si puede abrir ResultadosUserValoresNtr*/
 			}
 		});
-		btnValoresNtr.addActionListener(new ActionListener() {
+		btnComprobarValoresNtr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventanaCalc.setVisible(false);
 				ResultadosUserValoresNtr.valores(usuario, alimento, alimentosElegidos, cantidadesElegidas);/*misma acción que en la ventana main pero hacia la cuarta ventana pasando los mismos valores (persona, alimentos elegidos, etc)*/
 			}
 		});
 	}
-	
 }

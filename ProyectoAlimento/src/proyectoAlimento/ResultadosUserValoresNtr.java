@@ -271,7 +271,7 @@ public class ResultadosUserValoresNtr {
 		volverAValoresNutritivos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frmCalcularValores.setVisible(false);
-				ValoresNutritivos.arrancar(usuario, alimentosElegidos, cantidadesElegidas, true);/*misma acción que en la ventana main, pasando el mismo valor (persona y true porque puede abrir esta ventana a través de ValoresNutritivos)*/
+				ValoresNutritivos.arrancar(usuario, alimentosElegidos, cantidadesElegidas);/*misma acción que en la ventana main, pasando el mismo valor (persona)*/
 			}
 		});
 		
