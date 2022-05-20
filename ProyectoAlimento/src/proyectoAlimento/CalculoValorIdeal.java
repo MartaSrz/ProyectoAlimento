@@ -11,19 +11,19 @@ import java.util.LinkedList;
 
 public class CalculoValorIdeal{
 
-	private final static double GRASAINICIALIDEAL=60.0;
-	private final static double GRASAFINALIDEAL=80.0;
-	private final static double AZUCARIDEAL=25.0;
-	private final static double PROTEINAIDEALHOMBRE=56.0;
-	private final static double PROTEINAIDEALMUJER=46.0;
-	private final static double HIDRATOSIDEAL=135.0;
+	private final static double GRASA_INICIAL_IDEAL=60.0;
+	private final static double GRASA_FINAL_IDEAL=80.0;
+	private final static double AZUCAR_IDEAL=25.0;
+	private final static double PROTEINA_IDEAL_HOMBRE=56.0;
+	private final static double PROTEINA_IDEAL_MUJER=46.0;
+	private final static double HIDRATOS_IDEAL=135.0;
 
-	private final static double POTASIOIDEALHOMBRE=3400.0;
-	private final static double POTASIOIDEALMUJER=2600.0;
-	private final static double CALCIOIDEALINICIAL=1.2;
-	private final static double CALCIOIDEALFINAL=1.3;
-	private static final double SALIDEAL=5.0;
-	private final static double PORCENTAJEGRASASATURADAIDEAL=7.0;
+	private final static double POTASIO_IDEAL_HOMBRE=3400.0;
+	private final static double POTASIO_IDEAL_MUJER=2600.0;
+	private final static double CALCIO_IDEAL_INICIAL=1.2;
+	private final static double CALCIO_IDEAL_FINAL=1.3;
+	private static final double SAL_IDEAL=5.0;
+	private final static double PORCENTAJE_GRASA_SATURADA_IDEAL=7.0;
 
 	private static Alimento alimentos[];
 	private static ArraysToString<String> alimentosElegidos= new ArraysToString<>();
@@ -32,67 +32,67 @@ public class CalculoValorIdeal{
 
 	/**
 	 * 
-	 * @param GRASAINICIALIDEAL: Valor mínimo de grasas (en gramos) que debe ingerir una persona durante el día
-	 * @param GRASAFINALIDEAL: Valor máximo de grasas (en gramos) que debe ingerir una persona durante el día
-	 * @param AZUCARINICIALIDEAL: Valor mínimo de azúcar (en gramos) que debe ingerir una persona durante el día
-	 * @param PROTEINAIDEALHOMBRE: Valor ideal de proteínas (en gramos) que debe ingerir un hombre durante el día
-	 * @param PROTEINAIDEALMUJER: Valor ideal de proteínas (en gramos) que debe ingerir una mujer durante el día
-	 * @param HIDRATOSIDEAL: Valor ideal de hidratos (en gramos) que debe ingerir una persona durante el día
-	 * @param POTASIOIDEALHOMBRE: Valor ideal de potasio (en miligramos) que debe ingerir un hombre durante el día
-	 * @param POTASIOIDEALMUJER: Valor ideal de potasio (en miligramos) que debe ingerir una mujer durante el día
-	 * @param CALCIOIDEALINICIAL: Valor mínimo de calcio (en gramos) que debe ingerir una persona durante el día
-	 * @param CALCIOIDEALFINAL: Valor máximo de calcio (en gramos) que debe ingerir una persona durante el día
-	 * @param SALIDEAL: Valor ideal de sal (en gramos) que debe ingerir una persona durante el día
-	 * @param HIERROIDEALHOMBRE: Valor ideal de hierro (en miligramos) que debe ingerir un hombre durante el día
-	 * @param HIERROIDEALMUJER: Valor ideal de hierro (en miligramos) que debe ingerir una mujer durante el día
+	 * @param GRASA_INICIAL_IDEAL: Valor mínimo de grasas (en gramos) que debe ingerir una persona durante el día
+	 * @param GRASA_FINAL_IDEAL: Valor máximo de grasas (en gramos) que debe ingerir una persona durante el día
+	 * @param AZUCAR_INICIAL_IDEAL: Valor mínimo de azúcar (en gramos) que debe ingerir una persona durante el día
+	 * @param PROTEINA_IDEAL_HOMBRE: Valor ideal de proteínas (en gramos) que debe ingerir un hombre durante el día
+	 * @param PROTEINA_IDEAL_MUJER: Valor ideal de proteínas (en gramos) que debe ingerir una mujer durante el día
+	 * @param HIDRATOS_IDEAL: Valor ideal de hidratos (en gramos) que debe ingerir una persona durante el día
+	 * @param POTASIO_IDEAL_HOMBRE: Valor ideal de potasio (en miligramos) que debe ingerir un hombre durante el día
+	 * @param POTASIO_IDEAL_MUJER: Valor ideal de potasio (en miligramos) que debe ingerir una mujer durante el día
+	 * @param CALCIO_IDEAL_INICIAL: Valor mínimo de calcio (en gramos) que debe ingerir una persona durante el día
+	 * @param CALCIO_IDEAL_FINAL: Valor máximo de calcio (en gramos) que debe ingerir una persona durante el día
+	 * @param SAL_IDEAL: Valor ideal de sal (en gramos) que debe ingerir una persona durante el día
+	 * @param HIERRO_IDEAL_HOMBRE: Valor ideal de hierro (en miligramos) que debe ingerir un hombre durante el día
+	 * @param HIERRO_IDEAL_MUJER: Valor ideal de hierro (en miligramos) que debe ingerir una mujer durante el día
 	 */
 
 	public static double getGrasainicialideal() {
-		return GRASAINICIALIDEAL;
+		return GRASA_INICIAL_IDEAL;
 	}
 
 	public static double getGrasafinalideal() {
-		return GRASAFINALIDEAL;
+		return GRASA_FINAL_IDEAL;
 	}
 
 	public static double getAzucarideal() {
-		return AZUCARIDEAL;
+		return AZUCAR_IDEAL;
 	}
 
 	public static double getProteinaidealhombre() {
-		return PROTEINAIDEALHOMBRE;
+		return PROTEINA_IDEAL_HOMBRE;
 	}
 
 	public static double getProteinaidealmujer() {
-		return PROTEINAIDEALMUJER;
+		return PROTEINA_IDEAL_MUJER;
 	}
 
 	public static double getHidratosideal() {
-		return HIDRATOSIDEAL;
+		return HIDRATOS_IDEAL;
 	}
 
 	public static double getPotasioidealhombre() {
-		return POTASIOIDEALHOMBRE;
+		return POTASIO_IDEAL_HOMBRE;
 	}
 
 	public static double getPotasioidealmujer() {
-		return POTASIOIDEALMUJER;
+		return POTASIO_IDEAL_MUJER;
 	}
 
 	public static double getCalcioidealinicial() {
-		return CALCIOIDEALINICIAL;
+		return CALCIO_IDEAL_INICIAL;
 	}
 
 	public static double getCalcioidealfinal() {
-		return CALCIOIDEALFINAL;
+		return CALCIO_IDEAL_FINAL;
 	}
 
 	public static double getSalideal() {
-		return SALIDEAL;
+		return SAL_IDEAL;
 	}
 
 	public static double getGrasaSaturadaideal() {
-		return PORCENTAJEGRASASATURADAIDEAL;
+		return PORCENTAJE_GRASA_SATURADA_IDEAL;
 	}
 
 	/**
@@ -468,7 +468,7 @@ public class CalculoValorIdeal{
 
 		double grasasTotales = totalGrasaIdeal(alimentos, alimentosElegidos, cantidadesElegidas);
 
-		if (grasasTotales >= GRASAINICIALIDEAL && grasasTotales <= GRASAFINALIDEAL) { 
+		if (grasasTotales >= GRASA_INICIAL_IDEAL && grasasTotales <= GRASA_FINAL_IDEAL) { 
 			return isIdeal; // Devuelvo un boolean como true
 		}else
 			return !isIdeal; //Devuelvo un boolean como false
@@ -483,7 +483,7 @@ public class CalculoValorIdeal{
 
 		double azucarTotal = totalAzucarIdeal(alimentos, alimentosElegidos, cantidadesElegidas);
 
-		if (azucarTotal <= AZUCARIDEAL) {
+		if (azucarTotal <= AZUCAR_IDEAL) {
 			return isIdeal;
 		}else
 			return !isIdeal;
@@ -503,7 +503,7 @@ public class CalculoValorIdeal{
 			 kcalTotal += alimentos[i].kcal;
 		}
 		
-		double valorIdealKcal = (kcalTotal * PORCENTAJEGRASASATURADAIDEAL / 100);
+		double valorIdealKcal = (kcalTotal * PORCENTAJE_GRASA_SATURADA_IDEAL / 100);
 
 		double valorKcalGrasaSaturada = (grasaSaturadaTotal * 9);
 
@@ -521,9 +521,9 @@ public class CalculoValorIdeal{
 		double proteinasTotalesHombre = totalProteinaIdeal(alimentos,persona, alimentosElegidos, cantidadesElegidas);
 		double proteinasTotalesMujer = totalProteinaIdeal(alimentos,persona, alimentosElegidos, cantidadesElegidas);
 
-		if (proteinasTotalesHombre == PROTEINAIDEALHOMBRE) {
+		if (proteinasTotalesHombre == PROTEINA_IDEAL_HOMBRE) {
 			return isIdeal;
-		}else if (proteinasTotalesMujer == PROTEINAIDEALMUJER) {
+		}else if (proteinasTotalesMujer == PROTEINA_IDEAL_MUJER) {
 			return isIdeal;
 		}else 
 			return !isIdeal;
@@ -536,7 +536,7 @@ public class CalculoValorIdeal{
 
 		double hidratosTotales = totalHidratosIdeal(alimentos, alimentosElegidos, cantidadesElegidas);
 
-		if (hidratosTotales == HIDRATOSIDEAL) {
+		if (hidratosTotales == HIDRATOS_IDEAL) {
 			return isIdeal;
 		}else
 			return !isIdeal;
@@ -549,9 +549,9 @@ public class CalculoValorIdeal{
 		double potasioTotalHombre = totalProteinaIdeal(alimentos,persona, alimentosElegidos, cantidadesElegidas);
 		double potasioTotalMujer = totalProteinaIdeal(alimentos,persona, alimentosElegidos, cantidadesElegidas);
 
-		if (potasioTotalHombre == POTASIOIDEALHOMBRE) {
+		if (potasioTotalHombre == POTASIO_IDEAL_HOMBRE) {
 			return isIdeal;
-		}else if (potasioTotalMujer == POTASIOIDEALMUJER) {
+		}else if (potasioTotalMujer == POTASIO_IDEAL_MUJER) {
 			return isIdeal;
 		}else 
 			return !isIdeal;
@@ -565,7 +565,7 @@ public class CalculoValorIdeal{
 		double calcioTotal = totalCalcioIdeal(alimentos, alimentosElegidos, cantidadesElegidas);
 
 
-		if (calcioTotal >= CALCIOIDEALINICIAL && calcioTotal <= CALCIOIDEALFINAL) {
+		if (calcioTotal >= CALCIO_IDEAL_INICIAL && calcioTotal <= CALCIO_IDEAL_FINAL) {
 			return isIdeal;
 		}else
 			return !isIdeal;
@@ -578,7 +578,7 @@ public class CalculoValorIdeal{
 
 		double salTotal = totalSalIdeal(alimentos, alimentosElegidos, cantidadesElegidas);
 
-		if (salTotal <= SALIDEAL) {
+		if (salTotal <= SAL_IDEAL) {
 			return isIdeal;
 		}else
 			return !isIdeal;
