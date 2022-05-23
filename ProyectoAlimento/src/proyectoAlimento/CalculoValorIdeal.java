@@ -1,5 +1,6 @@
 package proyectoAlimento;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -498,20 +499,86 @@ public class CalculoValorIdeal{
 		double grasaSaturadaTotal = totalGrasaSaturadaIdeal(alimentos,alimentosElegidos, cantidadesElegidas);
 
 		double kcalTotal=0;
-		
-		for (int i=0; i<alimentos.length; i++) {
-			 kcalTotal += alimentos[i].kcal;
+
+		int size = alimentosElegidos.size();
+		int length = alimentos.length;
+
+		for (int i=0; i<size; i++) {
+
+			for (int j=0; j<length; j++) {
+
+				if (alimentosElegidos.get(i).equals(alimentos[j].getNombre())) {
+
+					String cantidad=cantidadesElegidas.get(i).toString();
+					int cantidadElegida=Integer.parseInt(cantidad);
+
+					if (cantidadElegida > 100 || cantidadElegida < 100) {
+
+						kcalTotal += alimentos[j].getKcal() * cantidadElegida / 100;
+
+					}else
+
+						kcalTotal += alimentos[j].getKcal();
+
+				}
+
+			}
+
 		}
-		
-		double valorIdealKcal = (kcalTotal * PORCENTAJE_GRASA_SATURADA_IDEAL / 100);
+
+		double valorIdealKcal = ((kcalTotal * PORCENTAJE_GRASA_SATURADA_IDEAL) / 100);
 
 		double valorKcalGrasaSaturada = (grasaSaturadaTotal * 9);
 
-		if (valorKcalGrasaSaturada > valorIdealKcal) {
-			 return isIdeal;
+		if (valorKcalGrasaSaturada <= valorIdealKcal) {
+			return isIdeal;
 		}else
-			 return !isIdeal;
+			return !isIdeal;
+
+	}
+
+	public static String isPorcentajeIdeal(Alimento []alimentos,ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
+
+		DecimalFormat decimalFormat = new DecimalFormat("0.00");
+
+		double grasaSaturadaTotal = totalGrasaSaturadaIdeal(alimentos,alimentosElegidos, cantidadesElegidas);
+
+		double kcalTotal=0;
+
+		int size = alimentosElegidos.size();
+		int length = alimentos.length;
+
+		for (int i=0; i<size; i++) {
+
+			for (int j=0; j<length; j++) {
+
+				if (alimentosElegidos.get(i).equals(alimentos[j].getNombre())) {
+
+					String cantidad=cantidadesElegidas.get(i).toString();
+					int cantidadElegida=Integer.parseInt(cantidad);
+
+					if (cantidadElegida > 100 || cantidadElegida < 100) {
+
+						kcalTotal += alimentos[j].getKcal() * cantidadElegida / 100;
+
+					}else
+
+						kcalTotal += alimentos[j].getKcal();
+
+				}
+
+			}
+
+		}
+				
+		double valorIdealKcal = (kcalTotal * PORCENTAJE_GRASA_SATURADA_IDEAL / 100);
 		
+		double valorKcalGrasaSaturada = (grasaSaturadaTotal * 9);
+
+		String porcentaje = decimalFormat.format((valorKcalGrasaSaturada * PORCENTAJE_GRASA_SATURADA_IDEAL) / valorIdealKcal);
+		
+		return porcentaje;
+
 	}
 
 	public static boolean isProteinaIdeal(Alimento []alimentos, Persona persona, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {

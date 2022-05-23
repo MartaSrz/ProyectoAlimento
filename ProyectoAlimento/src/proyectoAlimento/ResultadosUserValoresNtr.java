@@ -292,7 +292,7 @@ public class ResultadosUserValoresNtr {
 		lblCalcio.setText(">1.2g y <1.3g");
 		lblHidratos.setText(CalculoValorIdeal.getHidratosideal()+"g");
 		lblSal.setText("<=5.0g");
-		lblGrasasSaturadas.setText(CalculoValorIdeal.getGrasaSaturadaideal()+"%");
+		lblGrasasSaturadas.setText("<"+CalculoValorIdeal.getGrasaSaturadaideal()+"%");
 
 
 		//parte valor user
@@ -300,7 +300,7 @@ public class ResultadosUserValoresNtr {
 		lblAzucarUser.setText(CalculoValorIdeal.totalAzucarIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");
 		lblProteinaUser.setText(CalculoValorIdeal.totalProteinaIdeal(alimentos, usuario, alimentosElegidos, cantidadesElegidas)+"g");
 		lblPotasioUser.setText(CalculoValorIdeal.totalPotasioIdeal(alimentos, usuario, alimentosElegidos, cantidadesElegidas)+"mg");
-		lblGrasasSaturadasUser.setText(CalculoValorIdeal.totalGrasaSaturadaIdeal(alimentos, alimentosElegidos, cantidadesElegidas)+"g");
+		lblGrasasSaturadasUser.setText(CalculoValorIdeal.totalGrasaSaturadaIdeal(alimentos, alimentosElegidos, cantidadesElegidas)+"g " + "(" +CalculoValorIdeal.isPorcentajeIdeal(alimentos, alimentosElegidos, cantidadesElegidas) + "%)");
 		lblCalcioUser.setText(CalculoValorIdeal.totalCalcioIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");
 		lblHidratosUser.setText(CalculoValorIdeal.totalHidratosIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");
 		lblSalUser.setText(CalculoValorIdeal.totalSalIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)+"g");
