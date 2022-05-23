@@ -39,6 +39,11 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.awt.Component;
+import java.beans.PropertyChangeListener;
+import java.text.DecimalFormat;
+import java.beans.PropertyChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 
 public class ValoresNutritivos {
 
@@ -256,6 +261,7 @@ public class ValoresNutritivos {
 		lblcuntaCantidadHas.setBounds(49, 79, 280, 32);
 		ventanaCalc.getContentPane().add(lblcuntaCantidadHas);
 
+
 		cantidadGramos.setEnabled(false);
 		cantidadGramos.setModel(new SpinnerNumberModel(new Integer(100), new Integer(10), null, new Integer(1)));
 		cantidadGramos.setFont(new Font("Dialog", Font.BOLD, 16));
@@ -279,77 +285,77 @@ public class ValoresNutritivos {
 		separator_2.setBounds(38, 648, 678, 10);
 		ventanaCalc.getContentPane().add(separator_2);
 
-		JLabel lblValor_1 = new JLabel("0");
-		lblValor_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblValor_1.setFont(new Font("Dialog", Font.PLAIN, 16));
-		lblValor_1.setBounds(477, 169, 171, 32);
-		ventanaCalc.getContentPane().add(lblValor_1);
+		JLabel lblValor = new JLabel("0");
+		lblValor.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblValor.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblValor.setBounds(587, 169, 61, 32);
+		ventanaCalc.getContentPane().add(lblValor);
 
-		JLabel lblEnergtico_1 = new JLabel("0");
-		lblEnergtico_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblEnergtico_1.setFont(new Font("Dialog", Font.PLAIN, 16));
-		lblEnergtico_1.setBounds(477, 197, 171, 32);
-		ventanaCalc.getContentPane().add(lblEnergtico_1);
+		JLabel lblEnergtico = new JLabel("0");
+		lblEnergtico.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblEnergtico.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblEnergtico.setBounds(587, 197, 61, 32);
+		ventanaCalc.getContentPane().add(lblEnergtico);
 
-		JLabel lblGrasas_1 = new JLabel("0");
-		lblGrasas_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblGrasas_1.setFont(new Font("Dialog", Font.PLAIN, 16));
-		lblGrasas_1.setBounds(477, 244, 171, 32);
-		ventanaCalc.getContentPane().add(lblGrasas_1);
+		JLabel lblGrasas = new JLabel("0");
+		lblGrasas.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblGrasas.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblGrasas.setBounds(587, 244, 61, 32);
+		ventanaCalc.getContentPane().add(lblGrasas);
 
-		JLabel lblSaturadas_1 = new JLabel("0");
-		lblSaturadas_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblSaturadas_1.setFont(new Font("Dialog", Font.PLAIN, 16));
-		lblSaturadas_1.setBounds(477, 270, 171, 32);
-		ventanaCalc.getContentPane().add(lblSaturadas_1);
+		JLabel lblSaturadas = new JLabel("0");
+		lblSaturadas.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblSaturadas.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblSaturadas.setBounds(587, 270, 61, 32);
+		ventanaCalc.getContentPane().add(lblSaturadas);
 
-		JLabel lblHidratosDeCarbono_1 = new JLabel("0");
-		lblHidratosDeCarbono_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblHidratosDeCarbono_1.setFont(new Font("Dialog", Font.PLAIN, 16));
-		lblHidratosDeCarbono_1.setBounds(477, 314, 171, 32);
-		ventanaCalc.getContentPane().add(lblHidratosDeCarbono_1);
+		JLabel lblHidratosDeCarbono = new JLabel("0");
+		lblHidratosDeCarbono.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblHidratosDeCarbono.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblHidratosDeCarbono.setBounds(587, 314, 61, 32);
+		ventanaCalc.getContentPane().add(lblHidratosDeCarbono);
 
-		JLabel lblAzcar_1 = new JLabel("0");
-		lblAzcar_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblAzcar_1.setFont(new Font("Dialog", Font.PLAIN, 16));
-		lblAzcar_1.setBounds(477, 341, 171, 32);
-		ventanaCalc.getContentPane().add(lblAzcar_1);
+		JLabel lblAzcar = new JLabel("0");
+		lblAzcar.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblAzcar.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblAzcar.setBounds(587, 341, 61, 32);
+		ventanaCalc.getContentPane().add(lblAzcar);
 
-		JLabel lblProtenas_1 = new JLabel("0");
-		lblProtenas_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblProtenas_1.setFont(new Font("Dialog", Font.PLAIN, 16));
-		lblProtenas_1.setBounds(477, 385, 171, 32);
-		ventanaCalc.getContentPane().add(lblProtenas_1);
+		JLabel lblProtenas = new JLabel("0");
+		lblProtenas.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblProtenas.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblProtenas.setBounds(587, 385, 61, 32);
+		ventanaCalc.getContentPane().add(lblProtenas);
 
-		JLabel lblSal_1 = new JLabel("0");
-		lblSal_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblSal_1.setFont(new Font("Dialog", Font.PLAIN, 16));
-		lblSal_1.setBounds(477, 428, 171, 32);
-		ventanaCalc.getContentPane().add(lblSal_1);
+		JLabel lblSal = new JLabel("0");
+		lblSal.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblSal.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblSal.setBounds(587, 428, 61, 32);
+		ventanaCalc.getContentPane().add(lblSal);
 
-		JLabel lblCalcio_1 = new JLabel("0");
-		lblCalcio_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblCalcio_1.setFont(new Font("Dialog", Font.PLAIN, 16));
-		lblCalcio_1.setBounds(477, 472, 171, 32);
-		ventanaCalc.getContentPane().add(lblCalcio_1);
+		JLabel lblCalcio = new JLabel("0");
+		lblCalcio.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblCalcio.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblCalcio.setBounds(587, 472, 61, 32);
+		ventanaCalc.getContentPane().add(lblCalcio);
 
-		JLabel lblFibra_1 = new JLabel("0");
-		lblFibra_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblFibra_1.setFont(new Font("Dialog", Font.PLAIN, 16));
-		lblFibra_1.setBounds(477, 516, 171, 32);
-		ventanaCalc.getContentPane().add(lblFibra_1);
+		JLabel lblFibra = new JLabel("0");
+		lblFibra.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblFibra.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblFibra.setBounds(587, 516, 61, 32);
+		ventanaCalc.getContentPane().add(lblFibra);
 
-		JLabel lblPotasio_1 = new JLabel("0");
-		lblPotasio_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblPotasio_1.setFont(new Font("Dialog", Font.PLAIN, 16));
-		lblPotasio_1.setBounds(477, 560, 171, 32);
-		ventanaCalc.getContentPane().add(lblPotasio_1);
+		JLabel lblPotasio = new JLabel("0");
+		lblPotasio.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPotasio.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblPotasio.setBounds(587, 560, 61, 32);
+		ventanaCalc.getContentPane().add(lblPotasio);
 
-		JLabel lblHierro_1 = new JLabel("0");
-		lblHierro_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblHierro_1.setFont(new Font("Dialog", Font.PLAIN, 16));
-		lblHierro_1.setBounds(477, 604, 171, 32);
-		ventanaCalc.getContentPane().add(lblHierro_1);
+		JLabel lblHierro = new JLabel("0");
+		lblHierro.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblHierro.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblHierro.setBounds(587, 604, 61, 32);
+		ventanaCalc.getContentPane().add(lblHierro);
 
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setForeground(Color.LIGHT_GRAY);
@@ -445,6 +451,144 @@ public class ValoresNutritivos {
 		lblKiloCalorias.setFont(new Font("Dialog", Font.PLAIN, 16));
 		lblKiloCalorias.setBounds(671, 169, 38, 32);
 		ventanaCalc.getContentPane().add(lblKiloCalorias);
+		
+		JLabel lblPorg_1 = new JLabel("por 0g");
+		lblPorg_1.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPorg_1.setFont(new Font("Dialog", Font.BOLD, 16));
+		lblPorg_1.setBounds(396, 133, 80, 32);
+		ventanaCalc.getContentPane().add(lblPorg_1);
+		
+		JLabel lblKiloCalorias_1 = new JLabel("Kcal");
+		lblKiloCalorias_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblKiloCalorias_1.setBounds(438, 169, 38, 32);
+		ventanaCalc.getContentPane().add(lblKiloCalorias_1);
+		
+		JLabel lblValorUser = new JLabel("0");
+		lblValorUser.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblValorUser.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblValorUser.setBounds(354, 169, 61, 32);
+		ventanaCalc.getContentPane().add(lblValorUser);
+		
+		JLabel lblEnergticoUser = new JLabel("0");
+		lblEnergticoUser.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblEnergticoUser.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblEnergticoUser.setBounds(354, 197, 61, 32);
+		ventanaCalc.getContentPane().add(lblEnergticoUser);
+		
+		JLabel lblKiloJulios_1 = new JLabel("KJ");
+		lblKiloJulios_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblKiloJulios_1.setBounds(438, 197, 38, 32);
+		ventanaCalc.getContentPane().add(lblKiloJulios_1);
+		
+		JLabel lblGramos_7 = new JLabel("g");
+		lblGramos_7.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblGramos_7.setBounds(438, 244, 38, 32);
+		ventanaCalc.getContentPane().add(lblGramos_7);
+		
+		JLabel lblGrasasUser = new JLabel("0");
+		lblGrasasUser.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblGrasasUser.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblGrasasUser.setBounds(354, 244, 61, 32);
+		ventanaCalc.getContentPane().add(lblGrasasUser);
+		
+		JLabel lblSaturadasUser = new JLabel("0");
+		lblSaturadasUser.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblSaturadasUser.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblSaturadasUser.setBounds(354, 270, 61, 32);
+		ventanaCalc.getContentPane().add(lblSaturadasUser);
+		
+		JLabel lblGramos_2_1 = new JLabel("g");
+		lblGramos_2_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblGramos_2_1.setBounds(438, 314, 38, 32);
+		ventanaCalc.getContentPane().add(lblGramos_2_1);
+		
+		JLabel lblGramos_1_1 = new JLabel("g");
+		lblGramos_1_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblGramos_1_1.setBounds(438, 270, 38, 32);
+		ventanaCalc.getContentPane().add(lblGramos_1_1);
+		
+		JLabel lblHidratosDeCarbonoUser = new JLabel("0");
+		lblHidratosDeCarbonoUser.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblHidratosDeCarbonoUser.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblHidratosDeCarbonoUser.setBounds(354, 314, 61, 32);
+		ventanaCalc.getContentPane().add(lblHidratosDeCarbonoUser);
+		
+		JLabel lblAzcarUser = new JLabel("0");
+		lblAzcarUser.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblAzcarUser.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblAzcarUser.setBounds(354, 341, 61, 32);
+		ventanaCalc.getContentPane().add(lblAzcarUser);
+		
+		JLabel lblGramos_3_1 = new JLabel("g");
+		lblGramos_3_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblGramos_3_1.setBounds(438, 341, 38, 32);
+		ventanaCalc.getContentPane().add(lblGramos_3_1);
+		
+		JLabel lblGramos_4_1 = new JLabel("g");
+		lblGramos_4_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblGramos_4_1.setBounds(438, 385, 38, 32);
+		ventanaCalc.getContentPane().add(lblGramos_4_1);
+		
+		JLabel lblProtenasUser = new JLabel("0");
+		lblProtenasUser.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblProtenasUser.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblProtenasUser.setBounds(354, 385, 61, 32);
+		ventanaCalc.getContentPane().add(lblProtenasUser);
+		
+		JLabel lblSalUser = new JLabel("0");
+		lblSalUser.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblSalUser.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblSalUser.setBounds(354, 428, 61, 32);
+		ventanaCalc.getContentPane().add(lblSalUser);
+		
+		JLabel lblGramos_5_1 = new JLabel("g");
+		lblGramos_5_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblGramos_5_1.setBounds(438, 428, 38, 32);
+		ventanaCalc.getContentPane().add(lblGramos_5_1);
+		
+		JLabel lblGramos_6_1 = new JLabel("g");
+		lblGramos_6_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblGramos_6_1.setBounds(438, 472, 38, 32);
+		ventanaCalc.getContentPane().add(lblGramos_6_1);
+		
+		JLabel lblCalcioUser = new JLabel("0");
+		lblCalcioUser.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblCalcioUser.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblCalcioUser.setBounds(354, 472, 61, 32);
+		ventanaCalc.getContentPane().add(lblCalcioUser);
+		
+		JLabel lblFibraUser = new JLabel("0");
+		lblFibraUser.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblFibraUser.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblFibraUser.setBounds(354, 516, 61, 32);
+		ventanaCalc.getContentPane().add(lblFibraUser);
+		
+		JLabel lblMiliGramos_3 = new JLabel("mg");
+		lblMiliGramos_3.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblMiliGramos_3.setBounds(438, 516, 38, 32);
+		ventanaCalc.getContentPane().add(lblMiliGramos_3);
+		
+		JLabel lblMiliGramos_1_1 = new JLabel("mg");
+		lblMiliGramos_1_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblMiliGramos_1_1.setBounds(438, 560, 38, 32);
+		ventanaCalc.getContentPane().add(lblMiliGramos_1_1);
+		
+		JLabel lblPotasioUser = new JLabel("0");
+		lblPotasioUser.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblPotasioUser.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblPotasioUser.setBounds(354, 560, 61, 32);
+		ventanaCalc.getContentPane().add(lblPotasioUser);
+		
+		JLabel lblHierroUser = new JLabel("0");
+		lblHierroUser.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblHierroUser.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblHierroUser.setBounds(354, 604, 61, 32);
+		ventanaCalc.getContentPane().add(lblHierroUser);
+		
+		JLabel lblMiliGramos_2_1 = new JLabel("mg");
+		lblMiliGramos_2_1.setFont(new Font("Dialog", Font.PLAIN, 16));
+		lblMiliGramos_2_1.setBounds(438, 604, 38, 32);
+		ventanaCalc.getContentPane().add(lblMiliGramos_2_1);
 
 		txtAlimentosElegidos.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtAlimentosElegidos.setEditable(false);
@@ -511,30 +655,67 @@ public class ValoresNutritivos {
 
 
 		//ZONA DE TRABAJO-----------------------------------------------------------------------
-
+		DecimalFormat decimalFormat = new DecimalFormat("0.00");
 		selectAlimentos.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) { /*Se cambia de elemento el selector de alimentos*/
 				int seleccionado = selectAlimentos.getSelectedIndex();
 
 				cantidadGramos.setEnabled(true);
 				btnAnyadir.setEnabled(true);
-				lblValor_1.setText(String.valueOf(alimento[seleccionado].getKcal()));
-				lblEnergtico_1.setText(String.valueOf(alimento[seleccionado].getkJ()));
-				lblGrasas_1.setText(String.valueOf(alimento[seleccionado].getGrasas()));
-				lblSaturadas_1.setText(String.valueOf(alimento[seleccionado].getGrasasSaturadas()));
-				lblHidratosDeCarbono_1.setText(String.valueOf(alimento[seleccionado].getHidratos()));
-				lblAzcar_1.setText(String.valueOf(alimento[seleccionado].getAzucar()));
-				lblProtenas_1.setText(String.valueOf(alimento[seleccionado].getProteinas()));
-				lblSal_1.setText(String.valueOf(alimento[seleccionado].getSal()));
-				lblCalcio_1.setText(String.valueOf(alimento[seleccionado].getCalcio()));
-				lblFibra_1.setText(String.valueOf(alimento[seleccionado].getFibra()));
-				lblPotasio_1.setText(String.valueOf(alimento[seleccionado].getPotasio()));
-				lblHierro_1.setText(String.valueOf(alimento[seleccionado].getHierro()));
+				lblValor.setText(String.valueOf(alimento[seleccionado].getKcal()));
+				lblEnergtico.setText(String.valueOf(alimento[seleccionado].getkJ()));
+				lblGrasas.setText(String.valueOf(alimento[seleccionado].getGrasas()));
+				lblSaturadas.setText(String.valueOf(alimento[seleccionado].getGrasasSaturadas()));
+				lblHidratosDeCarbono.setText(String.valueOf(alimento[seleccionado].getHidratos()));
+				lblAzcar.setText(String.valueOf(alimento[seleccionado].getAzucar()));
+				lblProtenas.setText(String.valueOf(alimento[seleccionado].getProteinas()));
+				lblSal.setText(String.valueOf(alimento[seleccionado].getSal()));
+				lblCalcio.setText(String.valueOf(alimento[seleccionado].getCalcio()));
+				lblFibra.setText(String.valueOf(alimento[seleccionado].getFibra()));
+				lblPotasio.setText(String.valueOf(alimento[seleccionado].getPotasio()));
+				lblHierro.setText(String.valueOf(alimento[seleccionado].getHierro()));
 				lblImgAlimentos.setIcon(imgAlimento[seleccionado]);
+				lblPorg_1.setText("por 100g");
+				lblValorUser.setText(String.valueOf(alimento[seleccionado].getKcal()));
+				lblEnergticoUser.setText(String.valueOf(alimento[seleccionado].getkJ()));
+				lblGrasasUser.setText(String.valueOf(alimento[seleccionado].getGrasas()));
+				lblSaturadasUser.setText(String.valueOf(alimento[seleccionado].getGrasasSaturadas()));
+				lblHidratosDeCarbonoUser.setText(String.valueOf(alimento[seleccionado].getHidratos()));
+				lblAzcarUser.setText(String.valueOf(alimento[seleccionado].getAzucar()));
+				lblProtenasUser.setText(String.valueOf(alimento[seleccionado].getProteinas()));
+				lblSalUser.setText(String.valueOf(alimento[seleccionado].getSal()));
+				lblCalcioUser.setText(String.valueOf(alimento[seleccionado].getCalcio()));
+				lblFibraUser.setText(String.valueOf(alimento[seleccionado].getFibra()));
+				lblPotasioUser.setText(String.valueOf(alimento[seleccionado].getPotasio()));
+				lblHierroUser.setText(String.valueOf(alimento[seleccionado].getHierro()));
+			}
+		});
+		
+		cantidadGramos.addChangeListener(new ChangeListener() { /* se cambia el valor de la cantidad de alimentos */
+			public void stateChanged(ChangeEvent arg0) {
+				int seleccionado = selectAlimentos.getSelectedIndex();
+				int cantidad =  (int) cantidadGramos.getValue();
+				lblPorg_1.setText("por " + cantidad + "g");
+				lblValorUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getKcal()*cantidad/100)));
+				lblEnergticoUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getkJ()*cantidad/100)));
+				lblGrasasUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getGrasas()*cantidad/100)));
+				lblSaturadasUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getGrasasSaturadas()*cantidad/100)));
+				lblHidratosDeCarbonoUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getHidratos()*cantidad/100)));
+				lblAzcarUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getAzucar()*cantidad/100)));
+				lblProtenasUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getProteinas()*cantidad/100)));
+				lblSalUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getSal()*cantidad/100)));
+				lblCalcioUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getCalcio()*cantidad/100)));
+				lblFibraUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getFibra()*cantidad/100)));
+				lblPotasioUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getPotasio()*cantidad/100)));
+				lblHierroUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getHierro()*cantidad/100)));
+				
 			}
 		});
 
+
 		textConsejo.setText("CONSEJO NUTRICIONAL\n\nTodas las células del cuerpo necesitan de agua para funcionar, por eso es esencial ingerir suficiente. Una adecuada hidratación te puede ayudar a mejorar tu digestión, la función de tus riñones y lucir una piel más hidratada.\n\nLo ideal es que consumas 2,7 litros de agua potable al día si eres mujer y 3,7 si eres hombre. Aquí se incluye el agua de los alimentos, que representa aproximadamente un 20% del total.");
+		
+
 
 		btnAnyadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {/*eso va a almacenar en el texto la cantidad y el alimento*/
@@ -583,4 +764,4 @@ public class ValoresNutritivos {
 			}
 		});
 	}
-}
+} 
