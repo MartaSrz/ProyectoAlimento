@@ -19,13 +19,9 @@ import java.awt.event.ActionListener;
 import javax.swing.SwingConstants;
 import javax.swing.JSeparator;
 import java.awt.Color;
-import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JButton;
-import javax.swing.border.LineBorder;
-import javax.swing.text.Caret;
 
-import java.awt.Dimension;
 import javax.swing.JTextField;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -34,14 +30,8 @@ import javax.swing.JEditorPane;
 import javax.swing.SpinnerNumberModel;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.awt.Component;
-import java.beans.PropertyChangeListener;
 import java.text.DecimalFormat;
-import java.beans.PropertyChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 
@@ -51,7 +41,6 @@ public class ValoresNutritivos {
 	private final static Color FONDO_COLOR= new Color(255, 255, 221);
 	private JTextField txtFondoColor;
 	private static boolean hayAlimentos=false;
-	private static boolean haEntradoDeNuevo=false;
 	private static Persona usuario;  //Persona que mandaremos a la clase ResultadosUserEstado
 	private Alimento alimento[] = { //Declaración de los alimentos a usar
 			new Alimento("Manzana",95,396,0.03,0.1,25.1,18.9,0.5,4.4,0.1,10.9,0.2,194.7),
@@ -96,15 +85,6 @@ public class ValoresNutritivos {
 	private static 	JEditorPane txtCantidadesElegidas = new JEditorPane();
 	private JButton btnComprobarValoresNtr = new JButton("Comprobar Valores Nutritivos");
 
-	
-	public static boolean isHaEntradoDeNuevo() {
-		return haEntradoDeNuevo;
-	}
-
-	public static void setHaEntradoDeNuevo(boolean haEntradoDeNuevo) {
-		ValoresNutritivos.haEntradoDeNuevo = haEntradoDeNuevo;
-	}
-
 	public static void arrancar(Persona usuario, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) { /*Metodo para arrancar la segunda ventana*/
 		ValoresNutritivos.usuario=usuario;
 		ValoresNutritivos.alimentosElegidos=alimentosElegidos;
@@ -129,7 +109,7 @@ public class ValoresNutritivos {
 			txtCantidadesElegidas.setText(cantidadesElegidas.toString());
 			cantidadGramos.setValue(100);
 			btnComprobarValoresNtr.setEnabled(true);
-			setHaEntradoDeNuevo(true);
+			hayAlimentos=true;
 		}
 	}
 	
@@ -639,9 +619,7 @@ public class ValoresNutritivos {
 		lblEspecificarGramos.setBounds(487, 79, 25, 32);
 		ventanaCalc.getContentPane().add(lblEspecificarGramos);
 		
-		if (!isHaEntradoDeNuevo())
-			btnComprobarValoresNtr.setEnabled(false);
-		
+		btnComprobarValoresNtr.setEnabled(hayAlimentos);
 		btnComprobarValoresNtr.setFont(new Font("Dialog", Font.BOLD, 16));
 		btnComprobarValoresNtr.setBounds(756, 871, 280, 45);
 		ventanaCalc.getContentPane().add(btnComprobarValoresNtr);
@@ -650,7 +628,7 @@ public class ValoresNutritivos {
 		btnBorrarRegistro.setFont(new Font("Dialog", Font.BOLD, 16));
 		btnBorrarRegistro.setBounds(517, 23, 192, 37);
 		ventanaCalc.getContentPane().add(btnBorrarRegistro);
-		btnBorrarRegistro.setEnabled(false);
+		btnBorrarRegistro.setEnabled(hayAlimentos);
 		
 
 
@@ -749,6 +727,7 @@ public class ValoresNutritivos {
 				txtCantidadesElegidas.setText("");
 				btnComprobarValoresNtr.setEnabled(false);
 				hayAlimentos=false;
+				btnBorrarRegistro.setEnabled(false);
 			}
 		});
 		btnEstadoFisico.addActionListener(new ActionListener() {

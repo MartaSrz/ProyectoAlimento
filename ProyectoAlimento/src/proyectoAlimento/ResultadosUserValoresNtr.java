@@ -1,6 +1,7 @@
 /**
  *Clase llamada por ValoresNutritivos.
  *Esta clase ha sido creada para mostrar los resultados respecto a los Valores Nutritivos al user.
+ *@author Marta
  */
 
 
@@ -312,43 +313,39 @@ public class ResultadosUserValoresNtr {
 		frmCalcularValores.getContentPane().add(lblNewLabel_3);
 
 		if (!CalculoValorIdeal.isGrasaIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)) {
-			lblGrasaUser.setForeground(Color.RED);
-			lblGrasaUser.setFont(new Font("Dialog", Font.BOLD, 13));
+			valoresNoIdeales(lblGrasaUser);
 		}
 
 		if (!CalculoValorIdeal.isAzucarIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)) {
-			lblAzucarUser.setForeground(Color.RED);
-			lblAzucarUser.setFont(new Font("Dialog", Font.BOLD, 13));
+			valoresNoIdeales(lblAzucarUser);
 		}
 
 		if (!CalculoValorIdeal.isProteinaIdeal(alimentos, usuario, alimentosElegidos, cantidadesElegidas)) {
-			lblProteinaUser.setForeground(Color.RED);
-			lblProteinaUser.setFont(new Font("Dialog", Font.BOLD, 13));
+			valoresNoIdeales(lblProteinaUser);
 		}
 
 		if (!CalculoValorIdeal.isPotasioIdeal(alimentos, usuario, alimentosElegidos, cantidadesElegidas)) {
-			lblPotasioUser.setForeground(Color.RED);
-			lblPotasioUser.setFont(new Font("Dialog", Font.BOLD, 13));
+			valoresNoIdeales(lblPotasioUser);
 		}
 
 		if (!CalculoValorIdeal.isGrasaSaturadaIdeal(alimentos, alimentosElegidos, cantidadesElegidas)) {
-			lblGrasasSaturadasUser.setForeground(Color.RED);
-			lblGrasasSaturadasUser.setFont(new Font("Dialog", Font.BOLD, 13));
+			valoresNoIdeales(lblGrasasSaturadasUser);
 		}
 
 		if (!CalculoValorIdeal.isCalcioIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)) {
-			lblCalcioUser.setForeground(Color.RED);
-			lblCalcioUser.setFont(new Font("Dialog", Font.BOLD, 13));
+			valoresNoIdeales(lblCalcioUser);
 		}
 
 		if (CalculoValorIdeal.isHidratosIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)) {
-			lblHidratosUser.setForeground(Color.RED);
-			lblHidratosUser.setFont(new Font("Dialog", Font.BOLD, 13));
+			valoresNoIdeales(lblHidratosUser);
 		}
 
 		if (CalculoValorIdeal.isSalIdeal(alimentos,  alimentosElegidos, cantidadesElegidas)) {
-			lblSalUser.setForeground(Color.RED);
-			lblSalUser.setFont(new Font("Dialog", Font.BOLD, 13));
+			valoresNoIdeales(lblSalUser);
 		}
+	}
+	public void valoresNoIdeales(JLabel label) { /*con este método podremos re-utilizar código*/
+		label.setForeground(Color.RED);
+		label.setFont(new Font("Dialog", Font.BOLD, 13));
 	}
 }

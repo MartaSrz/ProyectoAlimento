@@ -1,6 +1,7 @@
 /**
  *Clase llamada por ValoresNutritivos.
  *Esta clase ha sido creada para mostrar los resultados respecto al estado fisico  al user.
+ *@author Marta
  */
 
 
