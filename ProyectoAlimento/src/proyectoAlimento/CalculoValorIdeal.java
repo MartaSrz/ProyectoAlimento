@@ -458,6 +458,50 @@ public class CalculoValorIdeal{
 
 	}
 
+	public static String totalPorcentajeGrasaSaturadaIdeal(Alimento []alimentos,ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
+
+		DecimalFormat decimalFormat = new DecimalFormat("0.00");
+
+		double grasaSaturadaTotal = totalGrasaSaturadaIdeal(alimentos,alimentosElegidos, cantidadesElegidas);
+
+		double kcalTotal=0;
+
+		int size = alimentosElegidos.size();
+		int length = alimentos.length;
+
+		for (int i=0; i<size; i++) {
+
+			for (int j=0; j<length; j++) {
+
+				if (alimentosElegidos.get(i).equals(alimentos[j].getNombre())) {
+
+					String cantidad=cantidadesElegidas.get(i).toString();
+					int cantidadElegida=Integer.parseInt(cantidad);
+
+					if (cantidadElegida > 100 || cantidadElegida < 100) {
+
+						kcalTotal += alimentos[j].getKcal() * cantidadElegida / 100;
+
+					}else
+
+						kcalTotal += alimentos[j].getKcal();
+
+				}
+
+			}
+
+		}
+
+		double valorIdealKcal = (kcalTotal * PORCENTAJE_GRASA_SATURADA_IDEAL / 100);
+
+		double valorKcalGrasaSaturada = (grasaSaturadaTotal * 9);
+
+		String porcentaje = decimalFormat.format((valorKcalGrasaSaturada * PORCENTAJE_GRASA_SATURADA_IDEAL) / valorIdealKcal);
+
+		return porcentaje;
+
+	}
+
 	public static boolean isGrasaIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
 		boolean isIdeal=true;
@@ -468,8 +512,6 @@ public class CalculoValorIdeal{
 			return isIdeal; // Devuelvo un boolean como true
 		}else
 			return !isIdeal; //Devuelvo un boolean como false
-
-
 
 	}
 
@@ -483,7 +525,6 @@ public class CalculoValorIdeal{
 			return isIdeal;
 		}else
 			return !isIdeal;
-
 
 	}
 
@@ -529,50 +570,6 @@ public class CalculoValorIdeal{
 			return isIdeal;
 		}else
 			return !isIdeal;
-
-	}
-
-	public static String isPorcentajeIdeal(Alimento []alimentos,ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
-
-		DecimalFormat decimalFormat = new DecimalFormat("0.00");
-
-		double grasaSaturadaTotal = totalGrasaSaturadaIdeal(alimentos,alimentosElegidos, cantidadesElegidas);
-
-		double kcalTotal=0;
-
-		int size = alimentosElegidos.size();
-		int length = alimentos.length;
-
-		for (int i=0; i<size; i++) {
-
-			for (int j=0; j<length; j++) {
-
-				if (alimentosElegidos.get(i).equals(alimentos[j].getNombre())) {
-
-					String cantidad=cantidadesElegidas.get(i).toString();
-					int cantidadElegida=Integer.parseInt(cantidad);
-
-					if (cantidadElegida > 100 || cantidadElegida < 100) {
-
-						kcalTotal += alimentos[j].getKcal() * cantidadElegida / 100;
-
-					}else
-
-						kcalTotal += alimentos[j].getKcal();
-
-				}
-
-			}
-
-		}
-				
-		double valorIdealKcal = (kcalTotal * PORCENTAJE_GRASA_SATURADA_IDEAL / 100);
-		
-		double valorKcalGrasaSaturada = (grasaSaturadaTotal * 9);
-
-		String porcentaje = decimalFormat.format((valorKcalGrasaSaturada * PORCENTAJE_GRASA_SATURADA_IDEAL) / valorIdealKcal);
-		
-		return porcentaje;
 
 	}
 
