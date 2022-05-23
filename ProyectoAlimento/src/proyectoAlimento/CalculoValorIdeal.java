@@ -26,11 +26,6 @@ public class CalculoValorIdeal{
 	private static final double SAL_IDEAL=5.0;
 	private final static double PORCENTAJE_GRASA_SATURADA_IDEAL=7.0;
 
-	private static Alimento alimentos[];
-	private static ArraysToString<String> alimentosElegidos= new ArraysToString<>();
-	private static ArraysToString<Integer> cantidadesElegidas= new ArraysToString<>();
-	private static Alimento kcal;
-
 	/**
 	 * 
 	 * @param GRASA_INICIAL_IDEAL: Valor mínimo de grasas (en gramos) que debe ingerir una persona durante el día
