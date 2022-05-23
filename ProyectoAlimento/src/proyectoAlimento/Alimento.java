@@ -36,10 +36,10 @@ public class Alimento {
 	 */
 
 
-	public Alimento(String nombreFruta, double kcal, double kJ, double grasas, double grasasSaturadas, double hidratos,
+	public Alimento(String nombre, double kcal, double kJ, double grasas, double grasasSaturadas, double hidratos,
 			double azucar, double proteinas, double fibra, double sal, double calcio, double hierro,
 			double potasio) {
-		this.nombre = nombreFruta;
+		this.nombre = nombre;
 		this.kcal = kcal;
 		this.kJ = kJ;
 		this.grasas = grasas;

@@ -26,22 +26,6 @@ public class CalculoValorIdeal{
 	private static final double SAL_IDEAL=5.0;
 	private final static double PORCENTAJE_GRASA_SATURADA_IDEAL=7.0;
 
-	/**
-	 * 
-	 * @param GRASA_INICIAL_IDEAL: Valor mínimo de grasas (en gramos) que debe ingerir una persona durante el día
-	 * @param GRASA_FINAL_IDEAL: Valor máximo de grasas (en gramos) que debe ingerir una persona durante el día
-	 * @param AZUCAR_INICIAL_IDEAL: Valor mínimo de azúcar (en gramos) que debe ingerir una persona durante el día
-	 * @param PROTEINA_IDEAL_HOMBRE: Valor ideal de proteínas (en gramos) que debe ingerir un hombre durante el día
-	 * @param PROTEINA_IDEAL_MUJER: Valor ideal de proteínas (en gramos) que debe ingerir una mujer durante el día
-	 * @param HIDRATOS_IDEAL: Valor ideal de hidratos (en gramos) que debe ingerir una persona durante el día
-	 * @param POTASIO_IDEAL_HOMBRE: Valor ideal de potasio (en miligramos) que debe ingerir un hombre durante el día
-	 * @param POTASIO_IDEAL_MUJER: Valor ideal de potasio (en miligramos) que debe ingerir una mujer durante el día
-	 * @param CALCIO_IDEAL_INICIAL: Valor mínimo de calcio (en gramos) que debe ingerir una persona durante el día
-	 * @param CALCIO_IDEAL_FINAL: Valor máximo de calcio (en gramos) que debe ingerir una persona durante el día
-	 * @param SAL_IDEAL: Valor ideal de sal (en gramos) que debe ingerir una persona durante el día
-	 * @param HIERRO_IDEAL_HOMBRE: Valor ideal de hierro (en miligramos) que debe ingerir un hombre durante el día
-	 * @param HIERRO_IDEAL_MUJER: Valor ideal de hierro (en miligramos) que debe ingerir una mujer durante el día
-	 */
 
 	public static double getGrasainicialideal() {
 		return GRASA_INICIAL_IDEAL;
@@ -96,8 +80,11 @@ public class CalculoValorIdeal{
 	 * @param alimentos: Valores que contenga el alimento en gramos y el nombre del alimento
 	 * @param alimentosElegidos: El nombre de los alimentos
 	 * @param cantidadesElegidas: Las cantidades de los alimentos
-	 * @return
+	 * @return devuelve la grasa inicial ideal
+	 * 
 	 */
+
+
 
 	public static double totalGrasaIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
@@ -135,13 +122,15 @@ public class CalculoValorIdeal{
 		return grasasTotales;
 
 
-	}
+	} 
 
 	/**
-	 * 
-	 * @param alimento: Valores que contenga el alimento en gramos
-	 * @return
+	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
+	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
+	 * @param alimentos: Valores que contenga el alimento en gramos
+	 * @return Devuelve las grasas totales
 	 */
+
 
 	public static double totalAzucarIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
@@ -180,10 +169,11 @@ public class CalculoValorIdeal{
 	}
 
 	/**
-	 * 
-	 * @param alimento: Valores que contenga el alimento en gramos
-	 * @param sexo: Género de la persona (Hombre o Mujer)
-	 * @return
+	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
+	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
+	 * @param alimentos: Valores que contenga el alimento en gramos
+	 * @param persona los datos de la persona con el fin de averiguar su sexo
+	 * @return Devuelve los azucares totales
 	 */
 
 	public static double totalProteinaIdeal(Alimento []alimentos, Persona persona, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
@@ -233,10 +223,12 @@ public class CalculoValorIdeal{
 	}
 
 	/**
-	 * 
-	 * @param alimento: Valores que contenga el alimento en gramos
-	 * @return
+	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
+	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
+	 * @param alimentos: Valores que contenga el alimento en gramos
+	 * @return Devuelve las proteinas ideales de un hombre
 	 */
+
 
 	public static double totalHidratosIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
@@ -275,11 +267,13 @@ public class CalculoValorIdeal{
 	}
 
 	/**
-	 * 
-	 * @param alimento: Valores que contenga el alimento en gramos
-	 * @param sexo: Género de la persona (Hombre o Mujer)
-	 * @return
+	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
+	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
+	 * @param alimentos: Valores que contenga el alimento en gramos
+	 * @param persona: Los datos de la persona con el fin de averiguar su sexo
+	 * @return Devuelve el potasio ideal 
 	 */
+	
 
 	public static double totalPotasioIdeal(Alimento []alimentos, Persona persona, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
@@ -328,10 +322,12 @@ public class CalculoValorIdeal{
 	}
 
 	/**
-	 * 
-	 * @param alimento: Valores que contenga el alimento en gramos
-	 * @return
+	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
+	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
+	 * @param alimentos: Valores que contenga el alimento en gramos
+	 * @return Devuelve el calcio ideal
 	 */
+
 
 	public static double totalCalcioIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
@@ -371,9 +367,10 @@ public class CalculoValorIdeal{
 	}
 
 	/**
-	 * 
-	 * @param alimento: Valores que contenga el alimento en gramos
-	 * @return
+	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
+	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
+	 * @param alimentos: Valores que contenga el alimento en gramos
+	 * @return Devuelve el total de sal ideal
 	 */
 
 	public static double totalSalIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
@@ -414,10 +411,10 @@ public class CalculoValorIdeal{
 	}
 
 	/**
-	 * 
-	 * @param alimento: Valores que contenga el alimento en gramos
-	 * @param sexo: Género de la persona (Hombre o Mujer)
-	 * @return
+	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
+	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
+	 * @param alimentos: Valores que contenga el alimento en gramos
+	 * @return Devuelve el total de grasas saturadas ideal
 	 */
 
 	public static double totalGrasaSaturadaIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
@@ -457,6 +454,12 @@ public class CalculoValorIdeal{
 
 
 	}
+	/**
+	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
+	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
+	 * @param alimentos: Valores que contenga el alimento en gramos
+	 * @return Devuelve el porcentaje total de grasas saturadas ideal
+	 */
 
 	public static String totalPorcentajeGrasaSaturadaIdeal(Alimento []alimentos,ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
@@ -501,6 +504,12 @@ public class CalculoValorIdeal{
 		return porcentaje;
 
 	}
+	/**
+	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
+	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
+	 * @param alimentos: Valores que contenga el alimento en gramos
+	 * @return Devuelve si las grasas son o no ideales
+	 */
 
 	public static boolean isGrasaIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
@@ -514,6 +523,12 @@ public class CalculoValorIdeal{
 			return !isIdeal; //Devuelvo un boolean como false
 
 	}
+	/**
+	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
+	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
+	 * @param alimentos: Valores que contenga el alimento en gramos
+	 * @return Devuelve si los azucares son o no ideales
+	 */
 
 	public static boolean isAzucarIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
@@ -528,6 +543,12 @@ public class CalculoValorIdeal{
 
 	}
 
+	/**
+	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
+	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
+	 * @param alimentos: Valores que contenga el alimento en gramos
+	 * @return Devuelve si las grasas saturadas son o no ideales
+	 */
 	public static boolean isGrasaSaturadaIdeal(Alimento []alimentos,ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
 		boolean isIdeal = true;
@@ -572,6 +593,13 @@ public class CalculoValorIdeal{
 			return !isIdeal;
 
 	}
+	/**
+	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
+	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
+	 * @param persona: Los valores del usuario que está usando la aplicacion
+	 * @param alimentos: Valores que contenga el alimento en gramos
+	 * @return Devuelve si las proteinas son o no ideales
+	 */
 
 	public static boolean isProteinaIdeal(Alimento []alimentos, Persona persona, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
@@ -588,6 +616,13 @@ public class CalculoValorIdeal{
 			return !isIdeal;
 
 	}
+	
+	/**
+	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
+	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
+	 * @param alimentos: Valores que contenga el alimento en gramos
+	 * @return Devuelve si los hidratos son o no ideales
+	 */
 
 	public static boolean isHidratosIdeal(Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
@@ -601,6 +636,14 @@ public class CalculoValorIdeal{
 			return !isIdeal;
 
 	}
+	
+	/**
+	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
+	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
+	 * @param persona: Los valores del usuario que está usando la aplicacion
+	 * @param alimentos: Valores que contenga el alimento en gramos
+	 * @return Devuelve si el potasio es o no ideal
+	 */
 
 	public static boolean isPotasioIdeal(Alimento []alimentos, Persona persona, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
@@ -616,6 +659,13 @@ public class CalculoValorIdeal{
 			return !isIdeal;
 
 	}
+	
+	/**
+	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
+	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
+	 * @param alimentos: Valores que contenga el alimento en gramos
+	 * @return Devuelve si los hidratos son o no ideales
+	 */
 
 	public static boolean isCalcioIdeal(Alimento []alimentos,ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
@@ -630,6 +680,13 @@ public class CalculoValorIdeal{
 			return !isIdeal;
 
 	}
+	
+	/**
+	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
+	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
+	 * @param alimentos: Valores que contenga el alimento en gramos
+	 * @return Devuelve si la sal es o no ideal
+	 */
 
 	public static boolean isSalIdeal(Alimento []alimentos,ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
