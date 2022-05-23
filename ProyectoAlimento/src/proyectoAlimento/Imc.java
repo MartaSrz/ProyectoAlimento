@@ -1,6 +1,3 @@
-package proyectoAlimento;
-
-import java.text.DecimalFormat;
 
 /**
  * 
@@ -8,6 +5,10 @@ import java.text.DecimalFormat;
  * @author marcre
  *
  */
+
+package proyectoAlimento;
+
+import java.text.DecimalFormat;
 
 public class Imc {	
 
