@@ -39,8 +39,16 @@ public class ResultadosUserValoresNtr {
 
 	/**
 	 * Launch the application.
-	 * @param hayAlimentos2 
 	 */
+	/**
+	 * 
+	 * @param usuario: Objeto de tipo persona con los datos del usuario que está usando la aplicación
+	 * @param alimentos: La lista de alimentos disponibles en la aplicacion
+	 * @param alimentosElegidos: Los alimentos seleccionados por el usuario
+	 * @param cantidadesElegidas: La cantidad de los alimentos seleccionados por el usuario
+	 */
+	
+
 	public static void valores(Persona usuario, Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) { /*accción para arrancar la cuarta ventana*/
 		ResultadosUserValoresNtr.usuario=usuario;
 		ResultadosUserValoresNtr.alimentos=alimentos;

@@ -35,8 +35,14 @@ public class ResultadosUserEstado {
 	private static Alimento alimentos[];
 	private static ArraysToString<String> alimentosElegidos= new ArraysToString<>();
 	private static ArraysToString<Integer> cantidadesElegidas= new ArraysToString<>();
+
 	/**
 	 * Launch the application.
+	 * @param usuario: Objeto de tipo persona con los datos del usuario que está usando la aplicación
+	 * @param blnAlimentos: booleano que nos informa de si el usuario ha seleccionado alimentos
+	 * @param alimentos: La lista de alimentos disponibles en la aplicacion
+	 * @param alimentosElegidos: Los alimentos seleccionados por el usuario
+	 * @param cantidadesElegidas: La cantidad de los alimentos seleccionados por el usuario
 	 */
 	public static void estado(Persona usuario, boolean blnAlimentos, Alimento []alimentos, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) { /*accción para arrancar la tercera ventana*/
 		ResultadosUserEstado.usuario=usuario;

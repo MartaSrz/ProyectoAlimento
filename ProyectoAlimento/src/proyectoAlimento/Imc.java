@@ -28,7 +28,7 @@ public class Imc {
 	 * @param altura: Valor de la altura de la persona en cm
 	 * @param peso: Valor del peso de la persona en kg
 	 * @param sexo: Sexo de la persona (Hombre o Mujer)
-	 * @return
+	 * @return Devuelve el estado fisico de una persona en base a su IMC
 	 */
 
 	public static String calcularPesoIdeal(int edad, int altura, int peso, String sexo) { 
@@ -106,7 +106,7 @@ public class Imc {
 	 * Según el resultado del cálculo del imc mostraremos el estado físico de la persona
 	 * @param altura: Valor de la altura de la persona en cm
 	 * @param peso: Valor del peso de la persona en kg
-	 * @return
+	 * @return Devuelve el Imc de una persona en base a su peso y altura
 	 */
 	
 

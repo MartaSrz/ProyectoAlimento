@@ -43,7 +43,9 @@ public class ProyectoAlimento{
 
 	/**
 	 * Launch the application.
+	 * @param args entrada de datos de main
 	 */
+
 	public static void main(String[] args) {		
 
 		EventQueue.invokeLater(new Runnable() {
