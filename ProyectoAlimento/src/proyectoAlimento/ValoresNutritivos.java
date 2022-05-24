@@ -674,18 +674,18 @@ public class ValoresNutritivos {
 				int seleccionado = selectAlimentos.getSelectedIndex();
 				int cantidad =  (int) cantidadGramos.getValue();
 				lblPorg_1.setText("por " + cantidad + "g");
-				lblValorUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getKcal()*cantidad/100)));
-				lblEnergticoUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getkJ()*cantidad/100)));
-				lblGrasasUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getGrasas()*cantidad/100)));
-				lblSaturadasUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getGrasasSaturadas()*cantidad/100)));
-				lblHidratosDeCarbonoUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getHidratos()*cantidad/100)));
-				lblAzcarUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getAzucar()*cantidad/100)));
-				lblProtenasUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getProteinas()*cantidad/100)));
-				lblSalUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getSal()*cantidad/100)));
-				lblCalcioUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getCalcio()*cantidad/100)));
-				lblFibraUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getFibra()*cantidad/100)));
-				lblPotasioUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getPotasio()*cantidad/100)));
-				lblHierroUser.setText(String.valueOf(decimalFormat.format(alimento[seleccionado].getHierro()*cantidad/100)));
+				lblValorUser.setText(decimalFormat.format(alimento[seleccionado].getKcal()*cantidad/100));
+				lblEnergticoUser.setText(decimalFormat.format(alimento[seleccionado].getkJ()*cantidad/100));
+				lblGrasasUser.setText(decimalFormat.format(alimento[seleccionado].getGrasas()*cantidad/100));
+				lblSaturadasUser.setText(decimalFormat.format(alimento[seleccionado].getGrasasSaturadas()*cantidad/100));
+				lblHidratosDeCarbonoUser.setText(decimalFormat.format(alimento[seleccionado].getHidratos()*cantidad/100));
+				lblAzcarUser.setText(decimalFormat.format(alimento[seleccionado].getAzucar()*cantidad/100));
+				lblProtenasUser.setText(decimalFormat.format(alimento[seleccionado].getProteinas()*cantidad/100));
+				lblSalUser.setText(decimalFormat.format(alimento[seleccionado].getSal()*cantidad/100));
+				lblCalcioUser.setText(decimalFormat.format(alimento[seleccionado].getCalcio()*cantidad/100));
+				lblFibraUser.setText(decimalFormat.format(alimento[seleccionado].getFibra()*cantidad/100));
+				lblPotasioUser.setText(decimalFormat.format(alimento[seleccionado].getPotasio()*cantidad/100));
+				lblHierroUser.setText(decimalFormat.format(alimento[seleccionado].getHierro()*cantidad/100));
 				
 			}
 		});
