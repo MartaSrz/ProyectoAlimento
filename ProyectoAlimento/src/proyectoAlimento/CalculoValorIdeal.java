@@ -11,7 +11,7 @@ import java.util.LinkedList;
  */
 
 public class CalculoValorIdeal{
-
+	private static DecimalFormat decimalFormat = new DecimalFormat("0.00");
 	private final static double GRASA_INICIAL_IDEAL=60.0;
 	private final static double GRASA_FINAL_IDEAL=80.0;
 	private final static double AZUCAR_IDEAL=25.0;
@@ -118,9 +118,12 @@ public class CalculoValorIdeal{
 		}
 
 		grasasTotales += grasas;
+		String grasasString = decimalFormat.format(grasasTotales);
+		grasasString =grasasString.replace(",", ".");
 
+		grasasTotales = Double.parseDouble(grasasString);
+		
 		return grasasTotales;
-
 
 	} 
 
@@ -463,7 +466,7 @@ public class CalculoValorIdeal{
 
 	public static String totalPorcentajeGrasaSaturadaIdeal(Alimento []alimentos,ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
-		DecimalFormat decimalFormat = new DecimalFormat("0.00");
+
 
 		double grasaSaturadaTotal = totalGrasaSaturadaIdeal(alimentos,alimentosElegidos, cantidadesElegidas);
 
