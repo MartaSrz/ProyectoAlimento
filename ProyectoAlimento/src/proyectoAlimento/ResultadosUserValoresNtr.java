@@ -207,7 +207,7 @@ public class ResultadosUserValoresNtr {
 		JLabel lblSalUser = new JLabel();
 		lblSalUser.setHorizontalAlignment(SwingConstants.CENTER);
 		lblSalUser.setFont(new Font("Dialog", Font.PLAIN, 13));
-		lblSalUser.setBounds(835, 220, 77, 23);
+		lblSalUser.setBounds(835, 220, 83, 23);
 		frmCalcularValores.getContentPane().add(lblSalUser);
 
 		JLabel lblGrasasSaturadasUser = new JLabel();
