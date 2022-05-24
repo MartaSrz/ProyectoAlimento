@@ -122,7 +122,7 @@ public class CalculoValorIdeal{
 		grasasString =grasasString.replace(",", ".");
 
 		grasasTotales = Double.parseDouble(grasasString);
-		
+
 		return grasasTotales;
 
 	} 
@@ -167,6 +167,11 @@ public class CalculoValorIdeal{
 		}
 
 		azucaresTotales += azucares;
+
+		String azucarString = decimalFormat.format(azucaresTotales);
+		azucarString =azucarString.replace(",", ".");
+
+		azucaresTotales = Double.parseDouble(azucarString);
 
 		return azucaresTotales;
 	}
@@ -217,6 +222,16 @@ public class CalculoValorIdeal{
 		proteinasTotalesHombres+= proteinasHombres;		
 		proteinasTotalesMujeres += proteinasMujeres;
 
+		String proteinasStringHombre = decimalFormat.format(proteinasTotalesHombres);
+		proteinasStringHombre =proteinasStringHombre.replace(",", ".");
+
+		proteinasTotalesHombres = Double.parseDouble(proteinasStringHombre);
+
+		String proteinasStringMujer = decimalFormat.format(proteinasTotalesMujeres);
+		proteinasStringMujer =proteinasStringMujer.replace(",", ".");
+
+		proteinasTotalesMujeres = Double.parseDouble(proteinasStringMujer);
+
 		if (persona.getSexo().equalsIgnoreCase("mujer")) {
 			return proteinasTotalesMujeres;
 		}else{
@@ -265,6 +280,11 @@ public class CalculoValorIdeal{
 		}
 
 		hidratosTotales += hidratos;
+		
+		String hidratosString = decimalFormat.format(hidratosTotales);
+		hidratosString =hidratosString.replace(",", ".");
+
+		hidratosTotales = Double.parseDouble(hidratosString);
 
 		return hidratosTotales;
 	}
@@ -276,7 +296,7 @@ public class CalculoValorIdeal{
 	 * @param persona: Los datos de la persona con el fin de averiguar su sexo
 	 * @return Devuelve el potasio ideal 
 	 */
-	
+
 
 	public static double totalPotasioIdeal(Alimento []alimentos, Persona persona, ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
@@ -315,6 +335,16 @@ public class CalculoValorIdeal{
 
 		potasioTotalHombres+= potasioHombres;		
 		potasioTotalMujeres += potasioMujeres;
+		
+		String potasioStringHombre = decimalFormat.format(potasioTotalHombres);
+		potasioStringHombre =potasioStringHombre.replace(",", ".");
+
+		potasioTotalHombres = Double.parseDouble(potasioStringHombre);
+
+		String potasioStringMujer = decimalFormat.format(potasioTotalMujeres);
+		potasioStringMujer =potasioStringMujer.replace(",", ".");
+
+		potasioTotalMujeres = Double.parseDouble(potasioStringMujer);
 
 		if (persona.getSexo().equalsIgnoreCase("mujer")) {
 			return potasioTotalMujeres;
@@ -364,6 +394,11 @@ public class CalculoValorIdeal{
 		}
 
 		calcioTotal += calcio;
+		
+		String calcioString = decimalFormat.format(calcioTotal);
+		calcioString =calcioString.replace(",", ".");
+
+		calcioTotal = Double.parseDouble(calcioString);
 
 		return calcioTotal;
 
@@ -408,6 +443,11 @@ public class CalculoValorIdeal{
 		}
 
 		salTotal += sal;
+		
+		String salString = decimalFormat.format(salTotal);
+		salString =salString.replace(",", ".");
+
+		salTotal = Double.parseDouble(salString);
 
 		return salTotal;
 
@@ -452,6 +492,11 @@ public class CalculoValorIdeal{
 		}
 
 		grasasSaturadasTotales += grasasSaturadas;
+		
+		String grasasSaturadasString = decimalFormat.format(grasasSaturadasTotales);
+		grasasSaturadasString =grasasSaturadasString.replace(",", ".");
+
+		grasasSaturadasTotales = Double.parseDouble(grasasSaturadasString);
 
 		return grasasSaturadasTotales;
 
@@ -464,9 +509,7 @@ public class CalculoValorIdeal{
 	 * @return Devuelve el porcentaje total de grasas saturadas ideal
 	 */
 
-	public static String totalPorcentajeGrasaSaturadaIdeal(Alimento []alimentos,ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
-
-
+	public static double totalPorcentajeGrasaSaturadaIdeal(Alimento []alimentos,ArraysToString<String> alimentosElegidos, ArraysToString<Integer> cantidadesElegidas) {
 
 		double grasaSaturadaTotal = totalGrasaSaturadaIdeal(alimentos,alimentosElegidos, cantidadesElegidas);
 
@@ -501,10 +544,15 @@ public class CalculoValorIdeal{
 		double valorIdealKcal = (kcalTotal * PORCENTAJE_GRASA_SATURADA_IDEAL / 100);
 
 		double valorKcalGrasaSaturada = (grasaSaturadaTotal * 9);
+		
+		double porcentajeTotal = (valorKcalGrasaSaturada * PORCENTAJE_GRASA_SATURADA_IDEAL) / valorIdealKcal;
 
-		String porcentaje = decimalFormat.format((valorKcalGrasaSaturada * PORCENTAJE_GRASA_SATURADA_IDEAL) / valorIdealKcal);
+		String porcentaje = decimalFormat.format(porcentajeTotal);
+		porcentaje =porcentaje.replace(",", ".");
 
-		return porcentaje;
+		porcentajeTotal = Double.parseDouble(porcentaje);
+		
+		return porcentajeTotal;
 
 	}
 	/**
@@ -619,7 +667,7 @@ public class CalculoValorIdeal{
 			return !isIdeal;
 
 	}
-	
+
 	/**
 	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
 	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
@@ -639,7 +687,7 @@ public class CalculoValorIdeal{
 			return !isIdeal;
 
 	}
-	
+
 	/**
 	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
 	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
@@ -662,7 +710,7 @@ public class CalculoValorIdeal{
 			return !isIdeal;
 
 	}
-	
+
 	/**
 	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
 	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
@@ -683,7 +731,7 @@ public class CalculoValorIdeal{
 			return !isIdeal;
 
 	}
-	
+
 	/**
 	 * @param alimentosElegidos: Lista de los alimentos que ha seleccionado el usuario
 	 * @param cantidadesElegidas: Cantidad de cada uno de los alimentos que ha seleccionado el usuario
